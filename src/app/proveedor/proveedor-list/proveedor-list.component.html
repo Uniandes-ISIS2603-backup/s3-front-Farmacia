@@ -1,3 +1,17 @@
-<p>
-  proveedor-list works!
-</p>
+<div class="container-fluid">
+    <div class="col-sm-2">
+        <table class="table  table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr >
+                    <th colspan="2">Proveedor info</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let proveedor of proveedores">
+                    <td  class="cc">{{proveedor.id}}</td>
+                    <td>{{proveedor.nombre}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
