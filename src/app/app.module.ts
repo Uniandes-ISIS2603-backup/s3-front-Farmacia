@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { ProveedorModule } from './proveedor/proveedor.module';
 import { ClienteModule } from './cliente/cliente.module';
 import { RegistroModule} from './registro/registro.module';
+import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-proveedor.module';
+
 
 
 @NgModule({
