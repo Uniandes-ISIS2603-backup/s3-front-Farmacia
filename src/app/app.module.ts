@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProveedorModule } from './proveedor/proveedor.module';
+import { ClienteModule } from './cliente/cliente.module';
+import { RegistroModule} from './registro/registro.module';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { ProveedorModule } from './proveedor/proveedor.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ProveedorModule
+    ProveedorModule,
+    ClienteModule,
+    RegistroModule
   ],
   providers: [],
   bootstrap: [AppComponent]
