@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProveedorModule } from './proveedor/proveedor.module';
+import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-proveedor.module';
 
 
 @NgModule({
