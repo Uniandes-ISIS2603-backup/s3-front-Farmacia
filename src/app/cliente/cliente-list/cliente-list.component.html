@@ -1,3 +1,21 @@
-<p>
-  cliente-list works!
-</p>
+<div class="container-fluid">
+  <div class="col-sm-2">
+      <table class="table  table-bordered table-hover">
+          <thead class="thead-dark">
+              <tr >
+                  <th colspan="6">Cliente info</th>    
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor = "let cliente of clientes">
+                  <td  class="cc">{{cliente.id}}</td>
+                  <td>{{cliente.nombre}}</td>
+                  <td>{{cliente.apellido}}</td>
+                  <td>{{cliente.ciudad}}</td> 
+                  <td>{{cliente.direccionEnvio}}</td>
+                  <td>{{cliente.cedula}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>  
