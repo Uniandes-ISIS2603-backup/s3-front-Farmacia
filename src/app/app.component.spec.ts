@@ -1,27 +1,37 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {ComponentFixture, TestBed, async} from '@angular/core/testing';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import {APP_BASE_HREF} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
+import {AppComponent} from './app.component';
+import {ProveedorListComponent} from './proveedor/proveedor-list/proveedor-list.component';
+
+
+
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+      TestBed.configureTestingModule({
+          imports: [AppRoutingModule, HttpClientModule],
+          declarations: [AppComponent, ProveedorListComponent],
+          providers: [{provide: APP_BASE_HREF, useValue: ''}]
+      })
+          .compileComponents();
   }));
+
+  beforeEach(() => {
+      fixture = TestBed.createComponent(AppComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+  });
+
   it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+      expect(component).toBeTruthy();
   }));
-  it(`should have as title 's3-front-Farmacia'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('s3-front-Farmacia');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to s3-front-Farmacia!');
+  it('should render titles in the navbar', async(() => {
+      fixture.detectChanges();
+      const compiled = fixture.debugElement.nativeElement;
+      expect(compiled.querySelector('#proveedoresTag').textContent).toContain('Proveedores');
   }));
 });
