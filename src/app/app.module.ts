@@ -7,6 +7,7 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 
 import { ProveedorModule } from './proveedor/proveedor.module';
 import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-proveedor.module';
+import { FacturaModule } from './factura/factura.module';
 
 
 
@@ -19,6 +20,7 @@ import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-
     HttpClientModule,
     ProveedorModule,
     TransaccionProveedorModule,
+    FacturaModule,
     AppRoutingModule
   ],
   providers: [],
