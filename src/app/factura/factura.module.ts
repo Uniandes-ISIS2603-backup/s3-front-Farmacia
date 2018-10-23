@@ -6,6 +6,7 @@ import { FacturaListComponent } from './factura-list/factura-list.component';
   imports: [
     CommonModule
   ],
-  declarations: [FacturaListComponent]
+  declarations: [FacturaListComponent],
+  exports:[FacturaListComponent]
 })
 export class FacturaModule { }
