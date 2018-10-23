@@ -3,7 +3,7 @@
         <table class="table  table-bordered table-hover">
             <thead class="thead-dark">
                 <tr >
-                    <th colspan="2">Transaccion proveedor info</th>    
+                    <th colspan="5">Transaccion proveedor info</th>    
                 </tr>
             </thead>
             <tbody>
@@ -11,6 +11,8 @@
                     <td  class="cc">{{transaccionProveedor.id}}</td>
                     <td>{{transaccionProveedor.monto}}</td>
                     <td>{{transaccionProveedor.tiempo}}</td>
+                    <td>{{transaccionProveedor.proveedor.id}}</td>
+                    <td>{{transaccionProveedor.proveedor.nombre}}</td>
                 </tr>
             </tbody>
         </table>
