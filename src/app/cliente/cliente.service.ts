@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Cliente } from './cliente';
 import { Observable } from 'rxjs';
 
-import { Proveedor } from './proveedor';
-
-
 const API_URL = "../../assets/";
-const proveedores = 'proveedores.json';
+const clientes = 'clientes.json';
 
 
 @Injectable()
-export class ProveedorService {
-
+export class ClienteService {
     constructor(private http: HttpClient) { }
 
-    getProveedores() : Observable<Proveedor[]> {
-        return this.http.get<Proveedor[]>(API_URL + proveedores);
+    getClientes() : Observable<Cliente[]> {
+        return this.http.get<Cliente[]>(API_URL + clientes);
     }
 }

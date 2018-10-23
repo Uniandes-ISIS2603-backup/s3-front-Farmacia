@@ -1,4 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
+import { TransaccionProveedorService } from '../transaccion-proveedor.service';
+import { TransaccionProveedor } from '../transaccion-proveedor';
 
 @Component({
   selector: 'app-transaccion-proveedor-list',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransaccionProveedorListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private transaccionProveedorService : TransaccionProveedorService) { }
 
+  transaccionesProveedor : TransaccionProveedor[];
+
+  getTransaccionesProveedor():void {
+    this.transaccionProveedorService.getTransaccionesProveedor().subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);
+  }
   ngOnInit() {
+    this.getTransaccionesProveedor();
   }
 
 }

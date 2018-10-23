@@ -1,3 +1,20 @@
-<p>
-  transaccion-proveedor-list works!
-</p>
+<div class="container-fluid">
+    <div class="col-sm-2">
+        <table class="table  table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr >
+                    <th colspan="5">Transaccion proveedor info</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let transaccionProveedor of transaccionesProveedor">
+                    <td  class="cc">{{transaccionProveedor.id}}</td>
+                    <td>{{transaccionProveedor.monto}}</td>
+                    <td>{{transaccionProveedor.tiempo}}</td>
+                    <td>{{transaccionProveedor.proveedor.id}}</td>
+                    <td>{{transaccionProveedor.proveedor.nombre}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Registro } from './registro';
 import { Observable } from 'rxjs';
 
-import { Proveedor } from './proveedor';
-
-
 const API_URL = "../../assets/";
-const proveedores = 'proveedores.json';
+const registros = 'registros.json';
 
 
 @Injectable()
-export class ProveedorService {
-
+export class RegistroService {
     constructor(private http: HttpClient) { }
 
-    getProveedores() : Observable<Proveedor[]> {
-        return this.http.get<Proveedor[]>(API_URL + proveedores);
+    getRegistros() : Observable<Registro[]> {
+        return this.http.get<Registro[]>(API_URL + registros);
     }
 }
