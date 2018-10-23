@@ -1,7 +1,13 @@
 
-<app-proveedor-list></app-proveedor-list>
-<app-cliente-list></app-cliente-list>
-<app-registro-list></app-registro-list>
-
-
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a id="proveedoresTag" class="nav-link" routerLink="/proveedores/list">Proveedores</a>
+    </li>
+    <li class="nav-item">
+        <a id="transaccionProveedorTag" class="nav-link" routerLink="/transacciones-proveedor/list">Transacciones proveedor</a>
+    </li>
+</ul>
+<div class="list">
+    <router-outlet></router-outlet>
+</div>
 

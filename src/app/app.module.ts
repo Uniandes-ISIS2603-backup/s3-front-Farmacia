@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+
 import { ProveedorModule } from './proveedor/proveedor.module';
-import { ClienteModule } from './cliente/cliente.module';
-import { RegistroModule} from './registro/registro.module';
 import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-proveedor.module';
 
 
@@ -17,8 +18,8 @@ import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-
     BrowserModule,
     HttpClientModule,
     ProveedorModule,
-    ClienteModule,
-    RegistroModule
+    TransaccionProveedorModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

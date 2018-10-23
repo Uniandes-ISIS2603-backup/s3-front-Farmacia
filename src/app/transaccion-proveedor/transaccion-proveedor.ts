@@ -1,6 +1,6 @@
 export interface TransaccionProveedor {
 
     id : number;
-    tiempo : string;
-    monto: number;
+    monto : number;
+    tiempo: string;
 }
