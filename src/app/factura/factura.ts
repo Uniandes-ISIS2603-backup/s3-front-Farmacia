@@ -1,6 +1,6 @@
 export interface Factura {
 
     id : number;
-    fecha : Date;
+    fecha : string;
     precio : number;
 }
