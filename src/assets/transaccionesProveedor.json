@@ -1,0 +1,43 @@
+[{
+    "id": 1,
+    "monto": 4000,
+    "tiempo": "40",
+    "proveedor":
+       {
+           "id": 1,
+           "nombre" : "Lake Erie Medical & Surgical Supply DBA Quality Care Products LLC"
+       }
+    
+},{
+    "id": 2,
+    "monto": 3000,
+    "tiempo": "30",
+    "proveedor":
+       {
+           "id": 3,
+           "nombre" : "COSTCO WHOLESALE CORPORATION"
+       }
+    
+},
+{
+    "id": 3,
+    "monto": 5000,
+    "tiempo": "10",
+    "proveedor":
+       {
+           "id": 1,
+           "nombre" : "Lake Erie Medical & Surgical Supply DBA Quality Care Products LLC"
+       }
+    
+},
+{
+    "id": 4,
+    "monto": 1000,
+    "tiempo": "20",
+    "proveedor":
+       {
+           "id": 2,
+           "nombre" : "AMERICAN SALES COMPANY"
+       }
+    
+}]

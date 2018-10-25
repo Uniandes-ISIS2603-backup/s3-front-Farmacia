@@ -7,6 +7,8 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 
 import { ProveedorModule } from './proveedor/proveedor.module';
 import { ProductoModule} from './producto/producto.module'
+import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-proveedor.module';
+import { FacturaModule } from './factura/factura.module';
 
 
 
@@ -19,6 +21,8 @@ import { ProductoModule} from './producto/producto.module'
     HttpClientModule,
     ProveedorModule,
     ProductoModule,
+    TransaccionProveedorModule,
+    FacturaModule,
     AppRoutingModule
   ],
   providers: [],
