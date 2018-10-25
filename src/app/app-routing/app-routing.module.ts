@@ -3,8 +3,9 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {ProveedorListComponent} from '../proveedor/proveedor-list/proveedor-list.component';
-
+import {ProductoListComponent} from '../producto/producto-list/producto-list.component'
 import {TransaccionProveedorListComponent} from '../transaccion-proveedor/transaccion-proveedor-list/transaccion-proveedor-list.component';
+
 
 const routes: Routes = [
     {
@@ -14,26 +15,31 @@ const routes: Routes = [
                 path: 'list',
                 component: ProveedorListComponent
             }
-        ],
-    }
-];
-
-const routes2: Routes = [
+        ]
+    },
     {
-        path: 'transacciones-proveedor',
+        path: 'productos',
         children: [
             {
                 path: 'list',
-                component: TransaccionProveedorListComponent
+                component: ProductoListComponent
             }
-        ],
+        ]
+    },
+    {
+        path: 'transacciones-proveedor',
+        children: [
+        {
+            path: 'list',
+            component: TransaccionProveedorListComponent
+        }
+    ],
     }
 ];
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes),
-        RouterModule.forRoot(routes2)
+        RouterModule.forRoot(routes)
     ],
     exports: [RouterModule],
     declarations: []

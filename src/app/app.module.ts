@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 
 import { ProveedorModule } from './proveedor/proveedor.module';
+import { ProductoModule} from './producto/producto.module'
 import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-proveedor.module';
 import { FacturaModule } from './factura/factura.module';
 
@@ -19,6 +20,7 @@ import { FacturaModule } from './factura/factura.module';
     BrowserModule,
     HttpClientModule,
     ProveedorModule,
+    ProductoModule,
     TransaccionProveedorModule,
     FacturaModule,
     AppRoutingModule
