@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {ProveedorListComponent} from '../proveedor/proveedor-list/proveedor-list.component';
+import {ProductoListComponent} from '../producto/producto-list/producto-list.component';
 
 const routes: Routes = [
     {
@@ -11,6 +12,15 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ProveedorListComponent
+            }
+        ]
+    },
+    {
+        path: 'productos',
+        children: [
+            {
+                path: 'list',
+                component: ProductoListComponent
             }
         ]
     }

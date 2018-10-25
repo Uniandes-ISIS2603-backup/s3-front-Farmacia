@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 
 import { ProveedorModule } from './proveedor/proveedor.module';
+import { ProductoModule} from './producto/producto.module'
 
 
 
@@ -17,6 +18,7 @@ import { ProveedorModule } from './proveedor/proveedor.module';
     BrowserModule,
     HttpClientModule,
     ProveedorModule,
+    ProductoModule,
     AppRoutingModule
   ],
   providers: [],
