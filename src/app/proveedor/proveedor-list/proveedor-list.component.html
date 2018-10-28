@@ -8,8 +8,9 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let proveedor of proveedores">
-                    <td  class="cc">{{proveedor.id}}</td>
-                    <td>{{proveedor.nombre}}</td>
+                    <td style="cursor: pointer;">
+                        <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.nombre}}</dd>
+                    </td>
                 </tr>
             </tbody>
         </table>

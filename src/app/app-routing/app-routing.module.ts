@@ -6,6 +6,8 @@ import {ProveedorListComponent} from '../proveedor/proveedor-list/proveedor-list
 
 import {TransaccionProveedorListComponent} from '../transaccion-proveedor/transaccion-proveedor-list/transaccion-proveedor-list.component';
 
+import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
+
 const routes: Routes = [
     {
         path: 'proveedores',
@@ -13,6 +15,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ProveedorListComponent
+            },
+            {
+                path: ':id',
+                component: ProveedorDetailComponent,
             }
         ],
     }
