@@ -1,4 +1,4 @@
-export interface TransaccionProveedor {
+export class TransaccionProveedor {
 
     id : number;
     monto : number;

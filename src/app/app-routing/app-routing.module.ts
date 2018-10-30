@@ -7,6 +7,7 @@ import {ProductoListComponent} from '../producto/producto-list/producto-list.com
 import {TransaccionProveedorListComponent} from '../transaccion-proveedor/transaccion-proveedor-list/transaccion-proveedor-list.component';
 
 import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
+import { TransaccionProveedorDetailComponent } from '../transaccion-proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 
 const routes: Routes = [
     {
@@ -32,13 +33,17 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'transacciones-proveedor',
+        path: 'transaccion-proveedor',
         children: [
         {
             path: 'list',
             component: TransaccionProveedorListComponent
+        },
+        {
+            path: ':id',
+            component: TransaccionProveedorDetailComponent
         }
-    ],
+    ]
     }
 ];
 @NgModule({

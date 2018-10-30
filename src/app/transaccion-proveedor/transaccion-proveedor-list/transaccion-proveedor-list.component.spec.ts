@@ -1,25 +1,47 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {AppRoutingModule} from '../../app-routing/app-routing.module';
+import {APP_BASE_HREF} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
 
-import { TransaccionProveedorListComponent } from './transaccion-proveedor-list.component';
+import {AppModule} from '../../app.module';
 
-describe('TransaccionProveedorListComponent', () => {
-  let component: TransaccionProveedorListComponent;
-  let fixture: ComponentFixture<TransaccionProveedorListComponent>;
+import {TransaccionProveedorListComponent} from './transaccion-proveedor-list.component';
+import {TransaccionProveedor} from '../transaccion-proveedor';
+import {TransaccionProveedorService} from '../transaccion-proveedor.service';
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ TransaccionProveedorListComponent ]
-    })
-    .compileComponents();
-  }));
+describe('TransaccionProveedorComponent', () => {
+    let component: TransaccionProveedorListComponent;
+    let fixture: ComponentFixture<TransaccionProveedorListComponent>;
+    const transaccionesProveedor: TransaccionProveedor[] = require('../../../assets/transacciones-proveedor.json');
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TransaccionProveedorListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [AppRoutingModule, HttpClientModule, AppModule],
+            declarations: [],
+            providers: [{provide: APP_BASE_HREF, useValue: ''}, TransaccionProveedorService]
+        })
+            .compileComponents();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(TransaccionProveedorListComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+
+    it('should have a list of transaccionesProveedor', () => {
+        component.transaccionesProveedor = transaccionesProveedor;
+        expect(component.transaccionesProveedor.length).toEqual(transaccionesProveedor.length);
+    });
+
+    it('an transaccionesProveedor should be an transaccionProveedor (first and last)', () => {
+        component.transaccionesProveedor = transaccionesProveedor;
+        expect(component.transaccionesProveedor[0].id).toEqual(transaccionesProveedor[0].id);
+        expect(component.transaccionesProveedor[transaccionesProveedor.length - 1].id).toEqual(transaccionesProveedor[transaccionesProveedor.length - 1].id);
+    });
+
 });
