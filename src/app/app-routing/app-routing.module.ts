@@ -8,6 +8,8 @@ import {TransaccionProveedorListComponent} from '../transaccion-proveedor/transa
 
 import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
 import { TransaccionProveedorDetailComponent } from '../transaccion-proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
+import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
+import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
 
 const routes: Routes = [
     {
@@ -32,6 +34,24 @@ const routes: Routes = [
             }
         ]
     },
+    {
+        path: 'clientes',
+        children: [
+            {
+                path: 'list',
+                component: ClienteListComponent
+            }
+        ]
+    }, 
+    {
+        path: 'registros',
+        children: [
+            {
+                path: 'list',
+                component: RegistroListComponent
+            }
+        ]
+    }, 
     {
         path: 'transaccion-proveedor',
         children: [

@@ -9,7 +9,9 @@ import { ProveedorModule } from './proveedor/proveedor.module';
 import { ProductoModule} from './producto/producto.module'
 import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-proveedor.module';
 import { FacturaModule } from './factura/factura.module';
-
+import { ClienteModule } from './cliente/cliente.module';
+import { RegistroModule} from './registro/registro.module';
+ 
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { FacturaModule } from './factura/factura.module';
     ProductoModule,
     TransaccionProveedorModule,
     FacturaModule,
+    ClienteModule,
+    RegistroModule,
     AppRoutingModule
   ],
   providers: [],
