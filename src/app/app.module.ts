@@ -11,6 +11,7 @@ import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-
 import { FacturaModule } from './factura/factura.module';
 import { ClienteModule } from './cliente/cliente.module';
 import { RegistroModule} from './registro/registro.module';
+import {TransaccionClienteModule} from './transaccion-cliente/transaccion-cliente.module';
  
 
 
@@ -27,6 +28,7 @@ import { RegistroModule} from './registro/registro.module';
     FacturaModule,
     ClienteModule,
     RegistroModule,
+    TransaccionClienteModule,
     AppRoutingModule
   ],
   providers: [],

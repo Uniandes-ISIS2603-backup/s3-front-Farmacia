@@ -1,0 +1,10 @@
+[{"monto":49,"tiempo":35,"parcial":true,"tipoDePago":"tarjeta"},
+{"monto":41,"tiempo":20,"parcial":true,"tipoDePago":"tarjeta"},
+{"monto":1,"tiempo":4,"parcial":true,"tipoDePago":"efectivo"},
+{"monto":72,"tiempo":38,"parcial":true,"tipoDePago":"tarjeta"},
+{"monto":38,"tiempo":52,"parcial":false,"tipoDePago":"efectivo"},
+{"monto":34,"tiempo":29,"parcial":true,"tipoDePago":"tarjeta"},
+{"monto":88,"tiempo":49,"parcial":true,"tipoDePago":"efectivo"},
+{"monto":54,"tiempo":85,"parcial":false,"tipoDePago":"efectivo"},
+{"monto":23,"tiempo":56,"parcial":false,"tipoDePago":"efectivo"},
+{"monto":18,"tiempo":17,"parcial":false,"tipoDePago":"tarjeta"}]

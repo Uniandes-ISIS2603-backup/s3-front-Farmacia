@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="col-sm-2">
+        <table class="table  table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr >
+                    <th >Monto </th>    
+                    <th >Tiempo </th>    
+                    <th >Parcial</th>    
+                    <th >Tipo de pago </th>    
+
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr *ngFor = "let t of transaccionesCliente">
+                    <td>{{t.monto}}</td>
+                    <td>{{t.tiempo}}</td>
+                    <td>{{t.parcial}}</td>
+                    <td>{{t.tipoDePago}}</td>
+                </tr>
+        
+            </tbody>
+        </table>
+    </div>
+</div>

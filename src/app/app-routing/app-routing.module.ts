@@ -10,6 +10,7 @@ import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-
 import { TransaccionProveedorDetailComponent } from '../transaccion-proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
+import {TransaccionClienteListComponent} from '../transaccion-cliente/transaccion-cliente-list/transaccion-cliente-list.component';
 
 const routes: Routes = [
     {
@@ -62,6 +63,15 @@ const routes: Routes = [
         {
             path: ':id',
             component: TransaccionProveedorDetailComponent
+        }
+    ]
+    },
+    {
+        path: 'transacciones-cliente',
+        children: [
+         {
+            path: 'list',
+            component: TransaccionClienteListComponent
         }
     ]
     }
