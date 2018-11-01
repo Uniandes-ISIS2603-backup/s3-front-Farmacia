@@ -11,6 +11,7 @@ import { TransaccionProveedorDetailComponent } from '../transaccion-proveedor/tr
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
 import {TransaccionClienteListComponent} from '../transaccion-cliente/transaccion-cliente-list/transaccion-cliente-list.component';
+import { TransaccionClienteDetailComponent } from '../transaccion-cliente/transaccion-cliente-detail/transaccion-cliente-detail.component';
 
 const routes: Routes = [
     {
@@ -72,10 +73,16 @@ const routes: Routes = [
          {
             path: 'list',
             component: TransaccionClienteListComponent
+        },
+        {
+            path: ':id',
+            component: TransaccionClienteDetailComponent
         }
     ]
+    
     }
 ];
+
 @NgModule({
     imports: [
         CommonModule,

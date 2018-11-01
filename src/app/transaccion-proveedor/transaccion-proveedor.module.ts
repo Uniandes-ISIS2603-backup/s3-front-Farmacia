@@ -9,7 +9,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { TransaccionProveedorDetailComponent } from './transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 @NgModule({
   imports: [
-    BrowserModule,
+        BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         CommonModule,

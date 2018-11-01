@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransaccionProveedorService } from '../transaccion-proveedor.service';
 import { ActivatedRoute } from '@angular/router';
-import {TransaccionProveedorDetail} from '../transaccion-proveedor-detail';
+  import {TransaccionProveedorDetail} from '../transaccion-proveedor-detail';
 
 @Component({
   selector: 'app-transaccion-proveedor-detail',
