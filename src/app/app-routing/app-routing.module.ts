@@ -56,7 +56,7 @@ const routes: Routes = [
         ]
     }, 
     {
-        path: 'transaccionesProveedor',
+        path: 'transaccion-proveedor',
         children: [
         {
             path: 'list',
