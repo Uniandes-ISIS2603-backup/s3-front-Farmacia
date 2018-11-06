@@ -15,6 +15,7 @@ import {TransaccionClienteListComponent} from '../transaccion-cliente/transaccio
 import { TransaccionClienteDetailComponent } from '../transaccion-cliente/transaccion-cliente-detail/transaccion-cliente-detail.component';
 import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
+import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 
 const routes: Routes = [
     {
@@ -49,6 +50,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ClienteListComponent
+            },
+            {
+                path: ':id',
+                component: ClienteDetailComponent
             }
         ]
     },
