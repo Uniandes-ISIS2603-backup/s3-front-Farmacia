@@ -18,8 +18,6 @@ import { TransaccionProveedorCreateComponent } from './transaccion-proveedor-cre
   ],
   declarations: [TransaccionProveedorListComponent, TransaccionProveedorDetailComponent, TransaccionProveedorCreateComponent],
   providers : [TransaccionProveedorService],
-  exports:[TransaccionProveedorListComponent]
-  
- 
+  exports: [TransaccionProveedorListComponent]
 })
 export class TransaccionProveedorModule { }

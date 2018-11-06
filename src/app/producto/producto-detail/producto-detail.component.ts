@@ -20,6 +20,7 @@ export class ProductoDetailComponent implements OnInit {
 
   ngOnInit() {
     this.productoId = this.route.snapshot.paramMap.get('id');
+    this.getProductById();
   }
 
   getProductById() {

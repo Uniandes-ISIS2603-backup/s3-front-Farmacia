@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { TransaccionClienteDetail } from './transaccion-cliente-detail';
 
 
-const API_URL = "../../assets/";
+const API_URL = '../../assets/';
 const transaccionesCliente = 'transaccionesCliente.json';
 
 
@@ -13,7 +13,7 @@ const transaccionesCliente = 'transaccionesCliente.json';
 export class TransaccionClienteService {
     constructor(private http: HttpClient) { }
 
-    getTransaccionesCliente() : Observable<TransaccionCliente[]> {
+    getTransaccionesCliente(): Observable<TransaccionCliente[]> {
         return this.http.get<TransaccionCliente[]>(API_URL + transaccionesCliente);
     }
     getTransaccionClienteDetail(transaccionClienteId): Observable<TransaccionClienteDetail> {

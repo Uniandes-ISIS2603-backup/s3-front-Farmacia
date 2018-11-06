@@ -12,7 +12,13 @@ import { Producto } from '../producto';
 export class ProductoListComponent implements OnInit {
 
   productos: Producto[];
-  constructor(private productoService: ProductoService) { }
+  isHidden: boolean;
+
+  constructor(private productoService: ProductoService) {
+    // this.isHidden = (Math.random() * 2) === 0;
+    this.isHidden = true;
+    console.log(this.isHidden);
+   }
 
   getProductos() {
       this.productoService.getProductos()

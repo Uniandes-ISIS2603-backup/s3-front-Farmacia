@@ -1,5 +1,13 @@
+div {
+    margin-top: 16px;
+}
+
 table{
-    margin-top: 16px
+    margin-top: 8px;
+    border-collapse: collapse;
+    border-spacing: 10px;
+    border-top: 0px;
+    border-bottom: 0px;
 }
 /*tfoot {
     text-align: start;
@@ -9,4 +17,21 @@ table{
 }*/
 table tfoot td {
     text-align: center;
+}
+
+table td {
+    text-align: center;
+}
+
+table th {
+    text-align: center;
+}
+
+.create-button {
+    align-self: center;
+    align-content: center;
+}
+
+.create-button-button {
+    width: 100%;
 }

@@ -1,4 +1,10 @@
 <div class = "container-fluid col-sm-8">
+    <div class = "create-button">
+        <button class = "btn create-button-button" type = "button" [ngClass]="{ 'btn-primary': isHidden, 'btn-danger': !isHidden}" (click) = "isHidden = !isHidden">
+            <p style="margin-bottom: 0px" *ngIf = "!isHidden">Ocultar</p>
+            <p style="margin-bottom: 0px" *ngIf = "isHidden">Mostrar</p>
+        </button>
+    </div>
     <table class = "table table-dark">
         <thead>
             <tr>
