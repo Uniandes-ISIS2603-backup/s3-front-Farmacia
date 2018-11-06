@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { TransaccionProveedor } from './transaccion-proveedor';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import{TransaccionProveedorDetail} from './transaccion-proveedor-detail';
+import {TransaccionProveedorDetail} from './transaccion-proveedor-detail';
 
-//const API_URL = environment.apiURL;
-//const transaccionesProveedor = '/transaccionesProveedor';
+// const API_URL = environment.apiURL;
+// const transaccionesProveedor = '/transaccionesProveedor';
 
 const API_URL = '../../assets';
 const transaccionesProveedor = '/transaccionesProveedor.json';
@@ -19,13 +19,13 @@ export class TransaccionProveedorService {
     /**
      * Obtiene la lista de las transacciones proveedor.
      */
-    getTransaccionesProveedor() : Observable<TransaccionProveedor[]> {
+    getTransaccionesProveedor(): Observable<TransaccionProveedor[]> {
         return this.http.get<TransaccionProveedor[]>(API_URL + transaccionesProveedor);
     }
 
     /**
      * Obtiene el detail de la transaccion proveedor.
-     * @param transaccionProveedorId 
+     * @param transaccionProveedorId
      */
     getTransaccionProveedorDetail(transaccionProveedorId): Observable<TransaccionProveedorDetail> {
         return this.http.get<TransaccionProveedorDetail>(API_URL + transaccionesProveedor + '/' + transaccionProveedorId);
@@ -38,5 +38,5 @@ export class TransaccionProveedorService {
     */
    createTransaccionProveedor(transaccionProveedor): Observable<TransaccionProveedorDetail> {
     return this.http.post<TransaccionProveedorDetail>(API_URL + transaccionProveedor, transaccionProveedor);
-}
+    }
 }

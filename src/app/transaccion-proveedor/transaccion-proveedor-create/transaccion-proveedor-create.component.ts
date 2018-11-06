@@ -15,8 +15,8 @@ export class TransaccionProveedorCreateComponent implements OnInit {
 
     /**
     * Constructor for the component
-    * @param transaccionProveedorService 
-    * @param toastrService The toastr to show messages to the user 
+    * @param transaccionProveedorService
+    * @param toastrService The toastr to show messages to the user
     */
     constructor(
         private transaccionProveedorService: TransaccionProveedorService,
@@ -47,9 +47,9 @@ export class TransaccionProveedorCreateComponent implements OnInit {
         this.transaccionProveedorService.createTransaccionProveedor(this.transaccionProveedor)
             .subscribe(() => {
                 this.create.emit();
-                this.toastrService.success("The transaction was created", "TransaccionProveedor creation");
+                this.toastrService.success('The transaction was created', 'TransaccionProveedor creation');
             }, err => {
-                this.toastrService.error(err, "Error");
+                this.toastrService.error(err, 'Error');
             });
     }
 

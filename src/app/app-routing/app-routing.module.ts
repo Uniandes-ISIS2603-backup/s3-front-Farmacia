@@ -7,7 +7,6 @@ import {ProductoListComponent} from '../producto/producto-list/producto-list.com
 import {TransaccionProveedorListComponent} from '../transaccion-proveedor/transaccion-proveedor-list/transaccion-proveedor-list.component';
 
 import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
-// tslint:disable-next-line:max-line-length
 import { TransaccionProveedorDetailComponent } from '../transaccion-proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
@@ -16,6 +15,7 @@ import { TransaccionClienteDetailComponent } from '../transaccion-cliente/transa
 import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
 import { ProveedorCreateComponent } from '../proveedor/proveedor-create/proveedor-create.component';
+import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 
 const routes: Routes = [
     {
@@ -55,6 +55,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ClienteListComponent
+            },
+            {
+                path: ':id',
+                component: ClienteDetailComponent
             }
         ]
     },

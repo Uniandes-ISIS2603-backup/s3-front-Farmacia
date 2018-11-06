@@ -1,0 +1,12 @@
+table{
+    margin-top: 16px
+}
+/*tfoot {
+    text-align: start;
+    height: 40px;
+    align-self: center;
+    width: 100%;
+}*/
+table tfoot td {
+    text-align: center;
+}

@@ -14,12 +14,21 @@
               <th>direccionEnvio</th>
               <th>cedula</th>
               <tr *ngFor = "let cliente of clientes">
-                  <td  class="cc">{{cliente.id}}</td>
-                  <td>{{cliente.nombre}}</td>
-                  <td>{{cliente.apellido}}</td>
-                  <td>{{cliente.ciudad}}</td> 
-                  <td>{{cliente.direccionEnvio}}</td>
-                  <td>{{cliente.cedula}}</td>
+                  <td style= "cursor: pointer;">
+                    <dd class= "figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.nombre}}</dd>
+                  </td>
+                  <td style= "cursor: pointer;">
+                    <dd class= "figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.apellido}}</dd>
+                  </td>
+                  <td style= "cursor: pointer;">
+                    <dd class= "figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.ciudad}}</dd>
+                  </td>
+                  <td style= "cursor: pointer;">
+                    <dd class= "figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.direccionEnvio}}</dd>
+                  </td>
+                  <td style= "cursor: pointer;">
+                    <dd class= "figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.cedula}}</dd>
+                  </td>
               </tr>
           </tbody>
       </table>
