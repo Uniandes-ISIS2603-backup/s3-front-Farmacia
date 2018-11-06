@@ -13,7 +13,6 @@ const API_URL = environment.apiURL;
 const producto = '/productos';
 const registro = '/registros';
 
-
 @Injectable()
 export class ProductoService {
 

@@ -18,17 +18,17 @@ export class TransaccionProveedorDetailComponent implements OnInit {
 
   transaccionProveedor_id: number;
 
-  transaccionProveedorDetail : TransaccionProveedorDetail;
+  transaccionProveedorDetail: TransaccionProveedorDetail;
 
   getTransaccionProveedorDetail(): void {
     this.transaccionProveedorService.getTransaccionProveedorDetail(this.transaccionProveedor_id)
         .subscribe(transaccionProveedorDetail => {
-            this.transaccionProveedorDetail = transaccionProveedorDetail
+            this.transaccionProveedorDetail = transaccionProveedorDetail;
         });
 }
 
   ngOnInit() {
-    //el mas convierte el id de string a number
+    // el mas convierte el id de string a number
     this.transaccionProveedor_id = +this.route.snapshot.paramMap.get('id');
     this.transaccionProveedorDetail = new TransaccionProveedorDetail();
     this.getTransaccionProveedorDetail();

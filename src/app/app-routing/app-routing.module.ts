@@ -7,6 +7,7 @@ import {ProductoListComponent} from '../producto/producto-list/producto-list.com
 import {TransaccionProveedorListComponent} from '../transaccion-proveedor/transaccion-proveedor-list/transaccion-proveedor-list.component';
 
 import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
+// tslint:disable-next-line:max-line-length
 import { TransaccionProveedorDetailComponent } from '../transaccion-proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { RegistroListComponent } from '../registro/registro-list/registro-list.component';

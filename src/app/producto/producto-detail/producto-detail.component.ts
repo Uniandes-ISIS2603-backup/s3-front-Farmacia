@@ -25,7 +25,9 @@ export class ProductoDetailComponent implements OnInit {
 
   getProductById() {
     this.productoService.getProductoDetail(this.productoId).subscribe(
-      productoDetail => this.productoDetail = productoDetail);
+      productoDetail => {
+        this.productoDetail = productoDetail;
+      });
   }
 
 }

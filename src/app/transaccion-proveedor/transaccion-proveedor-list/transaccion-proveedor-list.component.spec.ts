@@ -41,6 +41,7 @@ describe('TransaccionProveedorComponent', () => {
     it('an transaccionesProveedor should be an transaccionProveedor (first and last)', () => {
         component.transaccionesProveedor = transaccionesProveedor;
         expect(component.transaccionesProveedor[0].id).toEqual(transaccionesProveedor[0].id);
+        // tslint:disable-next-line:max-line-length
         expect(component.transaccionesProveedor[transaccionesProveedor.length - 1].id).toEqual(transaccionesProveedor[transaccionesProveedor.length - 1].id);
     });
 

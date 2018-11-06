@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RegistroService } from '../registro.service';
 import { Registro } from '../registro';
 
@@ -9,16 +9,18 @@ import { Registro } from '../registro';
 })
 export class RegistroListComponent implements OnInit {
 
-  constructor(private registroService : RegistroService) { }
+  constructor(private registroService: RegistroService) { }
 
-  registros : Registro[];
+  @Input() registros: Registro[];
 
-  getRegistros():void{
+  getRegistros(): void {
     this.registroService.getRegistros().subscribe(registros => this.registros = registros);
   }
 
   ngOnInit() {
-    this.getRegistros();
+    if (!this.registros) {
+      this.getRegistros();
+    }
   }
 
 }

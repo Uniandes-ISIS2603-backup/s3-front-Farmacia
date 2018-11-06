@@ -38,7 +38,6 @@ import { ToastrModule } from 'ngx-toastr';
      }),
     TransaccionClienteModule,
     AppRoutingModule
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
