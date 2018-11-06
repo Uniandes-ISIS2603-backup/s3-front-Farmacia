@@ -14,11 +14,24 @@ export class TransaccionProveedorListComponent implements OnInit {
 
   transaccionesProveedor : TransaccionProveedor[];
 
+  /**
+    * Shows or hides the create component
+    */
+   showCreate: boolean;
+
   getTransaccionesProveedor():void {
     this.transaccionProveedorService.getTransaccionesProveedor().subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);
   }
   ngOnInit() {
     this.getTransaccionesProveedor();
+    this.showCreate = false;
   }
+
+   /**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    this.showCreate = !this.showCreate!
+}
 
 }
