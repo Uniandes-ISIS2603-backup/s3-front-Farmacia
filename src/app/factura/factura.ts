@@ -1,4 +1,4 @@
-export interface Factura {
+export class Factura {
 
     id : number;
     fecha : string;

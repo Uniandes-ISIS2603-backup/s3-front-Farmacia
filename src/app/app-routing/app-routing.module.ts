@@ -14,6 +14,7 @@ import { RegistroListComponent } from '../registro/registro-list/registro-list.c
 import {TransaccionClienteListComponent} from '../transaccion-cliente/transaccion-cliente-list/transaccion-cliente-list.component';
 import { TransaccionClienteDetailComponent } from '../transaccion-cliente/transaccion-cliente-detail/transaccion-cliente-detail.component';
 import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
+import { FacturaDetailComponent } from '../factura/factura-detail/factura-detail.component';
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
 import { ProveedorCreateComponent } from '../proveedor/proveedor-create/proveedor-create.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
@@ -104,6 +105,10 @@ const routes: Routes = [
             path: 'list',
             component: FacturaListComponent
         },
+        {
+            path: ':id',
+            component: FacturaDetailComponent
+        }
     ]}
 ];
 
