@@ -1,13 +1,31 @@
-
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a id="proveedoresTag" class="nav-link" routerLink="/proveedores/list">Proveedores</a>
+<div class = "container-fluid">
+<div class = "all">
+    <ul class="nav navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="#">
+                    <img src="https://uniandes.edu.co/sites/default/files/logo-uniandes.png" id="Logo" class="center-block" style="width:80px;">
+                    <h2 class="mainTitle">D R U G S H O U S E</h2>
+                    </a>
+        <li class="nav-item">
+            <a id="proveedoresTag" class="nav-link" routerLink="/proveedores/list">Proveedores</a>
+        </li>
+        <li class="nav-item">
+            <a id="productosTag" class ="nav-link" routerLink="/productos/list">Productos</a>
+        </li>
+        <li class="nav-item">
+            <a id="facturaTag" class="nav-link" routerLink="/facturas/list">Facturas</a>
+        </li>
+        <li class = "nav-item">
+            <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
+        </li>
+        <li class = "nav-item">
+            <a id="registrosTag" class="nav-link" routerLink="/registros/list">Registros</a>
+        </li>
+        <li class="nav-item">
+            <a id="transaccionClienteTag" class="nav-link" routerLink="/transacciones-cliente/list">Transacciones Cliente</a>
     </li>
-    <li class="nav-item">
-        <a id="transaccionProveedorTag" class="nav-link" routerLink="/transacciones-proveedor/list">Transacciones proveedor</a>
-    </li>
-</ul>
-<div class="list">
-    <router-outlet></router-outlet>
+    </ul>
+    <div class="list">
+        <router-outlet></router-outlet>
+    </div>
 </div>
-
+</div>

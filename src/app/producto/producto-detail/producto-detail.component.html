@@ -1,0 +1,15 @@
+<div class="col-md-12">
+  <div class="container-fluid" *ngIf = "productoDetail">   
+      <p class="h2 p-2" style = "padding-left: 0px">{{productoDetail.nombre}}</p>
+      <p class="h6 p-6">Cantidad: {{productoDetail.cantidad}}</p>
+      <p class="h6 p-6">Precio: {{productoDetail.precio}}</p>
+      <p class="h6 p-6">Tipo producto: {{productoDetail.tipoProducto}}</p>
+      <p class="h6 p-6">Unidades disponibles: {{productoDetail.unidadesDisponibles}}</p>
+      <br>
+      <div class="border margin">
+          <p class="h4 p-4" >Registros asociados:</p><br>
+         <app-registro-list *ngIf = "productoDetail" [registros]="productoDetail.registros"></app-registro-list>
+
+      </div>
+  </div>
+</div>

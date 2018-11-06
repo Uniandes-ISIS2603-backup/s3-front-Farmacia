@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="col-sm-2">
+        <table class="table  table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr >
+                    <th>info transaccion Cliente </th>
+                     
+
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr *ngFor = "let t of transaccionesCliente">
+                 <td style="cursor: pointer;">
+                    <dd class="figure-caption" routerLink="/transacciones-cliente/{{t.id}}" >{{t.monto}} {{t.cliente.apellido}},{{t.cliente.nombre}} {{t.cliente.cedula}}
+                    </dd>
+                    </td>
+                </tr>
+        
+            </tbody>
+        </table>
+    </div>
+</div>

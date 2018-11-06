@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TransaccionProveedorService } from '../transaccion-proveedor.service';
 import { TransaccionProveedor } from '../transaccion-proveedor';
 
@@ -10,15 +10,29 @@ import { TransaccionProveedor } from '../transaccion-proveedor';
 })
 export class TransaccionProveedorListComponent implements OnInit {
 
-  constructor(private transaccionProveedorService : TransaccionProveedorService) { }
+  constructor(private transaccionProveedorService: TransaccionProveedorService) { }
 
-  transaccionesProveedor : TransaccionProveedor[];
+  @Input() transaccionesProveedor: TransaccionProveedor[];
 
-  getTransaccionesProveedor():void {
-    this.transaccionProveedorService.getTransaccionesProveedor().subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);
+  /**
+    * Shows or hides the create component
+    */
+   showCreate: boolean;
+
+  getTransaccionesProveedor(): void {
+    this.transaccionProveedorService.getTransaccionesProveedor()
+    .subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);
   }
   ngOnInit() {
+    this.showCreate = false;
     this.getTransaccionesProveedor();
   }
+
+   /**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    this.showCreate = !this.showCreate;
+}
 
 }

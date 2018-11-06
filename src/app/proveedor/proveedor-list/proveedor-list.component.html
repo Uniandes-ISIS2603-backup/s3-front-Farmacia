@@ -1,4 +1,5 @@
 <div class="container-fluid">
+    <div class = "row" >
     <div class="col-sm-2">
         <table class="table  table-bordered table-hover">
             <thead class="thead-dark">
@@ -7,11 +8,31 @@
                 </tr>
             </thead>
             <tbody>
+                    <th>Identifacion</th>
+                    <th>Nombre</th>
                 <tr *ngFor = "let proveedor of proveedores">
-                    <td  class="cc">{{proveedor.id}}</td>
-                    <td>{{proveedor.nombre}}</td>
+                    <td>{{proveedor.id}}</td>
+                    <td style="cursor: pointer;">
+                        <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.nombre}}</dd>
+                    </td>
                 </tr>
             </tbody>
         </table>
+        <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear un proveedor</button>
+            </div>
     </div>
+    <div class="col-8">
+            <div *ngIf="selectedProveedor">
+                <app-proveedor-detail [proveedorDetail]="selectedProveedor"></app-proveedor-detail>
+            </div>
+            <div *ngIf="showCreate">
+                <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
+            </div>
+        </div>   
+    
+</div>
+</div>
+
 
