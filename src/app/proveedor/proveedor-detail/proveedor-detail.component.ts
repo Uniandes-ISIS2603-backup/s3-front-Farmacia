@@ -18,17 +18,17 @@ export class ProveedorDetailComponent implements OnInit {
 
   proveedor_id: number;
 
-  proveedorDetail : ProveedorDetail;
+  proveedorDetail: ProveedorDetail;
 
   getProveedorDetail(): void {
     this.proveedorService.getProveedorDetail(this.proveedor_id)
         .subscribe(proveedorDetail => {
-            this.proveedorDetail = proveedorDetail
+            this.proveedorDetail = proveedorDetail;
         });
 }
 
   ngOnInit() {
-    //el mas convierte el id de string a number
+    // el mas convierte el id de string a number
     this.proveedor_id = +this.route.snapshot.paramMap.get('id');
     this.proveedorDetail = new ProveedorDetail();
     this.getProveedorDetail();

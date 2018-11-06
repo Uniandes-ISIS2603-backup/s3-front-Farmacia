@@ -10,8 +10,6 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [FacturaListComponent],
   providers : [FacturaService],
-  exports:[FacturaListComponent]
-  
- 
+  exports: [FacturaListComponent]
 })
 export class FacturaModule { }

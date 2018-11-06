@@ -4,4 +4,5 @@ import { TransaccionProveedor } from '../transaccion-proveedor/transaccion-prove
 export class ProveedorDetail extends Proveedor {
 
     transaccionesProveedor : TransaccionProveedor[];
+
 }
