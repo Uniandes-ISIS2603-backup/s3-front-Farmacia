@@ -1,27 +1,10 @@
 <div class="col-md-12">
     <div class="container-fluid">   
-        <p class="h3 p-3">Proveedor: {{proveedorDetail.nombre}}</p>
+        <p class="h2 p-3">Proveedor: {{proveedorDetail.nombre}}</p>
         <br>
-
-        <table class="table  table-bordered table-hover">
-                <thead >
-                </thead>
-                <tbody>
-                        <th>Identifacion</th>
-                        <th>Monto</th>
-                        <th>Tiempo</th>
-                        <tr *ngFor = "let transacciones of proveedorDetail.transaccionesProveedor">
-                            <td>{{transacciones.id}}</td>
-                            <td style="cursor: pointer;">
-                                    <dd class="caption" routerLink="/transacciones/{{transacciones.id}}">{{transacciones.monto}}</dd>
-                            </td>
-                            <td style="cursor: pointer;">
-                                    <dd class="caption" routerLink="/transacciones/{{transacciones.id}}">{{transacciones.tiempo}}</dd>
-                            </td>
-                        </tr>
-                </tbody>
-        </table>
+        <div class="jumbotron umnbotron-fluid">
+        <p class= "h4 p-3" style=" text-align: center"> Transacciones ejecutadas</p> 
+         <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor"></app-transaccion-proveedor-list>
+        </div>
     </div>
-    <p class="h3 p-3">Transacciones ... </p>
-    <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor"></app-transaccion-proveedor-list>
 </div>
