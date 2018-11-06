@@ -7,7 +7,10 @@
                 </tr>
             </thead>
             <tbody>
+                    <th>Identifacion</th>
+                    <th>Nombre</th>
                 <tr *ngFor = "let proveedor of proveedores">
+                    <td>{{proveedor.id}}</td>
                     <td style="cursor: pointer;">
                         <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.nombre}}</dd>
                     </td>

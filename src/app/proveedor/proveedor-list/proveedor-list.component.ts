@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input } from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
 import { Proveedor } from '../proveedor';
 
@@ -11,7 +11,7 @@ export class ProveedorListComponent implements OnInit {
 
   constructor(private proveedorService : ProveedorService) { }
 
-  proveedores : Proveedor[];
+  @Input() proveedores : Proveedor[];
 
   getProveedores():void {
     this.proveedorService.getProveedores().

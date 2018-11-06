@@ -2,9 +2,24 @@
     <div class="container-fluid">   
         <p class="h3 p-3">Proveedor: {{proveedorDetail.nombre}}</p>
         <br>
-        <div class="row border margin">
-            <p class="h3 p-3">Transacciones ejecutadas: </p>
-           <!-- <app-transaccion-proveedor-list [transacciones]="proveedorDetail.transacciones"></app-transaccion-proveedor-list> -->
-        </div>
+
+        <table class="table  table-bordered table-hover">
+                <thead >
+                </thead>
+                <tbody>
+                        <th>Identifacion</th>
+                        <th>Monto</th>
+                        <th>Tiempo</th>
+                        <tr *ngFor = "let transacciones of proveedorDetail.transaccionesProveedor">
+                            <td>{{transacciones.id}}</td>
+                            <td style="cursor: pointer;">
+                                    <dd class="caption" routerLink="/transacciones/{{transacciones.id}}">{{transacciones.monto}}</dd>
+                            </td>
+                            <td style="cursor: pointer;">
+                                    <dd class="caption" routerLink="/transacciones/{{transacciones.id}}">{{transacciones.tiempo}}</dd>
+                            </td>
+                        </tr>
+                </tbody>
+        </table>
     </div>
 </div>
