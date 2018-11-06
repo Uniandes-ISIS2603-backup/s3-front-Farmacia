@@ -32,5 +32,4 @@ export class ProveedorListComponent implements OnInit {
   showHideCreate(): void {
     this.showCreate = !this.showCreate!
 }
-
 }

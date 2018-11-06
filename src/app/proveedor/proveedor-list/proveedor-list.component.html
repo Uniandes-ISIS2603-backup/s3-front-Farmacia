@@ -1,32 +1,60 @@
-<div class="container-fluid">
+<div class="container-fluid ">
+    <div class="row justify-content-center align-self-center">
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+        (click)="showHideCreate()" >Crear un proveedor</button>
+    </div>
+    <div id="collapseExample" >
     <div class = "row" >
-    <div class="col-sm-2">
-        <table class="table  table-bordered table-hover">
-            <thead class="thead-dark">
-                <tr >
-                    <th colspan="2">Proveedor info</th>    
-                </tr>
-            </thead>
-            <tbody>
-                    <th>Identifacion</th>
-                    <th>Nombre</th>
-                <tr *ngFor = "let proveedor of proveedores">
-                    <td>{{proveedor.id}}</td>
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.nombre}}</dd>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear un proveedor</button>
-            </div>
+    <div *ngFor="let proveedor of proveedores" class="col-xs-12 col-sm-6 col-md-4">
+            <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card  text-white bg-dark mb-3">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="https://images.unsplash.com/photo-1512850183-6d7990f42385?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bb095116a8cfd26cec5c171f8438a213&w=1000&q=80" alt="card image"></p>
+                                    <h4 class="card-title">{{proveedor.nombre}}</h4>
+                                    <p class="card-text">Proveedor de Drugshouse.</p>
+                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card  text-white bg-dark mb-3"  routerLink="/proveedores/{{proveedor.id}}">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">Id : {{proveedor.id}}</h4>
+                                    <p class="card-text">De Drugshouse para el mundo. Haz click para consultar su informacion.
+                                    </p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center" target="_blank" href="#">
+                                                <i class="fa fa-google"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
     </div>
     <div class="col-8">
-            <div *ngIf="selectedProveedor">
-                <app-proveedor-detail [proveedorDetail]="selectedProveedor"></app-proveedor-detail>
-            </div>
+        
             <div *ngIf="showCreate">
                 <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
             </div>
@@ -34,5 +62,35 @@
     
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
