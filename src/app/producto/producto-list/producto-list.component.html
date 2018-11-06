@@ -20,5 +20,6 @@
                 </td>
             </tr>
         </tbody>
+        <tfoot *ngIf = "!productos || productos.length == 0"><tr><td rowspan="2" colspan="2">No hay nada para mostrar</td></tr></tfoot>
     </table>
 </div>
