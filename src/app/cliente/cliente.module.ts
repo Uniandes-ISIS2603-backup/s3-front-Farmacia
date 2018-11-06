@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { TransaccionClienteModule } from '../transaccion-cliente/transaccion-cliente.module';
+import { ClienteCreateComponent } from './cliente-create/cliente-create.componentent';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { TransaccionClienteModule } from '../transaccion-cliente/transaccion-cli
     FormsModule,
     TransaccionClienteModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent],
   providers : [ClienteService]
 
 })
