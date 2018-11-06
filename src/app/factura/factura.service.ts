@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Factura} from './factura';
 import { Observable } from 'rxjs';
 
-const API_URL = "../../assets/";
+const API_URL = '../../assets/';
 const facturas = 'facturas.json';
 
 
@@ -11,7 +11,7 @@ const facturas = 'facturas.json';
 export class FacturaService {
     constructor(private http: HttpClient) { }
 
-    getFacturas() : Observable<Factura[]> {
+    getFacturas(): Observable<Factura[]> {
         return this.http.get<Factura[]>(API_URL + facturas);
     }
 }
