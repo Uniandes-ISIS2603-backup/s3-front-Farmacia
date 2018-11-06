@@ -26,10 +26,9 @@ export class ProductoService {
         return this.http.get<ProductoDetail>(API_URL + producto + '/' + productoId);
     }
 
-    createProducto(product): Observable<Producto> {
-        let idRegistro: any;
-        this.http.post<Registro>(API_URL + registro, null)
-            .subscribe(registroRespuesta => idRegistro = registroRespuesta.id);
-        return this.http.post<Producto>(API_URL + producto + '/registro/' + idRegistro, product);
+    async createProducto(register, product): Promise<Producto> {
+        const idRegistro = await this.http.post<Registro>(API_URL + registro, register).toPromise()
+            .then(registroRespuesta => registroRespuesta.id);
+        return this.http.post<Producto>(API_URL + producto + '/registro/' + idRegistro, product).toPromise();
     }
 }

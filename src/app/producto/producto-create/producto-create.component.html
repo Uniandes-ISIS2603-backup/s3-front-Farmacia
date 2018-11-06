@@ -1,3 +1,36 @@
-<p>
-  producto-create works!
-</p>
+<p class="h2 p-2" style = "padding-left: 0px">Crear un nuevo producto</p>
+<form name="producto" (ngSubmit)="f.form.valid && createProducto()" #f="ngForm" novalidate>
+    <div class="form-group">
+        <label for="productoName"><b>Nombre producto</b></label>
+        <input type="text" name="productoName" class="form-control" id="productoName" [(ngModel)]="nuevoProducto.nombre"
+            #productoName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productoName.invalid }" required>
+        <div class="invalid-feedback">
+            <div>Falta el nombre del producto</div>
+        </div>
+        <label for="regId"><b>Id del registro asociado al producto</b></label>
+        <input type="number" name="regId" class="form-control" id="regId" [(ngModel)]="registro.id"
+            #regId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && regId.invalid }" required>
+        <div class="invalid-feedback">
+            <div>Falta el id del registro</div>
+        </div>
+        <label for="regType"><b>Tipo de registro</b></label>
+        <select name="regType" class="form-control" [(ngModel)]="registro.tipoRegistro" id="regType" #regType="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && regType.invalid }" required>
+          <option *ngFor = "let x of regOptions">
+            {{x}}
+          </option>
+        </select>
+        <div class="invalid-feedback">
+            <div>Falta tipo de registro</div>
+        </div>
+        <label for="regCant"><b>Cantidad del producto</b></label>
+        <input type="number" name="regCant" class="form-control" id="regCant" [(ngModel)]="nuevoProducto.unidadesDisponibles"
+            #regCant="ngModel" [ngClass]="{ 'is-invalid': f.submitted && regCant.invalid }" required>
+        <div class="invalid-feedback">
+            <div>Falta la cantidad de productos</div>
+        </div>
+    </div>
+    <div class="row form-inline justify-content-center align-self-center">
+        <button type="submit" class="btn btn-primary">Crear</button>
+    </div>
+</form>

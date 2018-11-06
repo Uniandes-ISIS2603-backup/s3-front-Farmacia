@@ -7,12 +7,14 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { ProductoCreateComponent } from './producto-create/producto-create.component';
 import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
 import { RegistroModule } from '../registro/registro.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     AppRoutingModule,
-    RegistroModule
+    RegistroModule,
+    FormsModule
   ],
   declarations: [ProductoListComponent, ProductoDetailComponent, ProductoCreateComponent],
   providers: [ProductoService]

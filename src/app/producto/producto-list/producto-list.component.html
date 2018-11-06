@@ -15,12 +15,12 @@
         <tbody>
             <tr *ngFor ="let producto of productos">
                 <td style = "cursor: pointer;">
-                    <dd class="figure-caption" routerLink="/productos/{{producto.id}}"> 
+                    <dd class="figure-caption" style = "margin-bottom: 0px" routerLink="/productos/{{producto.id}}"> 
                         {{producto.id}} 
                     </dd>
                 </td>
-                <td>
-                    <dd class="figure-caption" routerLink= "/productos/{{producto.id}}">
+                <td style = "cursor: pointer;">
+                    <dd class="figure-caption" style = "margin-bottom: 0px" routerLink= "/productos/{{producto.id}}">
                         {{producto.nombre}}
                     </dd>
                 </td>
@@ -28,4 +28,7 @@
         </tbody>
         <tfoot *ngIf = "!productos || productos.length == 0"><tr><td rowspan="2" colspan="2">No hay nada para mostrar</td></tr></tfoot>
     </table>
+    <div class="col-sm-8">
+        <app-producto-create *ngIf="!isHidden"></app-producto-create>
+    </div>
 </div>
