@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TransaccionProveedorService } from '../transaccion-proveedor.service';
 import { TransaccionProveedor } from '../transaccion-proveedor';
 
@@ -12,7 +12,7 @@ export class TransaccionProveedorListComponent implements OnInit {
 
   constructor(private transaccionProveedorService : TransaccionProveedorService) { }
 
-  transaccionesProveedor : TransaccionProveedor[];
+  @Input() transaccionesProveedor : TransaccionProveedor[];
 
   getTransaccionesProveedor():void {
     this.transaccionProveedorService.getTransaccionesProveedor().subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);

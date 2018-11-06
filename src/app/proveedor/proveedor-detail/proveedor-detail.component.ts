@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
 import { ActivatedRoute } from '@angular/router';
 import {ProveedorDetail} from '../proveedor-detail';
@@ -10,6 +10,9 @@ import {ProveedorDetail} from '../proveedor-detail';
 })
 export class ProveedorDetailComponent implements OnInit {
 
+  @Input() proveedorDetail: ProveedorDetail;
+
+
   constructor(
     private proveedorService: ProveedorService,
     private route: ActivatedRoute
@@ -18,7 +21,8 @@ export class ProveedorDetailComponent implements OnInit {
 
   proveedor_id: number;
 
-  proveedorDetail: ProveedorDetail;
+
+  transaccionesProvee
 
   getProveedorDetail(): void {
     this.proveedorService.getProveedorDetail(this.proveedor_id)
@@ -30,8 +34,10 @@ export class ProveedorDetailComponent implements OnInit {
   ngOnInit() {
     // el mas convierte el id de string a number
     this.proveedor_id = +this.route.snapshot.paramMap.get('id');
+    if(this.proveedor_id){
     this.proveedorDetail = new ProveedorDetail();
     this.getProveedorDetail();
+    }
 }
 
 }

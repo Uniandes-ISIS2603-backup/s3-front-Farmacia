@@ -7,6 +7,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { ProveedorDetailComponent } from './proveedor-detail/proveedor-detail.component';
+import {TransaccionProveedorModule} from '../transaccion-proveedor/transaccion-proveedor.module'
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ProveedorDetailComponent } from './proveedor-detail/proveedor-detail.co
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+        TransaccionProveedorModule
   ],
   declarations: [ProveedorListComponent, ProveedorDetailComponent],
   providers : [ProveedorService]
