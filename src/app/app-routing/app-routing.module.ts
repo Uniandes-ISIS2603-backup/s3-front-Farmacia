@@ -15,6 +15,7 @@ import {TransaccionClienteListComponent} from '../transaccion-cliente/transaccio
 import { TransaccionClienteDetailComponent } from '../transaccion-cliente/transaccion-cliente-detail/transaccion-cliente-detail.component';
 import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
+import { ProveedorCreateComponent } from '../proveedor/proveedor-create/proveedor-create.component';
 
 const routes: Routes = [
     {
@@ -27,6 +28,11 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: ProveedorDetailComponent,
+            },
+            {
+                path : 'add',
+                component : ProveedorCreateComponent,
+                runGuardsAndResolvers: 'always'
             }
         ]
     },
@@ -99,7 +105,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, {onSameUrlNavigation : 'reload'})
     ],
     exports: [RouterModule],
     declarations: []

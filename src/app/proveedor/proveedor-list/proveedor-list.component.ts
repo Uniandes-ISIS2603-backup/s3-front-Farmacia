@@ -9,16 +9,28 @@ import { Proveedor } from '../proveedor';
 })
 export class ProveedorListComponent implements OnInit {
 
+  showCreate: boolean;
+
+
   constructor(private proveedorService : ProveedorService) { }
 
   @Input() proveedores : Proveedor[];
+
+  proveedor_id: number;
+
 
   getProveedores():void {
     this.proveedorService.getProveedores().
       subscribe(proveedores => this.proveedores = proveedores);
   }
   ngOnInit() {
+
+    this.showCreate = false;
     this.getProveedores();
   }
+
+  showHideCreate(): void {
+    this.showCreate = !this.showCreate!
+}
 
 }

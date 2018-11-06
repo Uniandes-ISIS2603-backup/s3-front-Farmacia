@@ -22,4 +22,8 @@ export class ProveedorService {
     getProveedorDetail(proveedorId): Observable<ProveedorDetail> {
         return this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + proveedorId);
     }
+
+    createProveedor(proveedor): Observable<Proveedor> {
+        return this.http.post<Proveedor>(API_URL + proveedores, proveedor);
+    }
 }
