@@ -23,8 +23,9 @@ export class TransaccionProveedorListComponent implements OnInit {
     this.transaccionProveedorService.getTransaccionesProveedor().subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);
   }
   ngOnInit() {
-    this.getTransaccionesProveedor();
+    
     this.showCreate = false;
+    this.getTransaccionesProveedor();
   }
 
    /**

@@ -3,14 +3,14 @@
             <br>
             <div class="row justify-content-center align-self-center">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear transaccion proveedor</button>
+                    (click)="showHideCreate()">Crear una transaccion proveedor</button>
             </div>
             <br>
             <br>
         <table class="table  table-bordered table-hover">
             <thead class="thead-dark">
                 <tr >
-                    <th colspan="5">Transacciones proveedor </th>    
+                    <th colspan="5">Transacciones proveedor info</th>    
                 </tr>
             </thead>
             <tbody>
@@ -21,5 +21,10 @@
                 </tr>
             </tbody>
         </table>
+        <div class="col-md-8">
+            <div *ngIf="showCreate">
+            <app-transaccion-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-transaccion-proveedor-create>
+            </div>
+        </div>
     </div>
 </div>
