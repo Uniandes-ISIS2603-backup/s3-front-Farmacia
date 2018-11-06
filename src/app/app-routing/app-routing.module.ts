@@ -13,8 +13,8 @@ import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.compo
 import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
 import {TransaccionClienteListComponent} from '../transaccion-cliente/transaccion-cliente-list/transaccion-cliente-list.component';
 import { TransaccionClienteDetailComponent } from '../transaccion-cliente/transaccion-cliente-detail/transaccion-cliente-detail.component';
-import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
-import { FacturaDetailComponent } from '../factura/factura-detail/factura-detail.component';
+//import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
+//import { FacturaDetailComponent } from '../factura/factura-detail/factura-detail.component';
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
 import { ProveedorCreateComponent } from '../proveedor/proveedor-create/proveedor-create.component';
 import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
@@ -103,7 +103,8 @@ const routes: Routes = [
             path: ':id',
             component: TransaccionClienteDetailComponent
         }
-    ]},
+    ]}
+    /** 
     {
         path: 'facturas',
         children: [
@@ -116,6 +117,7 @@ const routes: Routes = [
             component: FacturaDetailComponent
         }
     ]}
+    */
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-<p class="h2 p-2" style = "padding-left: 0px">Crear un nuevo cliente</p>
+ <p class="h2 p-2" style = "padding-left: 0px">Crear un nuevo cliente</p>
 <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
     <div class="form-group">
         <label for="clienteName"><b>Nombre cliente</b></label>
@@ -11,28 +11,32 @@
         <input type="text" name="clienteLastName" class="form-control" id="clienteLastName" [(ngModel)]="nuevoCliente.apellido"
             #clienteLastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteLastName.invalid }" required>
         <div class="invalid-feedback">
-            <div>Falta el apellido del cliente/div>
+            <div>Falta el apellido del cliente</div>
         </div>
         <label for="clienteCity"><b>Ciudad del cliente</b></label>
         <input type="text" name="clienteCity" class="form-control" id="clienteCity" [(ngModel)]="nuevoCliente.ciudad"
-            #clienteCity="clienteCity" [ngClass]="{ 'is-invalid': f.submitted && clienteCity.invalid }" required>
+            #clienteCity="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteCity.invalid }" required>
         <div class="invalid-feedback">
-            <div>Falta la ciudad del cliente/div>
+            <div>Falta la ciudad del cliente</div>
         </div>
         <label for="clienteAdress"><b>DireccionEnvio del cliente</b></label>
         <input type="text" name="clienteAdress" class="form-control" id="clienteAdress" [(ngModel)]="nuevoCliente.direccionEnvio"
             #clienteAdress="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteAdress.invalid }" required>
         <div class="invalid-feedback">
-            <div>Falta la direccionEnvio del cliente/div>
+            <div>Falta la direccionEnvio del cliente</div>
         </div>
         <label for="clienteCedula"><b>Cedula del cliente</b></label>
         <input type="number" name="clienteCedula" class="form-control" id="clienteCedula" [(ngModel)]="nuevoCliente.Cedula"
             #clienteCedula="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteCedula.invalid }" required>
         <div class="invalid-feedback">
-            <div>Falta la cedula del cliente cliente/div>
+            <div>Falta la cedula del cliente</div>
         </div>
+        
     </div>
+    
     <div class="row form-inline justify-content-center align-self-center">
         <button type="submit" class="btn btn-primary">Crear</button>
     </div>
+    
 </form>
+

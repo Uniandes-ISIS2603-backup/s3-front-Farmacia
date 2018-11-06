@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProveedorModule } from './proveedor/proveedor.module';
 import { ProductoModule} from './producto/producto.module';
 import { TransaccionProveedorModule } from './transaccion-proveedor/transaccion-proveedor.module';
-import { FacturaModule } from './factura/factura.module';
+//import { FacturaModule } from './factura/factura.module';
 import { ClienteModule } from './cliente/cliente.module';
 import { RegistroModule} from './registro/registro.module';
 import {TransaccionClienteModule} from './transaccion-cliente/transaccion-cliente.module';
@@ -27,7 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     ProveedorModule,
     ProductoModule,
     TransaccionProveedorModule,
-    FacturaModule,
+    //FacturaModule,
     ClienteModule,
     RegistroModule,
     BrowserAnimationsModule,
