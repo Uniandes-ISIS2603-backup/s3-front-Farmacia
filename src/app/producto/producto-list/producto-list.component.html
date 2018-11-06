@@ -1,5 +1,5 @@
-<div>
-    <table class = 'table table-dark'>
+<div class = "container-fluid col-sm-8">
+    <table class = "table table-dark">
         <thead>
             <tr>
                 <th> # </th>
@@ -7,16 +7,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor ='let producto of productos'>
-                <td style = 'cursor: pointer;'>
-                    <!--<dd class="figure-caption" routerLink = '/productos/{{producto.id}}'> 
+            <tr *ngFor ="let producto of productos">
+                <td style = "cursor: pointer;">
+                    <dd class="figure-caption" routerLink="/productos/{{producto.id}}"> 
                         {{producto.id}} 
                     </dd>
                 </td>
                 <td>
-                    <dd class="figure-caption" routerLink = "/productos/{{producto.id}}">
-                            {{producto.nombre}}
-                    </dd> -->
+                    <dd class="figure-caption" routerLink= "/productos/{{producto.id}}">
+                        {{producto.nombre}}
+                    </dd>
                 </td>
             </tr>
         </tbody>

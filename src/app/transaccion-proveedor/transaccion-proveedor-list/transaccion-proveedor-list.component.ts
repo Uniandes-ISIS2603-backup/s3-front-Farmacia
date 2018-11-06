@@ -10,20 +10,20 @@ import { TransaccionProveedor } from '../transaccion-proveedor';
 })
 export class TransaccionProveedorListComponent implements OnInit {
 
-  constructor(private transaccionProveedorService : TransaccionProveedorService) { }
+  constructor(private transaccionProveedorService: TransaccionProveedorService) { }
 
-  @Input() transaccionesProveedor : TransaccionProveedor[];
+  @Input() transaccionesProveedor: TransaccionProveedor[];
 
   /**
     * Shows or hides the create component
     */
    showCreate: boolean;
 
-  getTransaccionesProveedor():void {
-    this.transaccionProveedorService.getTransaccionesProveedor().subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);
+  getTransaccionesProveedor(): void {
+    this.transaccionProveedorService.getTransaccionesProveedor()
+    .subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);
   }
   ngOnInit() {
-    
     this.showCreate = false;
     this.getTransaccionesProveedor();
   }
@@ -32,7 +32,7 @@ export class TransaccionProveedorListComponent implements OnInit {
     * Shows or hides the create component
     */
    showHideCreate(): void {
-    this.showCreate = !this.showCreate!
+    this.showCreate = !this.showCreate;
 }
 
 }
