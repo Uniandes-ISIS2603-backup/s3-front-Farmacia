@@ -8,5 +8,17 @@
         </thead>
         <tbody>
             <tr *ngFor ='let producto of productos'>
-                <td> {{producto.id}} </td>
-                <td> {{producto.nombre}} </td>
+                <td style = 'cursor: pointer;'>
+                    <!--<dd class="figure-caption" routerLink = '/productos/{{producto.id}}'> 
+                        {{producto.id}} 
+                    </dd>
+                </td>
+                <td>
+                    <dd class="figure-caption" routerLink = "/productos/{{producto.id}}">
+                            {{producto.nombre}}
+                    </dd> -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

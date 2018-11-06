@@ -9,11 +9,11 @@ import {Cliente} from '../cliente';
 })
 export class ClienteListComponent implements OnInit {
 
-  constructor(private clienteService : ClienteService) { }
+  constructor(private clienteService: ClienteService) { }
 
-  clientes : Cliente[];
+  clientes: Cliente[];
 
-  getClientes():void{
+  getClientes(): void {
     this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes);
   }
 

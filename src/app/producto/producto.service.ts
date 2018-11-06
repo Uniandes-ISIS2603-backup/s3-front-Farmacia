@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Producto } from './producto';
 
 import { environment } from '../../environments/environment';
+import { ProductoDetail } from './producto-detail';
 
 
 const API_URL = environment.apiURL;
@@ -20,7 +21,7 @@ export class ProductoService {
         return this.http.get<Producto[]>(API_URL + producto);
     }
 
-    getProductoDetail(productoId): Observable<Producto> {
-        return this.http.get<Producto>(API_URL + producto + '/' + productoId);
+    getProductoDetail(productoId): Observable<ProductoDetail> {
+        return this.http.get<ProductoDetail>(API_URL + producto + '/' + productoId);
     }
 }

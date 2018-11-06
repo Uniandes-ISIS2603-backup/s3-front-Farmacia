@@ -3,16 +3,18 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {ProveedorListComponent} from '../proveedor/proveedor-list/proveedor-list.component';
-import {ProductoListComponent} from '../producto/producto-list/producto-list.component'
+import {ProductoListComponent} from '../producto/producto-list/producto-list.component';
 import {TransaccionProveedorListComponent} from '../transaccion-proveedor/transaccion-proveedor-list/transaccion-proveedor-list.component';
 
 import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
+// tslint:disable-next-line:max-line-length
 import { TransaccionProveedorDetailComponent } from '../transaccion-proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
 import {TransaccionClienteListComponent} from '../transaccion-cliente/transaccion-cliente-list/transaccion-cliente-list.component';
 import { TransaccionClienteDetailComponent } from '../transaccion-cliente/transaccion-cliente-detail/transaccion-cliente-detail.component';
 import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
+import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
 
 const routes: Routes = [
     {
@@ -34,6 +36,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ProductoListComponent
+            },
+            {
+                path: ':id',
+                component: ProductoDetailComponent
             }
         ]
     },
@@ -45,7 +51,7 @@ const routes: Routes = [
                 component: ClienteListComponent
             }
         ]
-    }, 
+    },
     {
         path: 'registros',
         children: [
@@ -54,7 +60,7 @@ const routes: Routes = [
                 component: RegistroListComponent
             }
         ]
-    }, 
+    },
     {
         path: 'transaccion-proveedor',
         children: [
@@ -79,9 +85,7 @@ const routes: Routes = [
             path: ':id',
             component: TransaccionClienteDetailComponent
         }
-    ]
-    
-    },
+    ]},
     {
         path: 'facturas',
         children: [
@@ -89,9 +93,7 @@ const routes: Routes = [
             path: 'list',
             component: FacturaListComponent
         },
-    ]
-    
-    }
+    ]}
 ];
 
 @NgModule({
