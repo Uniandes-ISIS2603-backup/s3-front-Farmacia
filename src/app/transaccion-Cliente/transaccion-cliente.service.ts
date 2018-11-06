@@ -19,4 +19,8 @@ export class TransaccionClienteService {
     getTransaccionClienteDetail(transaccionClienteId): Observable<TransaccionClienteDetail> {
         return this.http.get<TransaccionClienteDetail>(API_URL + transaccionesCliente + '/' + transaccionClienteId);
     }
+
+    createTransaccionCliente(transaccionCliente): Observable<TransaccionClienteDetail> {
+        return this.http.post<TransaccionClienteDetail>(API_URL + transaccionCliente, transaccionCliente);
+        }
 }
