@@ -2,31 +2,31 @@
 <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
     <div class="form-group">
         <label for="clienteName"><b>Nombre cliente</b></label>
-        <input type="text" name="clienteName" class="form-control" id="clienteName" [(ngModel)]="nuevoCliente.nombre"
+        <input type="text" name="clienteName" class="form-control" id="clienteName" [(ngModel)]="cliente.nombre"
             #clienteName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteName.invalid }" required>
         <div class="invalid-feedback">
             <div>Falta el nombre del cliente</div>
         </div>
         <label for="clienteLastName"><b>Apellido del cliente</b></label>
-        <input type="text" name="clienteLastName" class="form-control" id="clienteLastName" [(ngModel)]="nuevoCliente.apellido"
+        <input type="text" name="clienteLastName" class="form-control" id="clienteLastName" [(ngModel)]="cliente.apellido"
             #clienteLastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteLastName.invalid }" required>
         <div class="invalid-feedback">
             <div>Falta el apellido del cliente</div>
         </div>
         <label for="clienteCity"><b>Ciudad del cliente</b></label>
-        <input type="text" name="clienteCity" class="form-control" id="clienteCity" [(ngModel)]="nuevoCliente.ciudad"
+        <input type="text" name="clienteCity" class="form-control" id="clienteCity" [(ngModel)]="cliente.ciudad"
             #clienteCity="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteCity.invalid }" required>
         <div class="invalid-feedback">
             <div>Falta la ciudad del cliente</div>
         </div>
         <label for="clienteAdress"><b>DireccionEnvio del cliente</b></label>
-        <input type="text" name="clienteAdress" class="form-control" id="clienteAdress" [(ngModel)]="nuevoCliente.direccionEnvio"
+        <input type="text" name="clienteAdress" class="form-control" id="clienteAdress" [(ngModel)]="cliente.direccionEnvio"
             #clienteAdress="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteAdress.invalid }" required>
         <div class="invalid-feedback">
             <div>Falta la direccionEnvio del cliente</div>
         </div>
         <label for="clienteCedula"><b>Cedula del cliente</b></label>
-        <input type="number" name="clienteCedula" class="form-control" id="clienteCedula" [(ngModel)]="nuevoCliente.Cedula"
+        <input type="number" name="clienteCedula" class="form-control" id="clienteCedula" [(ngModel)]="cliente.cedula"
             #clienteCedula="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteCedula.invalid }" required>
         <div class="invalid-feedback">
             <div>Falta la cedula del cliente</div>

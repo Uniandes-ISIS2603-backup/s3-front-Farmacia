@@ -14,6 +14,9 @@
               <th>direccionEnvio</th>
               <th>cedula</th>
               <tr *ngFor = "let cliente of clientes">
+                    <td style= "cursor: pointer;">
+                        <dd class= "figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.id}}</dd>
+                     </td>
                   <td style= "cursor: pointer;">
                     <dd class= "figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.nombre}}</dd>
                   </td>
