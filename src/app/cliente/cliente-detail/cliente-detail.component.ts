@@ -24,7 +24,7 @@ export class ClienteDetailComponent implements OnInit {
     cliente_direccionEnvio: string;
     cliente_cedula: number;
 
-    transaccionesCliente
+    //transaccionesCliente
 
     getClienteDetail(): void {
         this.clienteService.getClienteDetail(this.cliente_id)
