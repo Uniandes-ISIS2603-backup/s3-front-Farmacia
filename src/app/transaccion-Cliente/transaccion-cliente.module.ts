@@ -7,6 +7,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { TransaccionClienteDetailComponent } from './transaccion-cliente-detail/transaccion-cliente-detail.component';
+import {TransaccionClienteCreateComponent} from './transaccion-cliente-create/transaccion-cliente-create.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { TransaccionClienteDetailComponent } from './transaccion-cliente-detail/
     CommonModule,
     FormsModule
   ],
-  declarations: [TransaccionClienteListComponent,TransaccionClienteDetailComponent],
+  declarations: [TransaccionClienteListComponent,TransaccionClienteDetailComponent , TransaccionClienteCreateComponent],
   providers : [TransaccionClienteService],
   exports:[TransaccionClienteListComponent]
   

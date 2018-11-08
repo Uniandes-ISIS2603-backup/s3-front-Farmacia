@@ -26,5 +26,10 @@
         
             </tbody>
         </table>
+        <div class="col-md-8">
+            <div *ngIf="showCreate">
+            <app-transaccion-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-transaccion-cliente-create>
+            </div>
+        </div>
     </div>
 </div>
