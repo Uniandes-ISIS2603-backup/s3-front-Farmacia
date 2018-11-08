@@ -19,10 +19,13 @@ export class TransaccionProveedorListComponent implements OnInit {
     */
    showCreate: boolean;
 
+   //Obtiene las transacciones proveedor con todos sus atributos.
   getTransaccionesProveedor(): void {
     this.transaccionProveedorService.getTransaccionesProveedor()
     .subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);
   }
+
+  //Oculta el componente de crear y llama el método que trae las transacciónes del proveedor.
   ngOnInit() {
     this.showCreate = false;
     this.getTransaccionesProveedor();

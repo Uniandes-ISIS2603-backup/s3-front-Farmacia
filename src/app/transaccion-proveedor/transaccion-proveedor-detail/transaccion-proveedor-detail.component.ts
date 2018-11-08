@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TransaccionProveedorService } from '../transaccion-proveedor.service';
 import { ActivatedRoute } from '@angular/router';
   import {TransaccionProveedorDetail} from '../transaccion-proveedor-detail';
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./transaccion-proveedor-detail.component.css']
 })
 export class TransaccionProveedorDetailComponent implements OnInit {
-
+  //Constructor del detail de transacción proveedor.
   constructor(
     private transaccionProveedorService: TransaccionProveedorService,
     private route: ActivatedRoute
@@ -17,9 +17,10 @@ export class TransaccionProveedorDetailComponent implements OnInit {
 
 
   transaccionProveedor_id: number;
+//Atributo que corresponde al detail de transacción proveedor con todos sus productos.
+  @Input() transaccionProveedorDetail: TransaccionProveedorDetail;
 
-  transaccionProveedorDetail: TransaccionProveedorDetail;
-
+  //Obtiene el detail de transacción proveedor.
   getTransaccionProveedorDetail(): void {
     this.transaccionProveedorService.getTransaccionProveedorDetail(this.transaccionProveedor_id)
         .subscribe(transaccionProveedorDetail => {
