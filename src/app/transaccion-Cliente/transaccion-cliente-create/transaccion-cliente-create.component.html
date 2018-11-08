@@ -1,87 +1,73 @@
-
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
-        <br>
-        <h2 class="text-center">Crear una transaccion cliente</h2>
-        <br>
-        <form name="transaccion-cliente" (ngSubmit)="f.form.valid && createTransaccionCliente()" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="transaccionClienterName"><b>Nombre proveedor</b></label>
+ <p class="h2 p-2"  >Crear una nueva transaccion cliente</p>
+      <br>
+       <form name="transaccion-cliente" (ngSubmit)="f.form.valid && createTransaccionCliente()" #f="ngForm" novalidate>
+           <div class="transaccioncliente" >
+            
+            
+            <label for="transaccionClienterName" ><b >Nombre del cliente</b></label>
                 <input type="text" name="transaccionClienteName" class="form-control" id="transaccionClienteName" [(ngModel)]="transaccionCliente.cliente.Nombre"
                     #transaccionClienteId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionClienteName.invalid }" required>
-                <div class="invalid-feedback">
+                    <div class="invalid-feedback">
                     <div>Falta el nombre del cliente con el que se realizará la transacción</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="transaccionClienterApellido"><b>Apellido Cliente</b></label>
+                     </div>
+                
+            
+                <label for="transaccionClienterApellido" ><b >Apellido Cliente</b></label>
+                
                 <input type="text" name="transaccionClienterApellido" class="form-control" id="transaccionClienterApellido" [(ngModel)]="transaccionCliente.cliente.Apellido"
                     #transaccionClienteId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionClienterApellido.invalid }" required>
-                <div class="invalid-feedback">
+                  <div class="invalid-feedback">
                     <div>Falta el Apellido del cliente con el que se realizará la transacción</div>
-                </div>
-            </div>
-            <div class="form-group">
-                    <label for="transaccionClienteMonto"><b>Monto</b></label>
-                    <input type="text" name="transaccionClienteMonto" class="form-control" id="transaccionClienteMonto" [(ngModel)]="transaccionCliente.Monto"
+                  </div>
+                
+                  <label for="transaccionClienteMonto"><b>Monto</b></label>
+                    <input type="number" name="transaccionClienteMonto" class="form-control" id="transaccionClienteMonto" [(ngModel)]="transaccionCliente.Monto"
                         #transaccionClienteId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionClienteMonto.invalid }" required>
                     <div class="invalid-feedback">
                         <div>Falta el monto de la transaccion</div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="transaccionClienteCiudad"><b>Monto</b></label>
+                 
+                    <label for="transaccionClienteCiudad"><b>Ciudad</b></label>
                     <input type="text" name="transaccionClienteCiudad" class="form-control" id="transaccionClienteCiudad" [(ngModel)]="transaccionCliente.cliente.Ciudad"
                         #transaccionClienteId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionClienteCiudad.invalid }" required>
-                    <div class="invalid-feedback">
+                     <div class="invalid-feedback">
                         <div>Falta la Ciudad de la transaccion</div>
-                    </div>
-                </div>
-          
-            <div class="form-group">
+                     </div>
+                          
                     <label for="transaccionClienteTiempo"><b>Tiempo de entrega</b></label>
-                    <input type="text" name="transaccionClienteTiempo" class="form-control" id="transaccionClienteTiempo" [(ngModel)]="transaccionCliente.tiempo"
+                    <input type="number" name="transaccionClienteTiempo" min="0" class="form-control" id="transaccionClienteTiempo" [(ngModel)]="transaccionCliente.tiempo"
                         #transaccionClienteId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionClienteTiempo.invalid }" required>
                     <div class="invalid-feedback">
                         <div>Falta el tiempo de entrega</div>
                     </div>
-                </div>
 
-                <div class="form-group">
                     <label for="transaccionClienteDireccion"><b>direccion de entrega</b></label>
                     <input type="text" name="transaccionClienteDireccion" class="form-control" id="transaccionClienteDireccion" [(ngModel)]="transaccionCliente.cliente.direccion"
                         #transaccionClienteId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionClienteDireccion.invalid }" required>
                     <div class="invalid-feedback">
                         <div>Falta la direccion de entrega</div>
                     </div>
-                </div>
 
-                <div class="form-group">
                     <label for="transaccionClienteCedula"><b>cedula de entrega</b></label>
                     <input type="text" name="transaccionClienteCedula" class="form-control" id="transaccionClienteCedula" [(ngModel)]="transaccionCliente.cliente.cedula"
                         #transaccionClienteId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionClienteCedula.invalid }" required>
                     <div class="invalid-feedback">
                         <div>Falta la Cedula del Cliente</div>
                     </div>
-                </div>
           
-                <div class="form-group">
                     <label for="transaccionClientePago"><b>tipo de pago</b></label>
-                    <input type="text" name="transaccionClientePago" class="form-control" id="transaccionClientePago" [(ngModel)]="transaccionCliente.tipo"
+                    <input type="text" name="transaccionClientePago"   class="form-control" id="transaccionClientePago" [(ngModel)]="transaccionCliente.tipo"
                         #transaccionClienteId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionClientePago.invalid }" required>
                     <div class="invalid-feedback">
                         <div>Falta el tipo de pago del Cliente</div>
                     </div>
+                
                 </div>
-            <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Create</button>
-                <div class="divider"></div>
-                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
-            </div>
-        </form>
-    </div>
-    <div class="col-3"></div>
-  </div>
-  
+                  <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                    </div>
 
+            
+        </form>

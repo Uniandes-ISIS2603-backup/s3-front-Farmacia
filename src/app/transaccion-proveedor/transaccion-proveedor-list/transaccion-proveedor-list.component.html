@@ -21,10 +21,10 @@
                 </tr>
             </tbody>
         </table>
-        <div class="col-md-8">
-            <div *ngIf="showCreate">
-            <app-transaccion-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-transaccion-proveedor-create>
-            </div>
+    </div>
+    <div class="col-md-8">
+        <div *ngIf="showCreate">
+        <app-transaccion-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-transaccion-proveedor-create>
         </div>
     </div>
 </div>
