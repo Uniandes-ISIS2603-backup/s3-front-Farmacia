@@ -10,7 +10,9 @@ import { ProveedorDetailComponent } from './proveedor-detail/proveedor-detail.co
 import {TransaccionProveedorModule} from '../transaccion-proveedor/transaccion-proveedor.module';
 import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.component'
 
-
+/**
+* Importaciones, declaraciones y recursos necesarios para que el ente proveedor se desarrolle en sus componentes.
+*/
 @NgModule({
   imports: [
         BrowserModule,
