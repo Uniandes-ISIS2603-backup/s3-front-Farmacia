@@ -2,9 +2,8 @@ export class TransaccionProveedor {
 
     id: number;
     monto: number;
-    tiempo: string;
+    tiempo: number;
     proveedor: {
         id: number;
-        nombre: string;
     };
 }

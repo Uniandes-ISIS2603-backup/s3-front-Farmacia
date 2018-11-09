@@ -5,11 +5,11 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import {TransaccionProveedorDetail} from './transaccion-proveedor-detail';
 
-// const API_URL = environment.apiURL;
- //const transaccionesProveedor = '/proveedores/' + Math.floor(Math.random()*100) + '/transaccionProveedor';
+const API_URL = environment.apiURL;
+const transaccionesProveedor = '/proveedores/' + 10 + '/transaccionProveedor';
 
-const API_URL = '../../assets';
-const transaccionesProveedor = '/transaccionesProveedor.json';
+//const API_URL = '../../assets';
+//const transaccionesProveedor = '/transaccionesProveedor.json';
 
 
 @Injectable()

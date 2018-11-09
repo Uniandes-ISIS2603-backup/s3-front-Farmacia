@@ -4,19 +4,19 @@
             <br>
             <h2 class="text-center">Crear una transaccion proveedor</h2>
             <br>
-            <form name="transaccion-proveedor" (ngSubmit)="f.form.valid && createTransaccionProveedor()" #f="ngForm" novalidate>
+            <form name="transaccionProveedor" (ngSubmit)="f.form.valid && createTransaccionProveedor()" #f="ngForm" novalidate>
                 <div class="form-group">
-                    <label for="transaccionProveedorName"><b>Nombre proveedor</b></label>
-                    <input type="text" name="transaccionProveedorName" class="form-control" id="transaccionProveedorName" [(ngModel)]="transaccionProveedor.proveedor.name"
-                        #transaccionProveedorId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionProveedorName.invalid }" required>
+                    <label for="transaccionProveedorId"><b>Id proveedor</b></label>
+                    <input type="number" name="transaccionProveedorId" class="form-control" id="transaccionProveedorId" [(ngModel)]="transaccionProveedor.proveedor.id"
+                        #transaccionProveedorId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionProveedorId.invalid }" required>
                     <div class="invalid-feedback">
-                        <div>Falta el nombre del proveedor con el que se realizará la transacción</div>
+                        <div>Falta el id del proveedor con el que se realizará la transacción</div>
                     </div>
                 </div>
                 <div class="form-group">
                         <label for="transaccionProveedorMonto"><b>Monto</b></label>
-                        <input type="text" name="transaccionProveedorMonto" class="form-control" id="transaccionProveedorMonto" [(ngModel)]="transaccionProveedor.monto"
-                            #transaccionProveedorId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionProveedorName.invalid }" required>
+                        <input type="number" name="transaccionProveedorMonto" class="form-control" id="transaccionProveedorMonto" [(ngModel)]="transaccionProveedor.monto"
+                            #transaccionProveedorMonto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionProveedorMonto.invalid }" required>
                         <div class="invalid-feedback">
                             <div>Falta el monto de la transaccion</div>
                         </div>
@@ -24,8 +24,8 @@
               
                 <div class="form-group">
                         <label for="transaccionProveedorTiempo"><b>Tiempo de entrega</b></label>
-                        <input type="text" name="transaccionProveedorTiempo" class="form-control" id="transaccionProveedorTiempo" [(ngModel)]="transaccionProveedor.tiempo"
-                            #transaccionProveedorId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionProveedorName.invalid }" required>
+                        <input type="number" name="transaccionProveedorTiempo" class="form-control" id="transaccionProveedorTiempo" [(ngModel)]="transaccionProveedor.tiempo"
+                            #transaccionProveedorTiempo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionProveedorTiempo.invalid }" required>
                         <div class="invalid-feedback">
                             <div>Falta el tiempo de entrega</div>
                         </div>
