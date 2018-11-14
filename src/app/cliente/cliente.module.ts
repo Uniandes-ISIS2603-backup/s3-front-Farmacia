@@ -4,7 +4,6 @@ import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { ClienteService } from './cliente.service';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NgxPermissionsModule} from 'ngx-permissions';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
@@ -18,7 +17,6 @@ import { ClienteEditComponent} from './cliente-edit/cliente-edit.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPermissionsModule,
     CommonModule,
     FormsModule,
     TransaccionClienteModule
