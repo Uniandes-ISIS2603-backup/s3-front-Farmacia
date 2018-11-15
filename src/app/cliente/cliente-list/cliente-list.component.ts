@@ -47,7 +47,7 @@ export class ClienteListComponent implements OnInit {
     }
   }
 
-  updateEditorial(): void{
+  updateCliente(): void{
     this.showEdit = false;
   }
 

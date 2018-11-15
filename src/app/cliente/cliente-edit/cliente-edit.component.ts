@@ -13,7 +13,7 @@ export class ClienteEditComponent implements OnInit{
 
     constructor(
         private clienteService: ClienteService,
-        private toastrService: ToastrService,
+        private toastrService: ToastrService
     ){}
 
     /**

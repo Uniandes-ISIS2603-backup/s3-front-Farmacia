@@ -15,6 +15,7 @@ import { ProductoDetailComponent } from '../producto/producto-detail/producto-de
 import { ProveedorCreateComponent } from '../proveedor/proveedor-create/proveedor-create.component';
 import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
+import { ClienteEditComponent } from '../cliente/cliente-edit/cliente-edit.component';
 
 const routes: Routes = [
     {
@@ -63,7 +64,12 @@ const routes: Routes = [
                 path: 'add',
                 component: ClienteCreateComponent,
                 runGuardsAndResolvers: 'always'
+            }/** ,
+            {
+                path: ':id/edit',
+                component: ClienteEditComponent
             }
+            */
         ]
     },
     {
