@@ -7,7 +7,7 @@ import {AppModule} from '../../app.module';
 
 import {TransaccionProveedorListComponent} from './transaccion-proveedor-list.component';
 import {TransaccionProveedor} from '../transaccion-proveedor';
-import {TransaccionProveedorService} from '../transaccion-proveedor.service';
+import {ProveedorService} from '../proveedor.service';
 
 describe('TransaccionProveedorComponent', () => {
     let component: TransaccionProveedorListComponent;
@@ -18,7 +18,7 @@ describe('TransaccionProveedorComponent', () => {
         TestBed.configureTestingModule({
             imports: [AppRoutingModule, HttpClientModule, AppModule],
             declarations: [],
-            providers: [{provide: APP_BASE_HREF, useValue: ''}, TransaccionProveedorService]
+            providers: [{provide: APP_BASE_HREF, useValue: ''}, ProveedorService]
         })
             .compileComponents();
     });

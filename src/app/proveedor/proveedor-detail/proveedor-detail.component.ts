@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProveedorDetail } from '../proveedor-detail';
-
+import { TransaccionProveedorListComponent } from '../transaccion-proveedor-list/transaccion-proveedor-list.component';
+import { TransaccionProveedorCreateComponent } from '../transaccion-proveedor-create/transaccion-proveedor-create.component';
 /**
 * Representa el componente detalle de un proveedor
 */
@@ -28,10 +29,22 @@ export class ProveedorDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+ /**
+     * The child BookReviewListComponent
+     */
+    @ViewChild(TransaccionProveedorListComponent) componenteTransaccionProveedorList: TransaccionProveedorListComponent;
+
+    /**
+     * The child BookReviewListComponent
+     */
+    @ViewChild(TransaccionProveedorCreateComponent) componenteTransaccionProveedorCreate: TransaccionProveedorCreateComponent;
+    
+
     /**
     * El id del proveedor.
     */
   proveedor_id: number;
+  
     /**
     * The method which obtains the provider whose details we want to show
     */

@@ -1,5 +1,5 @@
 import { Proveedor } from './proveedor';
-import { TransaccionProveedor } from '../transaccion-proveedor/transaccion-proveedor';
+import { TransaccionProveedor } from './transaccion-proveedor';
 
 export class ProveedorDetail extends Proveedor {
     /**

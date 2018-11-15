@@ -7,8 +7,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import { ProveedorDetailComponent } from './proveedor-detail/proveedor-detail.component';
-import {TransaccionProveedorModule} from '../transaccion-proveedor/transaccion-proveedor.module';
-import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.component'
+import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.component';
+import { TransaccionProveedorDetailComponent } from './transaccion-proveedor-detail/transaccion-proveedor-detail.component';
+import { TransaccionProveedorCreateComponent } from './transaccion-proveedor-create/transaccion-proveedor-create.component';
+import { TransaccionProveedorListComponent } from './transaccion-proveedor-list/transaccion-proveedor-list.component';
 
 /**
 * Importaciones, declaraciones y recursos necesarios para que el ente proveedor se desarrolle en sus componentes.
@@ -19,10 +21,9 @@ import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.co
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule,
-        TransaccionProveedorModule
+        FormsModule
   ],
-  declarations: [ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent],
+  declarations: [ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent, TransaccionProveedorCreateComponent, TransaccionProveedorDetailComponent, TransaccionProveedorListComponent],
   providers : [ProveedorService]
 })
 export class ProveedorModule { }

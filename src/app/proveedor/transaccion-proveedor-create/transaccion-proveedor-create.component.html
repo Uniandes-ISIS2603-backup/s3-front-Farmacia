@@ -6,14 +6,6 @@
             <br>
             <form name="transaccionProveedor" (ngSubmit)="f.form.valid && createTransaccionProveedor()" #f="ngForm" novalidate>
                 <div class="form-group">
-                    <label for="transaccionProveedorId"><b>Id proveedor</b></label>
-                    <input type="number" name="transaccionProveedorId" class="form-control" id="transaccionProveedorId" [(ngModel)]="transaccionProveedor.proveedor.id"
-                        #transaccionProveedorId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionProveedorId.invalid }" required>
-                    <div class="invalid-feedback">
-                        <div>Falta el id del proveedor con el que se realizará la transacción</div>
-                    </div>
-                </div>
-                <div class="form-group">
                         <label for="transaccionProveedorMonto"><b>Monto</b></label>
                         <input type="number" name="transaccionProveedorMonto" class="form-control" id="transaccionProveedorMonto" [(ngModel)]="transaccionProveedor.monto"
                             #transaccionProveedorMonto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transaccionProveedorMonto.invalid }" required>

@@ -1,10 +1,13 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
 
-import { TransaccionProveedorService } from '../transaccion-proveedor.service';
+import { ProveedorService } from '../proveedor.service';
 
 import { TransaccionProveedor } from '../transaccion-proveedor';
+
+import { ActivatedRoute } from '@angular/router';
+import { Proveedor } from '../proveedor';
 
 @Component({
     selector: 'app-transaccion-proveedor-create',
@@ -15,18 +18,24 @@ export class TransaccionProveedorCreateComponent implements OnInit {
 
     /**
     * Constructor for the component
-    * @param transaccionProveedorService
+    * @param ProveedorService
     * @param toastrService The toastr to show messages to the user
     */
     constructor(
-        private transaccionProveedorService: TransaccionProveedorService,
-        private toastrService: ToastrService
+        private proveedorService: ProveedorService,
+        private toastrService: ToastrService,
+        private route: ActivatedRoute
     ) { }
 
     /**
     * La nueva transaccion proveedor
     */
     transaccionProveedor: TransaccionProveedor;
+
+    /**
+    * id del proveedor
+    */
+    @Input() proveedor: Proveedor;
 
     /**
     * The output which tells the parent component
@@ -44,7 +53,8 @@ export class TransaccionProveedorCreateComponent implements OnInit {
     * Creates a new transaction
     */
     createTransaccionProveedor(): void {
-        this.transaccionProveedorService.createTransaccionProveedor(this.transaccionProveedor)
+        this.transaccionProveedor.proveedor = this.proveedor;
+        this.proveedorService.createTransaccionProveedor(this.transaccionProveedor, this.transaccionProveedor.proveedor)
             .subscribe(() => {
                 this.create.emit();
                 this.toastrService.success('La transaccion fue creada', 'Creacion TransaccionProveedor');
@@ -66,4 +76,12 @@ export class TransaccionProveedorCreateComponent implements OnInit {
     ngOnInit() {
         this.transaccionProveedor = new TransaccionProveedor();
     }
+
+    /**
+    * The function which notices that the input which defines the book_id has changed.
+    * If the book has changed, we update the reviews to show
+    */
+   ngOnChanges() {
+    this.ngOnInit();
+}
 }

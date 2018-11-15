@@ -4,9 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ProveedorListComponent } from '../proveedor/proveedor-list/proveedor-list.component';
 import { ProductoListComponent } from '../producto/producto-list/producto-list.component';
-import { TransaccionProveedorListComponent } from '../transaccion-proveedor/transaccion-proveedor-list/transaccion-proveedor-list.component';
 import { ProveedorDetailComponent } from '../proveedor/proveedor-detail/proveedor-detail.component';
-import { TransaccionProveedorDetailComponent } from '../transaccion-proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
 import { TransaccionClienteListComponent } from '../transaccion-cliente/transaccion-cliente-list/transaccion-cliente-list.component';
@@ -72,19 +70,6 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: RegistroListComponent
-            }
-        ]
-    },
-    {
-        path: 'transaccion-proveedor',
-        children: [
-            {
-                path: 'list',
-                component: TransaccionProveedorListComponent
-            },
-            {
-                path: ':id',
-                component: TransaccionProveedorDetailComponent
             }
         ]
     },
