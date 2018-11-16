@@ -6,12 +6,13 @@ import { Producto } from './producto';
 
 import { environment } from '../../environments/environment';
 import { ProductoDetail } from './producto-detail';
-import { Registro } from '../registro/registro';
+import { Registro } from './registro';
 
 
 const API_URL = environment.apiURL;
 const producto = '/productos';
-const registro = '/registros';
+//Se cambio el nombre de la variable de registro a registros
+const registros = '/registros';
 
 @Injectable()
 export class ProductoService {
@@ -27,8 +28,13 @@ export class ProductoService {
     }
 
     async createProducto(register, product): Promise<Producto> {
-        const idRegistro = await this.http.post<Registro>(API_URL + registro, register).toPromise()
+        const idRegistro = await this.http.post<Registro>(API_URL + registros, register).toPromise()
             .then(registroRespuesta => registroRespuesta.id);
         return this.http.post<Producto>(API_URL + producto + '/registro/' + idRegistro, product).toPromise();
+    }
+
+    createRegistro(productoId, registro):Observable<Registro>
+    {
+        return this.http.post<Registro>(API_URL+producto+'/'+productoId+registros,registro);
     }
 }
