@@ -2,8 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ProductoService } from '../producto.service';
 import { Producto } from '../producto';
-import { Registro } from '../../registro/registro';
-import { RegistroListComponent } from '../../registro/registro-list/registro-list.component';
+import { Registro } from '../registro';
 
 @Component({
   selector: 'app-producto-create',

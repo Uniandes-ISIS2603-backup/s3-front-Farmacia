@@ -11,7 +11,6 @@ import { ProveedorModule } from './proveedor/proveedor.module';
 import { ProductoModule} from './producto/producto.module';
 //import { FacturaModule } from './factura/factura.module';
 import { ClienteModule } from './cliente/cliente.module';
-import { RegistroModule} from './registro/registro.module';
 import {TransaccionClienteModule} from './transaccion-cliente/transaccion-cliente.module';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -31,7 +30,6 @@ import { ToastrModule } from 'ngx-toastr';
     ProductoModule,
     //FacturaModule,
     ClienteModule,
-    RegistroModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 10000,
