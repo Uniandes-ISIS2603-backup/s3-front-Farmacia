@@ -1,0 +1,15 @@
+<div >
+  <table class="table table-striped">
+    <th>id transaccion</th>
+    <th> monto total </th>
+    <th> id cliente</th>
+    <th>tipo de pago</th>
+          <tr *ngFor="let t of transacciones">
+              <td> {{t.id}}</td>
+              <td> $ {{t.monto}}</td>
+              <td> {{t.cliente.id}}</td>
+              <td>{{t.tipoDePago}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>

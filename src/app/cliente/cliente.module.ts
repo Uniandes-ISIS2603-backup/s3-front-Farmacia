@@ -11,6 +11,9 @@ import { ClienteDetailComponent } from './cliente-detail/cliente-detail.componen
 import { TransaccionClienteModule } from '../transaccion-cliente/transaccion-cliente.module';
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
 import { ClienteEditComponent} from './cliente-edit/cliente-edit.component';
+import {ClienteAddTransaccionClienteComponent} from './cliente-add-transaccion-cliente/cliente-add-transaccion-cliente.component'
+
+import { ClienteTransaccionClienteComponent} from './cliente-transaccion-cliente/cliente-transaccion-cliente.component';
 
 @NgModule({
   imports: [
@@ -21,7 +24,8 @@ import { ClienteEditComponent} from './cliente-edit/cliente-edit.component';
     FormsModule,
     TransaccionClienteModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent, 
+    ClienteTransaccionClienteComponent,ClienteAddTransaccionClienteComponent],
   providers : [ClienteService]
 
 })

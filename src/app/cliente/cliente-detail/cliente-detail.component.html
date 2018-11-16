@@ -9,7 +9,19 @@
         <!---->
         <div class="jumbotron umnbotron-fluid">
         <p class= "h4 p-3" style=" text-align: center"> Transacciones ejecutadas</p> 
-         <app-transaccion-cliente-list [transaccionesCliente]="clienteDetail.transaccionesCliente"></app-transaccion-cliente-list>
+         <app-cliente-transaccion-cliente [transacciones]="clienteDetail.transaccionesCliente"></app-cliente-transaccion-cliente>
+         <p>
+            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear una transaccion</button>
+            
+        </p>
         </div>
+        <div class="col-md-8">
+                <div *ngIf="showCreate">
+                        <app-cliente-add-transaccion-cliente [cliente]="clienteDetail"(cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"(updateTransacciones)="updateTransacciones()"></app-cliente-add-transaccion-cliente> 
+                
+                
+            </div>
+            </div>
     </div>
 </div>

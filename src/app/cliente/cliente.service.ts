@@ -5,9 +5,12 @@ import { Observable } from 'rxjs';
 import { Cliente } from './cliente';
 import { environment } from '../../environments/environment';
 import { ClienteDetail } from './cliente-detail';
+import { TransaccionCliente } from './transaccion-cliente';
+
 
 const API_URL = environment.apiURL;
 const clientes = '/clientes';
+const transacciones ='/transaccionesCliente';
 
 
 @Injectable()
@@ -31,5 +34,9 @@ export class ClienteService {
         return this.http.put<ClienteDetail>(API_URL + clientes + '/' + cliente.id, cliente);
     }
 
+    createTransaccion(clienteId,transaccion):Observable<TransaccionCliente>
+    {
+        return this.http.post<TransaccionCliente>(API_URL+clientes+'/'+clienteId+transacciones,transaccion);
+    }
 
 }
