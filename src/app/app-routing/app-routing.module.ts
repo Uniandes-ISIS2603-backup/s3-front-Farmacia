@@ -6,7 +6,6 @@ import { ProveedorListComponent } from '../proveedor/proveedor-list/proveedor-li
 import { ProductoListComponent } from '../producto/producto-list/producto-list.component';
 import { ProveedorDetailComponent } from '../proveedor/proveedor-detail/proveedor-detail.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
-import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
 import { TransaccionClienteListComponent } from '../transaccion-cliente/transaccion-cliente-list/transaccion-cliente-list.component';
 import { TransaccionClienteDetailComponent } from '../transaccion-cliente/transaccion-cliente-detail/transaccion-cliente-detail.component';
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
@@ -75,15 +74,6 @@ const routes: Routes = [
                 component: ClienteEditComponent
             }
             */
-        ]
-    },
-    {
-        path: 'registros',
-        children: [
-            {
-                path: 'list',
-                component: RegistroListComponent
-            }
         ]
     },
     {

@@ -1,4 +1,4 @@
-import {Producto} from "../producto/producto";
+import {Producto} from "./producto";
 export class Registro {
     id: number;
     cantidad: number;
