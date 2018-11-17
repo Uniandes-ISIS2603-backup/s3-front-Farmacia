@@ -14,6 +14,8 @@ import { ProveedorCreateComponent } from '../proveedor/proveedor-create/proveedo
 import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 import { ClienteEditComponent } from '../cliente/cliente-edit/cliente-edit.component';
+import{ClienteDetailTransaccionClienteComponent} from '../cliente/cliente-detail-transaccion-cliente/cliente-detail-transaccion-cliente.component';
+import { ClienteTransaccionClienteComponent } from '../cliente/cliente-transaccion-cliente/cliente-transaccion-cliente.component';
 
 const routes: Routes = [
     {
@@ -53,6 +55,11 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ClienteListComponent
+            },
+            {
+                path:':idCliente/transacciones/:idTransaccion',
+                component: ClienteDetailTransaccionClienteComponent
+
             },
             {
                 path: ':id',

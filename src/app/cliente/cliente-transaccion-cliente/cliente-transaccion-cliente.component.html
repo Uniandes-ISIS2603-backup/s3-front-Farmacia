@@ -5,11 +5,16 @@
     <th> id cliente</th>
     <th>tipo de pago</th>
           <tr *ngFor="let t of transacciones">
-              <td> {{t.id}}</td>
+              <td routerLink="/clientes/{{t.cliente.id}}/transacciones/{{t.id}}"> {{t.id}}</td>
               <td> $ {{t.monto}}</td>
               <td> {{t.cliente.id}}</td>
-              <td>{{t.tipoDePago}}</td>
+              <td> {{t.tipoDePago}}</td>
           </tr>
       </tbody>
   </table>
+  <div>
+    <div *ngIf="selectedt">
+       <app-cliente-detail-transaccion-cliente [transaccionDetail]="selectedt"></app-cliente-detail-transaccion-cliente>
+    </div>
+  </div>
 </div>

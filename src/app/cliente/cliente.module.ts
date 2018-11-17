@@ -12,7 +12,7 @@ import { TransaccionClienteModule } from '../transaccion-cliente/transaccion-cli
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
 import { ClienteEditComponent} from './cliente-edit/cliente-edit.component';
 import {ClienteAddTransaccionClienteComponent} from './cliente-add-transaccion-cliente/cliente-add-transaccion-cliente.component'
-
+import {ClienteDetailTransaccionClienteComponent} from './cliente-detail-transaccion-cliente/cliente-detail-transaccion-cliente.component';
 import { ClienteTransaccionClienteComponent} from './cliente-transaccion-cliente/cliente-transaccion-cliente.component';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { ClienteTransaccionClienteComponent} from './cliente-transaccion-cliente
     TransaccionClienteModule
   ],
   declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent, 
-    ClienteTransaccionClienteComponent,ClienteAddTransaccionClienteComponent],
+    ClienteTransaccionClienteComponent,ClienteAddTransaccionClienteComponent,ClienteDetailTransaccionClienteComponent],
   providers : [ClienteService]
 
 })

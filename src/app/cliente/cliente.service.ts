@@ -6,11 +6,13 @@ import { Cliente } from './cliente';
 import { environment } from '../../environments/environment';
 import { ClienteDetail } from './cliente-detail';
 import { TransaccionCliente } from './transaccion-cliente';
+import{TransaccionClienteDetail} from './transaccion-Cliete-detail';
 
 
 const API_URL = environment.apiURL;
 const clientes = '/clientes';
 const transacciones ='/transaccionesCliente';
+const productos='/productos'
 
 
 @Injectable()
@@ -37,6 +39,10 @@ export class ClienteService {
     createTransaccion(clienteId,transaccion):Observable<TransaccionCliente>
     {
         return this.http.post<TransaccionCliente>(API_URL+clientes+'/'+clienteId+transacciones,transaccion);
+    }
+    getTransaccionCliente(clienteId,transaccion): Observable<TransaccionClienteDetail>
+    {
+        return this.http.get<TransaccionClienteDetail>(API_URL+clientes+'/'+clienteId+transacciones+'/'+transaccion)
     }
 
 }
