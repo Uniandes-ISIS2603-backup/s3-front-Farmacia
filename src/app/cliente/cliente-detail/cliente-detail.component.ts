@@ -1,7 +1,10 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit ,Input,ViewChild} from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import { ActivatedRoute } from '@angular/router';
 import {ClienteDetail} from '../cliente-detail';
+import {ClienteAddTransaccionClienteComponent} from '../cliente-add-transaccion-cliente/cliente-add-transaccion-cliente.component';
+
+
 
 @Component({
     selector: 'app-cliente-detail',
@@ -11,6 +14,7 @@ import {ClienteDetail} from '../cliente-detail';
 export class ClienteDetailComponent implements OnInit {
 
     @Input() clienteDetail: ClienteDetail;
+    showCreate: boolean;
 
     constructor(
         private clienteService: ClienteService,
@@ -24,6 +28,8 @@ export class ClienteDetailComponent implements OnInit {
     cliente_direccionEnvio: string;
     cliente_cedula: number;
 
+    @ViewChild(ClienteAddTransaccionClienteComponent) transaccionAddComponent: ClienteAddTransaccionClienteComponent;
+
     //transaccionesCliente
 
     getClienteDetail(): void {
@@ -33,6 +39,10 @@ export class ClienteDetailComponent implements OnInit {
             });
     }
 
+    updateTransacciones(): void
+    {
+        this.getClienteDetail;
+    }
     ngOnInit() {
         //el mas convierte el id de String a numbre
         this.cliente_id = +this.route.snapshot.paramMap.get('id');
@@ -40,6 +50,11 @@ export class ClienteDetailComponent implements OnInit {
             this.clienteDetail = new ClienteDetail();
             this.getClienteDetail();
         }
+        this.showCreate=false;
     }
+    showHideCreate(): void {
+        this.showCreate = !this.showCreate;
+      }
+    
     
 }

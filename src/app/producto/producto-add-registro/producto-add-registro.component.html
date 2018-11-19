@@ -1,0 +1,48 @@
+<div id="collapseAddregistro">
+    <div class="container-fluid">
+        <h3> Agregar un registro </h3>
+        <form name="post" (ngSubmit)="registroForm.form.valid && postRegistros(registroForm)" #registroForm="ngForm"
+            novalidate>
+            <div class="content-center align-self-center">
+                <div class="col">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="registroCantidad"><b>Cantidad</b></label>
+                            <input type="number" name="registroCantidad" class="form-control" id="registroCantidad"
+                                [(ngModel)]="registro.cantidad" #registroCantidad="ngModel" [ngClass]="{ 'is-invalid':registroForm.submit && registroCantidad.invalid }"
+                                required>
+                            <div class="invalid-feedback">
+                                <div>Falta la cantidad del registro</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="registroTipo"><b>Tipo del registro</b></label>
+                            <select name="registroTipo" class="form-control" id="registroTipo" [(ngModel)]="registro.tipoRegistro" 
+                                #registroTipo="ngModel" [ngClass]="{ 'is-invalid':registroForm.submit && registroTipo.invalid }"
+                                required>
+                                <div class="invalid-feedback">
+                                    <div>Falta tipo del registro </div>
+                                </div>
+                                <option value="ORDEN_REAPROVISONAMIENTO">ORDEN_REAPROVISONAMIENTO</option>
+                                <option value="TRASLADO_BODEGA">TRASLADO_BODEGA</option>
+                                <option value="DESPACHO_CLIENTE">DESPACHO_CLIENTE</option>
+                                <option value="ROBO">ROBO</option>
+                                <option value="PERDIDA">PERDIDA</option>
+                                <option value="VENCIMIENTO">VENCIMIENTO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+                    <div class="row form-inline justify-content-center align-self-center">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                        <div class="divider"></div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

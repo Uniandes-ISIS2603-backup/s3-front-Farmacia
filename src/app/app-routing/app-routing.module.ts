@@ -1,24 +1,20 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 
-import {ProveedorListComponent} from '../proveedor/proveedor-list/proveedor-list.component';
-import {ProductoListComponent} from '../producto/producto-list/producto-list.component';
-import {TransaccionProveedorListComponent} from '../transaccion-proveedor/transaccion-proveedor-list/transaccion-proveedor-list.component';
-
-import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
-// tslint:disable-next-line:max-line-length
-import { TransaccionProveedorDetailComponent } from '../transaccion-proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
+import { ProveedorListComponent } from '../proveedor/proveedor-list/proveedor-list.component';
+import { ProductoListComponent } from '../producto/producto-list/producto-list.component';
+import { ProveedorDetailComponent } from '../proveedor/proveedor-detail/proveedor-detail.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
-import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
-import {TransaccionClienteListComponent} from '../transaccion-cliente/transaccion-cliente-list/transaccion-cliente-list.component';
+import { TransaccionClienteListComponent } from '../transaccion-cliente/transaccion-cliente-list/transaccion-cliente-list.component';
 import { TransaccionClienteDetailComponent } from '../transaccion-cliente/transaccion-cliente-detail/transaccion-cliente-detail.component';
-//import { FacturaListComponent } from '../factura/factura-list/factura-list.component';
-//import { FacturaDetailComponent } from '../factura/factura-detail/factura-detail.component';
 import { ProductoDetailComponent } from '../producto/producto-detail/producto-detail.component';
 import { ProveedorCreateComponent } from '../proveedor/proveedor-create/proveedor-create.component';
 import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
+import { ClienteEditComponent } from '../cliente/cliente-edit/cliente-edit.component';
+import{ClienteDetailTransaccionClienteComponent} from '../cliente/cliente-detail-transaccion-cliente/cliente-detail-transaccion-cliente.component';
+import { ClienteTransaccionClienteComponent } from '../cliente/cliente-transaccion-cliente/cliente-transaccion-cliente.component';
 
 const routes: Routes = [
     {
@@ -33,8 +29,8 @@ const routes: Routes = [
                 component: ProveedorDetailComponent,
             },
             {
-                path : 'add',
-                component : ProveedorCreateComponent,
+                path: 'add',
+                component: ProveedorCreateComponent,
                 runGuardsAndResolvers: 'always'
             }
         ]
@@ -60,70 +56,46 @@ const routes: Routes = [
                 component: ClienteListComponent
             },
             {
+                path:':idCliente/transacciones/:idTransaccion',
+                component: ClienteDetailTransaccionClienteComponent
+
+            },
+            {
                 path: ':id',
                 component: ClienteDetailComponent
             },
             {
-                path : 'add',
-                component : ClienteCreateComponent,
+                path: 'add',
+                component: ClienteCreateComponent,
                 runGuardsAndResolvers: 'always'
-            }
-        ]
-    },
-    {
-        path: 'registros',
-        children: [
+            }/** ,
             {
-                path: 'list',
-                component: RegistroListComponent
+                path: ':id/edit',
+                component: ClienteEditComponent
             }
+            */
         ]
-    },
-    {
-        path: 'transaccion-proveedor',
-        children: [
-        {
-            path: 'list',
-            component: TransaccionProveedorListComponent
-        },
-        {
-            path: ':id',
-            component: TransaccionProveedorDetailComponent
-        }
-    ]
     },
     {
         path: 'transacciones-cliente',
         children: [
-         {
-            path: 'list',
-            component: TransaccionClienteListComponent
-        },
-        {
-            path: ':id',
-            component: TransaccionClienteDetailComponent
-        }
-    ]}
-    /** 
-    {
-        path: 'facturas',
-        children: [
-         {
-            path: 'list',
-            component: FacturaListComponent
-        },
-        {
-            path: ':id',
-            component: FacturaDetailComponent
-        }
-    ]}
-    */
+            {
+                path: 'list',
+                component: TransaccionClienteListComponent
+            },
+            {
+                path: ':id',
+                component: TransaccionClienteDetailComponent
+            }
+        ]
+    }
+
 ];
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes, {onSameUrlNavigation : 'reload'})
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule],
     declarations: []

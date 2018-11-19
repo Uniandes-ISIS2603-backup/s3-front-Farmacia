@@ -1,0 +1,65 @@
+<div id="collapseAddtransaccion" > 
+    <div class = "container-fluid">
+      <h3> Agregar una transaccion </h3>
+        <form name="post" (ngSubmit)="transaccionForm.form.valid && postTransacciones(transaccionForm)" #transaccionForm="ngForm" novalidate>
+          <div class="content-center align-self-center">
+          <div class="col">
+            <div class="row">
+              <div class="form-group"> 
+              <label for="transaccionMonto"><b>Monto</b></label>
+              <input type="number" name="transaccionMonto" class="form-control" 
+              id="transaccionMonto" [(ngModel)]="transaccionCliente.monto"
+                #transaccionMonto="ngModel" [ngClass] ="{ 'is-invalid':transaccionForm.submit && transaccionMonto.invalid }" required>
+                <div class="invalid-feedback">
+                  <div>Falta el monto de la transaccion</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="form-group"> 
+                <label for="transaccionTiempo"><b>Tiempo</b></label>
+                <input type="number" name="transaccionTiempo" class="form-control" id="transaccionTiempo" [(ngModel)]="transaccionCliente.tiempo"
+                  #transaccionTiempo="ngModel" [ngClass] ="{ 'is-invalid':transaccionForm.submit && transaccionTiempo.invalid }" required>
+                  <div class="invalid-feedback">
+                    <div>Falta el tiempo de la transaccion </div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                  <div class="form-group"> 
+                  <label for="transaccionTipoDePago"><b>TipoDePago</b></label>
+                   <select  name="transaccionTipoDePago" class="form-control" id="transaccionTipoDePago" [(ngModel)]="value"
+                      #transaccionParcial="ngModel" [ngClass] ="{ 'is-invalid':transaccionForm.submit && transaccionParcial.invalid }" required>
+                        <div class="invalid-feedback">
+                          <div>Falta el parcial de la transaccion </div>
+                        </div>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="tarjeta">Tarjeta</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="form-group"> 
+                  <label for="transaccionParcial"><b>Parcial</b></label>
+                  <input type="checkbox" name="transaccionParcial" class="form-control" id="transaccionParcial" [(ngModel)]="transaccionCliente.parcial"
+                    #transaccionParcial="ngModel" [ngClass] ="{ 'is-invalid':transaccionForm.submit && transaccionParcial.invalid }" required>
+                    <div class="invalid-feedback">
+                      <div>Falta el parcial de la transaccion </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                            </div>
+       
+        <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <div class="divider"></div>
+            
+          </div>
+     </div>
+    </div>
+      </form>
+    </div>
+</div>
+       
+              
