@@ -1,8 +1,10 @@
-import {Proveedor} from './proveedor';
-import { TransaccionProveedor } from '../transaccion-proveedor/transaccion-proveedor';
+import { Proveedor } from './proveedor';
+import { TransaccionProveedor } from './transaccion-proveedor';
 
 export class ProveedorDetail extends Proveedor {
-
+    /**
+    * Las transacciones ejecutadas por un proveedor.
+    */
     transaccionesProveedor: TransaccionProveedor[];
 
 }

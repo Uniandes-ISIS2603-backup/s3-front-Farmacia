@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { TransaccionCliente } from './transaccion-cliente';
 import { Observable } from 'rxjs';
 import { TransaccionClienteDetail } from './transaccion-cliente-detail';
+import { environment } from '../../environments/environment';
 
-
-const API_URL = '../../assets/';
+const API_URL = environment.apiURL;
 const transaccionesCliente = 'transaccionesCliente.json';
 
 
