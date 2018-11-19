@@ -1,6 +1,5 @@
 export class Factura {
-
-    id : number;
-    fecha : string;
-    precio : number;
+    id: number;
+    fecha: string;
+    precio: number;
 }

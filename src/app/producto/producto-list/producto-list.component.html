@@ -5,28 +5,17 @@
             <p style="margin-bottom: 0px" *ngIf = "isHidden">Mostrar</p>
         </button>
     </div>
-    <table class = "table table-dark">
-        <thead>
-            <tr>
-                <th> # </th>
-                <th> Nombre </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor ="let producto of productos">
-                <td style = "cursor: pointer;">
-                    <dd class="figure-caption" style = "margin-bottom: 0px" routerLink="/productos/{{producto.id}}"> 
-                        {{producto.id}} 
-                    </dd>
-                </td>
-                <td style = "cursor: pointer;">
-                    <dd class="figure-caption" style = "margin-bottom: 0px" routerLink= "/productos/{{producto.id}}">
-                        {{producto.nombre}}
-                    </dd>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot *ngIf = "!productos || productos.length == 0"><tr><td rowspan="2" colspan="2">No hay nada para mostrar</td></tr></tfoot>
+    <table mat-table [dataSource] = "productos">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let producto">{{producto.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef>#</th>
+            <td mat-cell *matCellDef="let producto">{{producto.id}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
     </table>
     <div class="col-sm-8">
         <app-producto-create *ngIf="!isHidden"></app-producto-create>

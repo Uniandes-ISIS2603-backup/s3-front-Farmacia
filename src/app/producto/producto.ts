@@ -5,8 +5,8 @@ export class Producto {
     precio: number;
     tipoProducto: TipoProducto;
     unidadesDisponibles: number;
-    fotos: [String];
-    videos: [String];
+    fotos: [string];
+    videos: [string];
     perecedero: boolean;
     cantidad: number;
 }

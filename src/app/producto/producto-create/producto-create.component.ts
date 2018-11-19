@@ -17,7 +17,7 @@ export class ProductoCreateComponent implements OnInit {
     private productoService: ProductoService
   ) { }
 
-  regOptions = ['ORDEN_REAPROVISONAMIENTO', 'TRASLADO_BODEGA', 'TRASLADO_BODEGA', 'ROBO', 'PERDIDA', 'VENCIMIENTO'];
+  regOptions = ['ORDEN_REAPROVISONAMIENTO', 'TRASLADO_BODEGA', 'ROBO', 'PERDIDA', 'VENCIMIENTO'];
 
   nuevoProducto: Producto;
 

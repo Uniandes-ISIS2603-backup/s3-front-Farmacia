@@ -8,13 +8,15 @@ import { ProductoCreateComponent } from './producto-create/producto-create.compo
 import { RegistroListComponent } from '../registro/registro-list/registro-list.component';
 import { RegistroModule } from '../registro/registro.module';
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   imports: [
     CommonModule,
     AppRoutingModule,
     RegistroModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ],
   declarations: [ProductoListComponent, ProductoDetailComponent, ProductoCreateComponent],
   providers: [ProductoService]

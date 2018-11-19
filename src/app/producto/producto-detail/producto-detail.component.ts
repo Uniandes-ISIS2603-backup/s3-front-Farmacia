@@ -15,7 +15,7 @@ export class ProductoDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  productoId: String;
+  productoId: string;
   productoDetail: ProductoDetail;
 
   ngOnInit() {
