@@ -10,6 +10,12 @@ import { ProductoCreateComponent } from './producto-create/producto-create.compo
 import { FormsModule } from '@angular/forms';
 import {ProductoAddRegistroComponent} from './producto-add-registro/producto-add-registro.component'
 import { ProductoRegistroComponent} from './producto-registro/producto-registro.component';
+import { MatCommonModule } from '@angular/material/core';
+import { MatCardModule, MatGridListModule } from '@angular/material';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import 'angular-bootstrap-md'
+
+
 
 
 
@@ -21,10 +27,14 @@ import { ProductoRegistroComponent} from './producto-registro/producto-registro.
     HttpClientModule,
     CommonModule,
     AppRoutingModule,
-    RegistroModule,
+    MatCommonModule,
+    MatCardModule,
+    MatGridListModule,
+    NgbCarouselModule,
+    //RegistroModule,
     FormsModule,
-    MatTableModule
-    FormsModule
+    //MatTableModule,
+    //FormsModule
   ],
   declarations: [ProductoListComponent, ProductoDetailComponent, ProductoCreateComponent,
    ProductoRegistroComponent, ProductoAddRegistroComponent],

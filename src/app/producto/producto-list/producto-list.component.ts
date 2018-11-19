@@ -14,7 +14,7 @@ import {MatTableModule} from '@angular/material/table';
 })
 export class ProductoListComponent implements OnInit {
 
-  productos: Producto[] = [];
+  productos: Producto[];
   isHidden: boolean;
 
   columnsToDisplay: string[] = ['id', 'nombre'];
