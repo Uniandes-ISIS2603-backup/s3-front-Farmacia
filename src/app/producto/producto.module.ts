@@ -13,7 +13,6 @@ import { ProductoRegistroComponent} from './producto-registro/producto-registro.
 import { MatCommonModule } from '@angular/material/core';
 import { MatCardModule, MatGridListModule } from '@angular/material';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-import 'angular-bootstrap-md'
 
 
 

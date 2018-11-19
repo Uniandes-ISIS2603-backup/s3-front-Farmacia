@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Registro } from './registro';
+import { Registro } from './../producto/registro';
 import { Observable } from 'rxjs';
 
 const API_URL = '../../assets/';

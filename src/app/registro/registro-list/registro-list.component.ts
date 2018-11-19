@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RegistroService } from '../registro.service';
-import { Registro } from '../registro';
+import { Registro } from '../../producto/registro';
 
 @Component({
   selector: 'app-registro-list',
