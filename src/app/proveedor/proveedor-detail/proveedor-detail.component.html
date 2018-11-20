@@ -1,10 +1,18 @@
-<div class="col-md-12">
-    <div class="container-fluid">
-        <p class="h2 p-3">Proveedor: {{proveedorDetail.nombre}}</p>
-        <br>
-        <div class="jumbotron umnbotron-fluid">
-            <p class="h4 p-3" style=" text-align: center"> Transacciones ejecutadas</p>
-            <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor"></app-transaccion-proveedor-list>
+<div class="container-fluid">
+    <p class="h2 p-3">Proveedor: {{proveedorDetail.nombre}}</p>
+    <br>
+    <div class="jumbotron umnbotron-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <p class="h4 p-3" style=" text-align: center"> Transacciones ejecutadas</p>
+                <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor"></app-transaccion-proveedor-list>
+            </div>
+            <div class="col-sm-4">
+                <p>Proo</p>
+                <div *ngFor="let producto of proveedorDetail.productos">
+                    <p class="caption" routerLink="/productos/{{producto.id}}">{{producto.id}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

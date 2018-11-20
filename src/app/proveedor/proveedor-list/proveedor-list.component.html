@@ -3,7 +3,6 @@
         <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn" (click)="showHideCreate()">Crear
             un proveedor</button>
     </div>
-    <div id="collapseExample">
         <div class="row">
             <div *ngFor="let proveedor of proveedores" class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
@@ -62,5 +61,4 @@
             </div>
         </div>
 
-    </div>
 </div>
