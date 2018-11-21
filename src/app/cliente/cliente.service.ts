@@ -42,7 +42,11 @@ export class ClienteService {
     }
     getTransaccionCliente(clienteId,transaccion): Observable<TransaccionClienteDetail>
     {
-        return this.http.get<TransaccionClienteDetail>(API_URL+clientes+'/'+clienteId+transacciones+'/'+transaccion)
+        return this.http.get<TransaccionClienteDetail>(API_URL+clientes+'/'+clienteId+transacciones+'/'+transaccion);
+    }
+    agregarProducto(clienteId,transaccionId,productoId)
+    {
+        this.http.post(API_URL+clientes+'/'+clienteId+transacciones+'/'+transaccionId,productoId);
     }
 
 }

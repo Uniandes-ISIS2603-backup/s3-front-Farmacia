@@ -1,20 +1,26 @@
 <div class="container-fluid">
-  <!--div class="jumbotron umnbotron-fluid">
+  <div class="jumbotron umnbotron-fluid">
     <p class="h1 p-5">Informacion del cliente</p>
-    <p class="h3 p-3">id del cliente: {{transaccionDetail.cliente.id}}</p>
-    <p class="h3 p-3">Nombre del cliente: {{transaccionDetail.cliente.nombre}}</p>
-    <p class="h3 p-3">Apellido del cliente: {{transaccionDetail.cliente.apellido}}</p>
-  </div>-->
+    <p class="h3 p-3">id del cliente: {{transaccionDetail.cliente?.id}}</p>
+    <p class="h3 p-3">Nombre del cliente: {{transaccionDetail.cliente?.nombre}}</p>
+    <p class="h3 p-3">Apellido del cliente: {{transaccionDetail.cliente?.apellido}}</p>
+  </div>
   <div class="jumbotron umnbotron-fluid">
     <p class="h1 p-5">Informacion de la transacción</p>
     <p class="h3 p-3">id de la transaccion: {{transaccionDetail.id}} </p>
     <p class="h3 p-3">Monto total: $ {{transaccionDetail.monto}}</p>
     <p class="h3 p-3">Tipo de pago: {{transaccionDetail.tipoDePago}} </p>
-    
   </div>
-
+  <p>
+    <button [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" type="button" class="btn"
+            (click)="showHideEdit()">Agregar un producto</button>
+    
+</p>
+<div *ngIf="showEdit">
+  <app-cliente-transaccion-cliente-edit [idCliente]="transaccionDetail.cliente.id" [idTransaccion]="transaccionDetail?.id"></app-cliente-transaccion-cliente-edit>
+</div>
   <div class="jumbotron umnbotron-fluid">
     <p class= "h4 p-3" style=" text-align: center"> Productos de la transacción </p> 
-
+    <app-productos-transaccion-cliente-list [productos]="transaccionDetail.productos"></app-productos-transaccion-cliente-list>
     </div>
 </div>
