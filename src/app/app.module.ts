@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -25,6 +26,11 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     ProveedorModule,
     ProductoModule,
+<<<<<<< HEAD
+=======
+    NgxPermissionsModule.forRoot(),
+    //FacturaModule,
+>>>>>>> 60328d2b88b003677501f634c71dde137aaf2851
     ClienteModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
