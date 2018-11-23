@@ -1,10 +1,7 @@
 import { Component, OnInit ,Output, EventEmitter, Input} from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
-import { ProductoService } from 'src/app/producto/producto.service';
 import { ToastrService } from 'ngx-toastr';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Producto } from 'src/app/producto/producto';
-import {TransaccionProveedor} from '../transaccion-proveedor';
+import { Router } from '@angular/router';
 import { Proveedor } from '../proveedor';
 import { ProveedorDetail } from '../proveedor-detail';
 
@@ -17,10 +14,8 @@ export class ProveedorEditComponent implements OnInit {
 
   constructor(
     private proveedorService : ProveedorService,
-    private productoService : ProductoService,
     private toastrService : ToastrService,
-    private router : Router,
-    private route : ActivatedRoute
+    private router : Router
   ) { }
 
   @Input() proveedor : Proveedor;

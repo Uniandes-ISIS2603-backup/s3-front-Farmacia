@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProveedorDetail } from '../proveedor-detail';

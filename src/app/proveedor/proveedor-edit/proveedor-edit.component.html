@@ -1,11 +1,8 @@
 <div class="row">
   <div class="col-12">
-      <br>
-      <h2 class="text-center">Edit an provider</h2>
-      <br>
       <form name="proveedor" (ngSubmit)="f.form.valid && guardarCambios()" #f="ngForm" novalidate>
             <div class="form-group">
-              <label for="providerName"><b>Nombre</b></label>
+              <label for="providerName"><b>Nuevo nombre</b></label>
               <input type="text" name="providerName" class="form-control" id="providerName" [(ngModel)]="proveedor.nombre"
                      #authorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && providerName.invalid }" required>
                      <div class="invalid-feedback">
@@ -18,8 +15,9 @@
 <div class="row">
   <div class="col-12">
     <div class="row form-inline justify-content-center align-self-center">
-      <button type="submit" class="btn btn-success" (click)=guardarCambios()>Editar</button>
-      <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
+      <button type="submit" class="btn btn-success" (click)="guardarCambios()" data-dismiss="modal">Editar</button>
+      <button type="button" class="btn btn-danger" (click)="cancelEdition()" data-dismiss="modal">Cancelar</button>
     </div>
   </div>
 </div>
+
