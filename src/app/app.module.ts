@@ -16,6 +16,10 @@ import { ToastrModule } from 'ngx-toastr';
 
 
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,       
@@ -26,11 +30,8 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     ProveedorModule,
     ProductoModule,
-<<<<<<< HEAD
-=======
     NgxPermissionsModule.forRoot(),
     //FacturaModule,
->>>>>>> 60328d2b88b003677501f634c71dde137aaf2851
     ClienteModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
