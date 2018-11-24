@@ -13,6 +13,7 @@ import { ProductoModule} from './producto/producto.module';
 import { ClienteModule } from './cliente/cliente.module';
 import {TransaccionClienteModule} from './transaccion-cliente/transaccion-cliente.module';
 import { ToastrModule } from 'ngx-toastr';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 
 
 
@@ -31,7 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
     ProveedorModule,
     ProductoModule,
     NgxPermissionsModule.forRoot(),
-    //FacturaModule,
+    ModalDialogModule.forRoot(),
     ClienteModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({

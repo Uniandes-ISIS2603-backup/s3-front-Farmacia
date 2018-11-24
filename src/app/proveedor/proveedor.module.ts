@@ -13,6 +13,8 @@ import { TransaccionProveedorCreateComponent } from './transaccion-proveedor-cre
 import { TransaccionProveedorListComponent } from './transaccion-proveedor-list/transaccion-proveedor-list.component';
 import { ProveedorEditComponent } from './proveedor-edit/proveedor-edit.component';
 import {ProductoModule} from '../producto/producto.module';
+import {NgxPermissionsModule} from 'ngx-permissions';
+
 
 /**
 * Importaciones, declaraciones y recursos necesarios para que el ente proveedor se desarrolle en sus componentes.
@@ -24,7 +26,8 @@ import {ProductoModule} from '../producto/producto.module';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        ProductoModule
+        ProductoModule,
+        NgxPermissionsModule
   ],
   declarations: [ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent, TransaccionProveedorCreateComponent, TransaccionProveedorDetailComponent, TransaccionProveedorListComponent, ProveedorEditComponent],
   providers : [ProveedorService]

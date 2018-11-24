@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewContainerRef} from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
 import { Proveedor } from '../proveedor';
 import { ProveedorDetail } from '../proveedor-detail';
+import {ToastrService} from 'ngx-toastr';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 /**
 * El componente listar del proveedor.
 */
@@ -22,7 +24,11 @@ export class ProveedorListComponent implements OnInit {
   * Constructor for the providerlist 
   * @param proveedorService The provider's services supplier
   */
-  constructor(private proveedorService: ProveedorService,
+  constructor(
+      private proveedorService: ProveedorService,
+      private modalDialogService: ModalDialogService,
+      private viewRef: ViewContainerRef,
+      private toastrService: ToastrService
     ) { }
 
   /**
@@ -87,6 +93,33 @@ getProveedorDetail(): void {
 updateProveedor(): void {
     this.showEdit = false;
 }
+
+deleteProveedor(proveedorId): void {
+    this.modalDialogService.openDialog(this.viewRef, {
+        title: 'Eliminar un proveedor.',
+        childComponent: SimpleModalComponent,
+        data: {text: '¿Está seguro de eliminar a este proveedor? Recuede que esta acción es irreversible'},
+        actionButtons: [
+            {
+                text: 'Yes',
+                buttonClass: 'btn btn-success',
+                onAction: () => {
+                    this.proveedorService.deleteProveedor(proveedorId).subscribe(() => {
+                        this.toastrService.success("El proveedor fue eliminado satisfactoriamente.", "Proveedor eliminado");
+                        this.ngOnInit();
+                    }, err => {
+                        this.toastrService.error(err, "Error");
+                    });
+                    return true;
+                }
+            },
+            {text: 'No', onAction: () => true}
+        ]
+    });
+    this.ngOnInit();
+}
+
+
 /**
 * This will initialize the component by retrieving the list of authors from the service
 * This method will be called when the component is created
