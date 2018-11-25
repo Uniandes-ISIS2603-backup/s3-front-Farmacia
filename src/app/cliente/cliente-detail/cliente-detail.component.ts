@@ -4,8 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import {ClienteDetail} from '../cliente-detail';
 import {ClienteAddTransaccionClienteComponent} from '../cliente-add-transaccion-cliente/cliente-add-transaccion-cliente.component';
 
-
-
+/**
+ * Representa el componente detalle de un cliente
+ */
 @Component({
     selector: 'app-cliente-detail',
     templateUrl: './cliente-detail.component.html',
@@ -13,20 +14,26 @@ import {ClienteAddTransaccionClienteComponent} from '../cliente-add-transaccion-
 })
 export class ClienteDetailComponent implements OnInit {
 
+    /**
+     * El cliente detallado
+     */
     @Input() clienteDetail: ClienteDetail;
     showCreate: boolean;
 
+    /**
+     * Contructor for the detailCliente component
+     * @param clienteService The cliente's services supplier
+     * @param route The route which helps to retrieves the id of the cliente to be shown
+     */
     constructor(
         private clienteService: ClienteService,
         private route: ActivatedRoute
     ) { }
 
+    /**
+     * el id del cliente
+     */
     cliente_id: number;
-    cliente_nombre: string;
-    cliente_apellido: string;
-    cliete_ciudad: string;
-    cliente_direccionEnvio: string;
-    cliente_cedula: number;
 
     @ViewChild(ClienteAddTransaccionClienteComponent) transaccionAddComponent: ClienteAddTransaccionClienteComponent;
 
@@ -43,6 +50,11 @@ export class ClienteDetailComponent implements OnInit {
     {
         this.getClienteDetail;
     }
+
+        /**
+    * The method which initializes the component.
+    * We need to create the cliente so it is never considered as undefined
+    */
     ngOnInit() {
         //el mas convierte el id de String a numbre
         this.cliente_id = +this.route.snapshot.paramMap.get('id');

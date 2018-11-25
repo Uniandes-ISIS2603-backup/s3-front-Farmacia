@@ -13,12 +13,21 @@ import { Cliente } from '../cliente';
 })
 export class ClienteEditComponent implements OnInit{
 
+    /**
+     * El contructor del componente para editar un cliente
+     * @param clienteService The cliente's services provider
+     * @param toastrService  the toastr to show messages to the user
+     * @param router 
+     */
     constructor(
         private clienteService: ClienteService,
         private toastrService: ToastrService,
         private router: Router
     ){}
 
+    /**
+     * El cliente e editar
+     */
     @Input() cliente : Cliente;
 
    /**
@@ -33,6 +42,9 @@ export class ClienteEditComponent implements OnInit{
    */
    @Output() update = new EventEmitter();
 
+   /**
+    * Guarda los cambios que se le han hecho al cliente indicado
+    */
    guardarCambios() {
     this.clienteService.updateCliente(this.cliente)
     .subscribe(() => {
@@ -43,13 +55,18 @@ export class ClienteEditComponent implements OnInit{
     });
   }
 
+  /**
+   * Cancela la edicion de un cliente
+   */
   cancelEdition(): void {
     this.toastrService.warning('The cliente wasn\'t edited', 'Cliente edition');
     this.router.navigate(['/clientes/list']);
     this.cancel.emit();
 }
 
-
+  /**
+  * Inicializamos el componente.
+  */
   ngOnInit() 
   {
     this.cliente = new ClienteDetail();
