@@ -3,7 +3,7 @@
     <br>
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-6" style="margin:0 auto;">
+        <div class="col-md-4" style="margin:0 auto;">
             <div class="card" style="width: 18rem;">
                 <img id="imgPro" class=" img-fluid" src="https://i.pinimg.com/originals/49/21/79/492179e49346702c048b4ccc643fe737.jpg"
                     alt="card image">
@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
             <table class="table table-bordered table-hover">
                 <thead>
                     <th colspan="5">Productos relacionados</th>
@@ -22,26 +22,46 @@
                     <th>Nombre</th>
                     <th>Tipo</th>
                 </thead>
-                <tr *ngFor="let producto of proveedorDetail.productos">
-                    <td>
-                        <dd class="figure-caption" routerLink="/productos/{{producto.id}}">{{producto.nombre}}</dd>
-                    </td>
-                    <td>
-                        <dd class="figure-caption" routerLink="/productos/{{producto.id}}">{{producto.tipoProducto}}</dd>
-                    </td>
-                </tr>
-                <tr>
-                        <td colspan="5">
-                                <div class="row justify-content-center align-self-center">
-                                    <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
-                                        class="btn">Añadir un producto a los ofrecidos</button>
-                                </div>
+                    <tr *ngFor="let producto of proveedorDetail.productos">
+                        <td>
+                            <dd class="figure-caption" routerLink="/productos/{{producto.id}}">{{producto.nombre}}</dd>
                         </td>
-                </tr>
-                </table>
+                        <td>
+                            <dd class="figure-caption" routerLink="/productos/{{producto.id}}">{{producto.tipoProducto}}</dd>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <div class="row justify-content-center align-self-center">
+                                <button [ngClass]="{ 'btn-primary': !showAsociate, 'btn-danger': showAsociate }" type="button"
+                                    class="btn" (click) = "showHideAsociate()"  data-toggle="modal" data-target="#myModal">Añadir un producto a los ofrecidos</button>
+                            </div>
+                        </td>
+                    </tr>
+            </table>
         </div>
         <div class="col-md-3">
             <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor"></app-transaccion-proveedor-list>
         </div>
     </div>
+
+    <div *ngIf="showAsociate">
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Asociar un producto al proveedor</h4>
+                            <button type="button" class="close" data-dismiss="modal" (click)="showHideAsociate() ">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
