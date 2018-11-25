@@ -68,4 +68,18 @@ export class ProveedorService {
    public createTransaccionProveedor(transaccionProveedor, idProveedor): Observable<TransaccionProveedorDetail> {
     return this.http.post<TransaccionProveedorDetail>(API_URL + proveedores + '/' + idProveedor + transaccionProveedor, transaccionProveedor);
    }
+   /**
+    * Edita la informacion de un proveedor
+    * @param proveedor 
+    * @returns Confirmacion de la actualizacion del proveedor
+    */
+   updateProveedor(proveedor): Observable<ProveedorDetail>{
+       return this.http.put<ProveedorDetail>(API_URL + proveedores + '/' + proveedor.id , proveedor);
+   } 
+   /**
+    * 
+    */
+   deleteProveedor (proveedorId): Observable<boolean> {
+    return this.http.delete<boolean>(API_URL + proveedores + '/' + proveedorId);
+}
 }

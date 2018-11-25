@@ -13,12 +13,10 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './producto-list.component.html',
   styleUrls: ['./producto-list.component.css']
 })
-export class ProductoListComponent implements OnInit {
+export class    ProductoListComponent implements OnInit {
 
   productos: Producto[];
   isHidden: boolean;
-
-  columnsToDisplay: string[] = ['id', 'nombre'];
 
   constructor(private productoService: ProductoService, config: NgbCarouselConfig) {
     // this.isHidden = (Math.random() * 2) === 0;

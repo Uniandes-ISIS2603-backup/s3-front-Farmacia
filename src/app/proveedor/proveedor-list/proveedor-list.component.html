@@ -1,66 +1,92 @@
 <div class="container-fluid ">
-    <div class="row justify-content-center align-self-center">
-        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn" (click)="showHideCreate()">Crear
-            un proveedor</button>
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100 ver1 m-b-110">
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th>Proveedores</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="table100-body js-pscroll">
+                        <table>
+                            <tr *ngFor="let proveedor of proveedores" class="row100 body">
+                                <td style="cursor: pointer;" (click)="onSelected(proveedor.id)" id="nom">
+                                    <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.id}}</dd>
+                                </td>
+                                <td style="cursor: pointer;" (click)="onSelected(proveedor.id)" id="nom">
+                                    <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.nombre}}</dd>
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary" (click)="showHideEdit(proveedor.id)" data-toggle="modal"
+                                        data-target="#myModal"><span class="fa fa-pencil"></span></button>
+                                    <button type = "button "class="btn btn-danger" (click)="deleteProveedor(proveedor.id)"><span class="fa fa-trash"></span></button>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
+                                        class="btn" (click)="showHideCreate()" data-toggle="modal" data-target="#myModal2"><span
+                                            class="fa fa-plus"></span></button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="collapseExample">
-        <div class="row">
-            <div *ngFor="let proveedor of proveedores" class="col-xs-12 col-sm-6 col-md-4">
-                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-                    <div class="mainflip">
-                        <div class="frontside">
-                            <div class="card  text-white bg-dark mb-3">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://images.unsplash.com/photo-1512850183-6d7990f42385?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bb095116a8cfd26cec5c171f8438a213&w=1000&q=80"
-                                            alt="card image"></p>
-                                    <h4 class="card-title">{{proveedor.nombre}}</h4>
-                                    <p class="card-text">Proveedor de Drugshouse.</p>
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+    <div class="col-8">
+        <div *ngIf="showCreate">
+
+                <div class="modal" id="myModal2">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+        
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Crear un proveedor</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+        
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
                                 </div>
                             </div>
                         </div>
-                        <div class="backside">
-                            <div class="card  text-white bg-dark mb-3" routerLink="/proveedores/{{proveedor.id}}">
-                                <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Id : {{proveedor.id}}</h4>
-                                    <p class="card-text">De Drugshouse para el mundo. Haz click para consultar su
-                                        informacion.
-                                    </p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-skype"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="#">
-                                                <i class="fa fa-google"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                    </div>
+        </div>
+        <div *ngIf="showEdit">
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Editar un proveedor</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <app-proveedor-edit [proveedor]="selectedProveedor" (cancel)="showHideEdit(selectedProveedor.id)"
+                                (update)="updateProveedor()"></app-proveedor-edit>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-8">
-
-            <div *ngIf="showCreate">
-                <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
-            </div>
-        </div>
-
     </div>
 </div>

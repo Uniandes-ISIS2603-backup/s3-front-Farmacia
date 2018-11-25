@@ -1,9 +1,5 @@
 <div class="row">
-  <div class="col-3"></div>
-  <div class="col-9">
-    <br>
-    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-      <div class="card-header">Adicionar un proveedor</div>
+  <div class="col-12">
       <form name="proveedor" (ngSubmit)="f.form.valid && createProveedor()" #f="ngForm" novalidate>
         <div class="form-group">
           <label for="proveedorName"><b>Nombre</b></label>
@@ -14,11 +10,10 @@
           </div>
         </div>
         <div class="row form-inline justify-content-center align-self-center">
-          <button type="submit" class="btn btn-success">Crear</button>
-          <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+          <button type="submit" class="btn btn-success" (click)="createProveedor()" data-dismiss="modal">Crear</button>
+          <button type="button" class="btn btn-danger" (click)="cancelCreation()" data-dismiss="modal">Cancelar</button>
         </div>
       </form>
-    </div>
   </div>
   <div class="col-3"></div>
 </div>

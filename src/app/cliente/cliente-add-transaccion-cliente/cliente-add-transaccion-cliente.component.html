@@ -28,13 +28,13 @@
             <div class="row">
                   <div class="form-group"> 
                   <label for="transaccionTipoDePago"><b>TipoDePago</b></label>
-                   <select  name="transaccionTipoDePago" class="form-control" id="transaccionTipoDePago" [(ngModel)]="value"
+                   <select  name="transaccionTipoDePago" class="form-control" id="transaccionTipoDePago" [(ngModel)]="transaccionCliente.tipoDePago"
                       #transaccionParcial="ngModel" [ngClass] ="{ 'is-invalid':transaccionForm.submit && transaccionParcial.invalid }" required>
                         <div class="invalid-feedback">
                           <div>Falta el parcial de la transaccion </div>
                         </div>
-                    <option value="efectivo">Efectivo</option>
-                    <option value="tarjeta">Tarjeta</option>
+                    <option value="efectivo" >Efectivo</option>
+                    <option value="tarjeta" >Tarjeta</option>
                   </select>
                 </div>
               </div>
