@@ -1,18 +1,47 @@
 <div class="container-fluid">
-    <p class="h2 p-3">Proveedor: {{proveedorDetail.nombre}}</p>
     <br>
-    <div class="jumbotron umnbotron-fluid">
-        <div class="row">
-            <div class="col-sm-8">
-                <p class="h4 p-3" style=" text-align: center"> Transacciones ejecutadas</p>
-                <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor"></app-transaccion-proveedor-list>
-            </div>
-            <div class="col-sm-4">
-                <p>Proo</p>
-                <div *ngFor="let producto of proveedorDetail.productos">
-                    <p class="caption" routerLink="/productos/{{producto.id}}">{{producto.id}}</p>
+    <br>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6" style="margin:0 auto;">
+            <div class="card" style="width: 18rem;">
+                <img id="imgPro" class=" img-fluid" src="https://i.pinimg.com/originals/49/21/79/492179e49346702c048b4ccc643fe737.jpg"
+                    alt="card image">
+                <div class="card-body text-center bg-primary">
+                    <h4 class="card-text text-center">{{proveedorDetail.nombre}}</h4>
+                    <h5 class="card-text text-center">{{proveedorDetail.id}}</h5>
                 </div>
             </div>
+        </div>
+        <div class="col-md-2">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th colspan="5">Productos relacionados</th>
+                </thead>
+                <thead class="thead-dark">
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                </thead>
+                <tr *ngFor="let producto of proveedorDetail.productos">
+                    <td>
+                        <dd class="figure-caption" routerLink="/productos/{{producto.id}}">{{producto.nombre}}</dd>
+                    </td>
+                    <td>
+                        <dd class="figure-caption" routerLink="/productos/{{producto.id}}">{{producto.tipoProducto}}</dd>
+                    </td>
+                </tr>
+                <tr>
+                        <td colspan="5">
+                                <div class="row justify-content-center align-self-center">
+                                    <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
+                                        class="btn">Añadir un producto a los ofrecidos</button>
+                                </div>
+                        </td>
+                </tr>
+                </table>
+        </div>
+        <div class="col-md-3">
+            <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor"></app-transaccion-proveedor-list>
         </div>
     </div>
 </div>
