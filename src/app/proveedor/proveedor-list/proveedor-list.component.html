@@ -1,5 +1,15 @@
 <div class="container-fluid ">
     <div class="limiter">
+            <form style="margin:10px;">
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" class="form-control"  id="myInput" placeholder="Filtrar por nombre">
+                        </div>
+                        <div class="col">
+                            <button type="button" (click)="myFunction()" class="btn btn-primary">Aplicar filtro</button>
+                        </div>
+                    </div>
+                </form>
         <div class="container-table100">
             <div class="wrap-table100">
                 <div class="table100 ver1 m-b-110">
@@ -13,7 +23,8 @@
                         </table>
                     </div>
                     <div class="table100-body js-pscroll">
-                        <table>
+                        <table id="myTable">
+                            <tbody>
                             <tr *ngFor="let proveedor of proveedores" class="row100 body">
                                 <td style="cursor: pointer;" (click)="onSelected(proveedor.id)" id="nom">
                                     <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.id}}</dd>
@@ -24,7 +35,8 @@
                                 <td>
                                     <button class="btn btn-primary" (click)="showHideEdit(proveedor.id)" data-toggle="modal"
                                         data-target="#myModal"><span class="fa fa-pencil"></span></button>
-                                    <button type = "button "class="btn btn-danger" (click)="deleteProveedor(proveedor.id)"><span class="fa fa-trash"></span></button>
+                                    <button type="button " class="btn btn-danger" (click)="deleteProveedor(proveedor.id)"><span
+                                            class="fa fa-trash"></span></button>
 
                                 </td>
                             </tr>
@@ -38,9 +50,10 @@
                                 <td>
                                     <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
                                         class="btn" (click)="showHideCreate()" data-toggle="modal" data-target="#myModal2"><span
-                                            class="fa fa-plus" ></span></button>
+                                            class="fa fa-plus"></span></button>
                                 </td>
                             </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -50,23 +63,23 @@
     <div class="col-8">
         <div *ngIf="showCreate">
 
-                <div class="modal" id="myModal2">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-        
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Crear un proveedor</h4>
-                                    <button type="button" class="close" data-dismiss="modal" (click)="showHideCreate()">&times;</button>
-                                </div>
-        
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
-                                </div>
-                            </div>
+            <div class="modal" id="myModal2">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Crear un proveedor</h4>
+                            <button type="button" class="close" data-dismiss="modal" (click)="showHideCreate()">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
                         </div>
                     </div>
+                </div>
+            </div>
         </div>
         <div *ngIf="showEdit">
             <div class="modal" id="myModal">

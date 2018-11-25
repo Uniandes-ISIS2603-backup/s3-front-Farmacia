@@ -37,6 +37,7 @@ div {
 #nom{
     text-align:  center;
 }
+
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 * {
@@ -261,6 +262,10 @@ table {
 
 .table100.ver1 .ps__rail-y .ps__thumb-y::before {
   background-color: #cccccc;
+}
+
+#myInput{
+  border:2px solid #FF0000;
 }
 
 
