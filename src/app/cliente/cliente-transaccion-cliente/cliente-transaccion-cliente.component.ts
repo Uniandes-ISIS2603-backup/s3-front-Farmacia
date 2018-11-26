@@ -9,7 +9,7 @@ import { TransaccionClienteDetail } from 'src/app/transaccion-cliente/transaccio
 })
 export class ClienteTransaccionClienteComponent implements OnInit {
   
-  @Input() transacciones : TransaccionCliente; 
+  @Input() transacciones : TransaccionClienteDetail; 
   @Input() clienteId:number;
   @Input() transaccionClienteId:number;
 
