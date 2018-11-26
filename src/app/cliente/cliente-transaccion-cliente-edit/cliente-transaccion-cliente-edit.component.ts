@@ -31,9 +31,8 @@ export class ClienteTransaccionClienteEditComponent implements OnInit {
 
   agregarProducto (idForm:NgForm):void
   {
-
-    this.clienteService.agregarProducto(this.idCliente,this.idTransaccion,this.idProducto)
-    
+      
+    this.clienteService.agregarProducto(this.idCliente,this.idTransaccion,this.idProducto) 
    
   }
 

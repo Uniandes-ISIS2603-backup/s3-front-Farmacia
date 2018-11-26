@@ -36,8 +36,8 @@ export class ClienteDetailTransaccionClienteComponent implements OnInit {
     if(this.clienteId){
       this.transaccionDetail = new TransaccionClienteDetail();
       this.getTransaccionDetail(this.clienteId,this.transaccionId);
-  }
- 
+    }
+   
   }
   showHideEdit(): void {
     this.showEdit = !this.showEdit; 

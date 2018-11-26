@@ -7,6 +7,9 @@ import { environment } from '../../environments/environment';
 import { ClienteDetail } from './cliente-detail';
 import { TransaccionCliente } from './transaccion-cliente';
 import{TransaccionClienteDetail} from './transaccion-Cliete-detail';
+import {ProductoDetail} from '../producto/producto-detail';
+import {ProductoService} from '../producto/producto.service'
+import { variable } from '@angular/compiler/src/output/output_ast';
 
 /**
  * Ruta que maneja la conexion con el back
@@ -26,8 +29,10 @@ export class ClienteService {
      * Contructor del servicio
      * @param http The httpClient
      */
-    constructor(private http: HttpClient) { }
-
+    constructor(private http: HttpClient,
+        private servicioProducto:ProductoService 
+        ) { }
+        private productoDetail: Observable<ProductoDetail>;
     /**
      * Return the observable Object containung the list of clientes retrieved from the API
      */
@@ -75,10 +80,18 @@ export class ClienteService {
     {
         return this.http.get<TransaccionClienteDetail>(API_URL+clientes+'/'+clienteId+transacciones+'/'+transaccion);
     }
+    
     agregarProducto(clienteId,transaccionId,productoId)
     {
-        this.http.post(API_URL+clientes+'/'+clienteId+transacciones+'/'+transaccionId,productoId);
+        
+        this.http.post(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId+productos+'/'+productoId,this.productoDetail);
+      
     }
+    getProductos(clienteId,transaccionId):Observable<ProductoDetail[]>
+    {
+       return this.http.get<ProductoDetail[]>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId+productos);
+    }
+
 
     /**
      * Elimina un cliente por id
