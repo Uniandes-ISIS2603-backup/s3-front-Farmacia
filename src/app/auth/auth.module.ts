@@ -6,7 +6,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-//import { AuthLoginComponent } from './auth-login/auth-login.component';
+import { AuthLoginComponent } from './auth-login/auth-login.component';
 //import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
 
 @NgModule({
@@ -18,8 +18,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         FormsModule,
         NgbModule
     ],
-   // declarations: [AuthLoginComponent, AuthSignUpComponent],
+    declarations: [AuthLoginComponent],
     providers: [AuthService],
-    //bootstrap: [AuthLoginComponent]
+    bootstrap: [AuthLoginComponent]
 })
 export class AuthModule { }

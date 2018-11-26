@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions'
-import 'rxjs/add/operator/catch';
+//import 'rxjs/add/operator/catch';
 import { ClienteService } from '../cliente/cliente.service';
 
 /**
@@ -23,13 +23,16 @@ export class AuthService {
         this.roleService.flushRoles();
         this.permissionsService.loadPermissions(['edit_proveedor_permission', 'create_proveedor_permission', 'edit_cliente_permission', 'create_transaccionCliente_permission']);
         const role = localStorage.getItem('role');
+        const cedula = localStorage.getItem('cedula');
+        console.log(role + " " + cedula);
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
-            this.setAdministratorRole();
+            this.setAdministratorRole(cedula);
         } else {
-            this.setClientRole();
+            this.setClientRole(cedula);
         }
+        
     }
 
     setGuestRole(): void {
@@ -37,16 +40,18 @@ export class AuthService {
         this.roleService.addRole('GUEST', ['']);
     }
 
-    setClientRole(): void {
+    setClientRole(cedula): void {
         this.roleService.flushRoles();
         this.roleService.addRole('CLIENT', ['create_transaccionCliente_permission']);
         localStorage.setItem('role', 'CLIENT');
+        localStorage.setItem('cedula', cedula )
     }
 
-    setAdministratorRole(): void {
+    setAdministratorRole(cedula): void {
         this.roleService.flushRoles();
         this.roleService.addRole('ADMIN', ['edit_proveedor_permission', 'create_proveedor_permission', 'edit_cliente_permission']);
         localStorage.setItem('role', 'ADMIN');
+        localStorage.setItem('cedula', cedula);
     }
 
     printRole(): void {
@@ -60,9 +65,9 @@ export class AuthService {
     login(cedula, role): void {
         if (this.clienteService.getClienteDetailByCedula(cedula) != null) {
             if (role === 'Administrator') {
-                this.setAdministratorRole();
+                this.setAdministratorRole(cedula);
             } else {
-                this.setClientRole()
+                this.setClientRole(cedula)
             }
             this.router.navigateByUrl('/proveedores/list');
         }
@@ -75,6 +80,7 @@ export class AuthService {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
+        localStorage.removeItem('cedula');
         this.router.navigateByUrl('/');
     }
 }

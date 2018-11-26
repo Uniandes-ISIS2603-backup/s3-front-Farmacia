@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import {NgxPermissionsGuard} from 'ngx-permissions';
+import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 
 import { ProveedorListComponent } from '../proveedor/proveedor-list/proveedor-list.component';
 import { ProductoListComponent } from '../producto/producto-list/producto-list.component';
@@ -86,6 +88,21 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: TransaccionClienteDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'auth',
+        children: [
+            {
+                path: 'login',
+                component: AuthLoginComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
             }
         ]
     }
