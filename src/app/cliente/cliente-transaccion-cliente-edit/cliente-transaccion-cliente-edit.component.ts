@@ -32,7 +32,7 @@ export class ClienteTransaccionClienteEditComponent implements OnInit {
   agregarProducto ():void
   {
       
-    this.clienteService.agregarProducto(this.idCliente,this.idTransaccion,this.idProducto) 
+    this.clienteService.agregarProducto(this.idCliente,this.idTransaccion,this.idProducto).subscribe()
    
   }
 
