@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions'
 //import 'rxjs/add/operator/catch';
 import { ClienteService } from '../cliente/cliente.service';
+import { Cliente } from '../cliente/cliente';
 
 /**
  * The service provider for everything related to authentication
@@ -18,13 +19,14 @@ export class AuthService {
      */
     constructor(private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService, private clienteService: ClienteService) { }
 
+
     start(): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
         this.permissionsService.loadPermissions(['edit_proveedor_permission', 'create_proveedor_permission', 'edit_cliente_permission', 'create_transaccionCliente_permission']);
         const role = localStorage.getItem('role');
         const cedula = localStorage.getItem('cedula');
-        console.log(role + " " + cedula);
+        console.log("Esto es el START " + role + " " + cedula);
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
@@ -63,14 +65,15 @@ export class AuthService {
      * @param role The desired role to set to the user
      */
     login(cedula, role): void {
-        if (this.clienteService.getClienteDetailByCedula(cedula) != null) {
+       // console.log("ESTO ES SERVICE DEL AUTH " + Object.values(this.cliente));
+        //if (this.cliente != null) {
             if (role === 'Administrator') {
                 this.setAdministratorRole(cedula);
             } else {
                 this.setClientRole(cedula)
             }
             this.router.navigateByUrl('/proveedores/list');
-        }
+        //}
     }
 
     /**

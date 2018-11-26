@@ -53,7 +53,7 @@ export class ClienteService {
      * @param clienteCedula Cedula del cliente a retornar
      */
     getClienteDetailByCedula(clienteCedula): Observable<ClienteDetail>{
-        return this.http.get<ClienteDetail>(API_URL + clientes + '/cedula' + clienteCedula);
+        return this.http.get<ClienteDetail>(API_URL + clientes + '/cedula/' + clienteCedula);
     }
 
     /**
