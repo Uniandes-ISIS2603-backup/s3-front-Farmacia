@@ -15,6 +15,8 @@ import { ProveedorEditComponent } from './proveedor-edit/proveedor-edit.componen
 import {ProductoModule} from '../producto/producto.module';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { TransaccionProveedorEditComponent } from './transaccion-proveedor-edit/transaccion-proveedor-edit.component';
+import { TransaccionProveedorProductosComponent } from './transaccion-proveedor-productos/transaccion-proveedor-productos.component';
 
 
 
@@ -32,7 +34,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
         NgxPermissionsModule,
         NgbCarouselModule
   ],
-  declarations: [ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent, TransaccionProveedorCreateComponent, TransaccionProveedorDetailComponent, TransaccionProveedorListComponent, ProveedorEditComponent],
+  declarations: [ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent, TransaccionProveedorCreateComponent, TransaccionProveedorDetailComponent, TransaccionProveedorListComponent, ProveedorEditComponent, TransaccionProveedorEditComponent, TransaccionProveedorProductosComponent],
   providers : [ProveedorService]
 })
 export class ProveedorModule { }

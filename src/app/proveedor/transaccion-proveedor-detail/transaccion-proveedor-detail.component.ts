@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
 import { ActivatedRoute } from '@angular/router';
   import {TransaccionProveedorDetail} from '../transaccion-proveedor-detail';
+import { Proveedor } from '../proveedor';
 
 @Component({
   selector: 'app-transaccion-proveedor-detail',
@@ -31,10 +32,13 @@ export class TransaccionProveedorDetailComponent implements OnInit {
 
   ngOnInit() {
     // el mas convierte el id de string a number
-    this.proveedorId = +this.route.snapshot.paramMap.get('id');
-    this.transaccionProveedor_id = +this.route.snapshot.paramMap.get('id');
+    this.transaccionProveedor_id = +this.route.snapshot.paramMap.get('idTransaccionProveedor');
+    this.proveedorId = +this.route.snapshot.paramMap.get('idProveedor');
     this.transaccionProveedorDetail = new TransaccionProveedorDetail();
-    this.getTransaccionProveedorDetail();
+    if(this.proveedorId){
+      this.getTransaccionProveedorDetail();
+    }
+    
 }
 
 }

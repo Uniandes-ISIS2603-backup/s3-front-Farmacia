@@ -54,7 +54,7 @@ export class TransaccionProveedorCreateComponent implements OnInit {
     */
     createTransaccionProveedor(): void {
         this.transaccionProveedor.proveedor = this.proveedor;
-        this.proveedorService.createTransaccionProveedor(this.transaccionProveedor, this.transaccionProveedor.proveedor)
+        this.proveedorService.createTransaccionProveedor(this.transaccionProveedor, this.proveedor.id)
             .subscribe(() => {
                 this.create.emit();
                 this.toastrService.success('La transaccion fue creada', 'Creacion TransaccionProveedor');

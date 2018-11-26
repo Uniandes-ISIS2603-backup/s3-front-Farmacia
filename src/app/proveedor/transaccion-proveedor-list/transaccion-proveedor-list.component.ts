@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
 import { TransaccionProveedor } from '../transaccion-proveedor';
 import { ActivatedRoute } from '@angular/router';
+import { Proveedor } from '../proveedor';
 
 @Component({
   selector: 'app-transaccion-proveedor-list',
@@ -11,16 +12,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TransaccionProveedorListComponent implements OnInit {
 
- @Input() proveedor: number;
+ @Input() proveedorId: String;
 
   constructor(private proveedorService: ProveedorService, private route: ActivatedRoute) { }
 
   @Input() transaccionesProveedor: TransaccionProveedor[];
 
-  /**
-    * Shows or hides the create component
-    */
-   showCreate: boolean;
 
    //Obtiene las transacciones proveedor con todos sus atributos.
   getTransaccionesProveedor(idProveedor): void {
@@ -30,16 +27,15 @@ export class TransaccionProveedorListComponent implements OnInit {
 
   //Oculta el componente de crear y llama el método que trae las transacciónes del proveedor.
   ngOnInit() {
-    this.proveedor = +this.route.snapshot.paramMap.get('id');
-    this.showCreate = false;
-    this.getTransaccionesProveedor(this.proveedor );
+   
+  //  this.getTransaccionesProveedor(this.proveedorId + "");
   }
 
    /**
     * Shows or hides the create component
     */
    showHideCreate(): void {
-    this.showCreate = !this.showCreate;
+    
 }
 
 }
