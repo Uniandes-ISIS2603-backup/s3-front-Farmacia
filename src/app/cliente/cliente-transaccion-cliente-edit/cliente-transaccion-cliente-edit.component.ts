@@ -29,7 +29,7 @@ export class ClienteTransaccionClienteEditComponent implements OnInit {
 
   @Output() actualizarProductos = new EventEmitter();
 
-  agregarProducto (idForm:NgForm):void
+  agregarProducto ():void
   {
       
     this.clienteService.agregarProducto(this.idCliente,this.idTransaccion,this.idProducto) 

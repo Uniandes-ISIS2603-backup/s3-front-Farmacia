@@ -18,22 +18,15 @@ export class ProductosTransaccionClienteListComponent implements OnInit {
   }
   idCliente:number;
   idTransacion:number;
-  productos: Producto[];
+  @Input()productos: Producto[];
 
-  getProductos()
-  {
-    this.servicio.getProductos(this.idCliente,this.idTransacion).subscribe(productos => this.productos=productos);
 
-  }
 
   ngOnInit() 
   {
+    
     this.idCliente=+this.route.snapshot.paramMap.get('idCliente');
-    this.idTransacion=+this.route.snapshot.paramMap.get('idTransaccion');
-    console.log(this.idCliente, this.idTransacion);
-   this.getProductos();
-   console.log('Se logearon los productos');
-   
+    this.idTransacion=+this.route.snapshot.paramMap.get('idTransaccion'); 
    
   }
 

@@ -84,12 +84,12 @@ export class ClienteService {
     agregarProducto(clienteId,transaccionId,productoId)
     {
         
-        this.http.post(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId+productos+'/'+productoId,this.productoDetail);
+        this.http.post(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId+productos+'/'+productoId,productoId);
       
     }
     getProductos(clienteId,transaccionId):Observable<ProductoDetail[]>
     {
-       return this.http.get<ProductoDetail[]>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId+productos);
+       return this.http.get<ProductoDetail[]>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId);
     }
 
 
