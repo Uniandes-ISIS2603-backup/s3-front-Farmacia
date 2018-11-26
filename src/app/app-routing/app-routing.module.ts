@@ -17,6 +17,7 @@ import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail
 import { ClienteEditComponent } from '../cliente/cliente-edit/cliente-edit.component';
 import{ClienteDetailTransaccionClienteComponent} from '../cliente/cliente-detail-transaccion-cliente/cliente-detail-transaccion-cliente.component';
 import { ClienteTransaccionClienteComponent } from '../cliente/cliente-transaccion-cliente/cliente-transaccion-cliente.component';
+import {TransaccionProveedorDetailComponent} from '../proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 
 const routes: Routes = [
     {
@@ -29,6 +30,11 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: ProveedorDetailComponent,
+            },
+            {
+                path:':idProveedor/transaccion-proveedor/:idTransaccionProveedor',
+                component: TransaccionProveedorDetailComponent
+
             },
             {
                 path: 'add',

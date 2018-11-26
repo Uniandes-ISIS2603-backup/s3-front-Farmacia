@@ -12,16 +12,12 @@ import { Proveedor } from '../proveedor';
 })
 export class TransaccionProveedorListComponent implements OnInit {
 
- @Input() proveedor: Proveedor;
+ @Input() proveedorId: String;
 
   constructor(private proveedorService: ProveedorService, private route: ActivatedRoute) { }
 
   @Input() transaccionesProveedor: TransaccionProveedor[];
 
-  /**
-    * Shows or hides the create component
-    */
-   showCreate: boolean;
 
    //Obtiene las transacciones proveedor con todos sus atributos.
   getTransaccionesProveedor(idProveedor): void {
@@ -31,15 +27,15 @@ export class TransaccionProveedorListComponent implements OnInit {
 
   //Oculta el componente de crear y llama el método que trae las transacciónes del proveedor.
   ngOnInit() {
-    this.showCreate = false;
-    this.getTransaccionesProveedor(this.proveedor.id + "" );
+   
+  //  this.getTransaccionesProveedor(this.proveedorId + "");
   }
 
    /**
     * Shows or hides the create component
     */
    showHideCreate(): void {
-    this.showCreate = !this.showCreate;
+    
 }
 
 }

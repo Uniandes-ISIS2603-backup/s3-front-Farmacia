@@ -12,30 +12,18 @@
             <tbody>
                 <tr *ngFor="let transaccionProveedor of transaccionesProveedor">
                     <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/transaccion-proveedor/{{transaccionProveedor.id}}">{{transaccionProveedor.id}}</dd>
+                        <dd class="figure-caption" routerLink="/proveedores/{{transaccionProveedor.proveedor.id}}/transaccion-proveedor/{{transaccionProveedor.id}}">{{transaccionProveedor.id}}</dd>
                     </td>
                     <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/transaccion-proveedor/{{transaccionProveedor.id}}">{{transaccionProveedor.monto}}</dd>
+                        <dd class="figure-caption" routerLink="/proveedores/{{transaccionProveedor.proveedor.id}}/transaccion-proveedor/{{transaccionProveedor.id}}">{{transaccionProveedor.monto}}</dd>
                     </td>
                     <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/transaccion-proveedor/{{transaccionProveedor.id}}">{{transaccionProveedor.tiempo}}</dd>
+                        <dd class="figure-caption" routerLink="/proveedores/{{transaccionProveedor.proveedor.id}}/transaccion-proveedor/{{transaccionProveedor.id}}">{{transaccionProveedor.tiempo}}</dd>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="5">
-                        <div class="row justify-content-center align-self-center">
-                            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
-                                class="btn" (click)="showHideCreate()">Generar nueva orden pedido</button>
-                        </div>
-                    </td>
-                </tr>
+                
             </tbody>
         </table>
     </div>
-    <div class="col-md-8">
-        <div *ngIf="showCreate">
-            <app-transaccion-proveedor-create [proveedor]="transaccionProveedorDetail" (cancel)="showHideCreate()"
-                (create)="ngOnInit()" *ngIf="showCreate"></app-transaccion-proveedor-create>
-        </div>
-    </div>
+    
 </div>

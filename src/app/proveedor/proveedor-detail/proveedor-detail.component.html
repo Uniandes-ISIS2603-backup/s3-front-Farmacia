@@ -41,9 +41,27 @@
             </table>
         </div>
         <div class="col-md-3">
-            <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor"></app-transaccion-proveedor-list>
+                <tr>
+                        <td colspan="5">
+                            <div class="row justify-content-center align-self-center">
+                                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
+                                    class="btn" (click)="showHideCreate()">Generar nueva orden pedido</button>
+                            </div>
+                        </td>
+                    </tr>
+                
+                    
+            <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor" proveedorId= "{{proveedorDetail.id}}"></app-transaccion-proveedor-list>
+            <div class="col-md-8">
+                    <div *ngIf="showCreate">
+                        <app-transaccion-proveedor-create [proveedor]="proveedorDetail" (cancel)="showHideCreate()"
+                            (create)="ngOnInit()" *ngIf="showCreate"></app-transaccion-proveedor-create>
+                    </div>
+                </div>
         </div>
     </div>
+
+    
 
     <div *ngIf="showAsociate">
             <div class="modal" id="myModal">

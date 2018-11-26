@@ -22,6 +22,8 @@ export class ProveedorDetailComponent implements OnInit {
 
   showAsociate : boolean;
 
+  showCreate: boolean;
+
 
     /**
     * Constructor for the detailproveedor component
@@ -79,6 +81,11 @@ export class ProveedorDetailComponent implements OnInit {
       
     }
     this.showAsociate = false;
+    this.showCreate = false;
+  }
+
+  showHideCreate(): void {
+    this.showCreate = !this.showCreate;
   }
 
 }

@@ -67,7 +67,7 @@ export class ProveedorService {
     * @returns Confirmacion de la creacion de la transaccion
     */
     public createTransaccionProveedor(transaccionProveedor, idProveedor): Observable<TransaccionProveedorDetail> {
-        return this.http.post<TransaccionProveedorDetail>(API_URL + proveedores + '/' + idProveedor + transaccionProveedor, transaccionProveedor);
+        return this.http.post<TransaccionProveedorDetail>(API_URL + proveedores + '/' + idProveedor + transaccionesProveedor, transaccionProveedor);
     }
     /**
      * Edita la informacion de un proveedor
@@ -89,4 +89,8 @@ export class ProveedorService {
     asociateProducto(proveedorId, productoId): void{
          this.http.post<ProductoDetail>(API_URL + proveedores + '/'+ proveedorId + '/productos', productoId);
     }
+
+    asociateTransaccionProducto(proveedorId, transaccionProveedorId, productoId): void{
+        this.http.post<ProductoDetail>(API_URL + proveedores + '/'+ proveedorId + transaccionesProveedor + '/' + transaccionProveedorId + '/productos', productoId);
+   }
 }

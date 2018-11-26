@@ -32,10 +32,13 @@ export class TransaccionProveedorDetailComponent implements OnInit {
 
   ngOnInit() {
     // el mas convierte el id de string a number
-    this.transaccionProveedor_id = +this.route.snapshot.paramMap.get('id');
-    this.proveedorId = +this.route.snapshot.paramMap.get('proveedor.id');
+    this.transaccionProveedor_id = +this.route.snapshot.paramMap.get('idTransaccionProveedor');
+    this.proveedorId = +this.route.snapshot.paramMap.get('idProveedor');
     this.transaccionProveedorDetail = new TransaccionProveedorDetail();
-    this.getTransaccionProveedorDetail();
+    if(this.proveedorId){
+      this.getTransaccionProveedorDetail();
+    }
+    
 }
 
 }
