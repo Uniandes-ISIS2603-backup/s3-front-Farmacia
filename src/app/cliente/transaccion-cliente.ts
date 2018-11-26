@@ -7,5 +7,5 @@ export class TransaccionCliente
     tiempo:number;
     parcial:Boolean;
     tipoDePago:string;
-    clinete: Cliente;
+    cliente: Cliente;
 }

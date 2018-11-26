@@ -30,9 +30,9 @@ export class ClienteAddTransaccionClienteComponent implements OnInit, OnChanges 
   @Output() updateTransacciones = new EventEmitter;
 
   postTransacciones(transaccionForm:NgForm):TransaccionCliente{
-    this.transaccionCliente.clinete= this.cliente;
+    this.transaccionCliente.cliente= this.cliente;
     this.clienteService.createTransaccion(this.cliente.id,
-      this.transaccionCliente).subscribe(() =>
+      this.transaccionCliente).subscribe(() => 
     {
       transaccionForm.resetForm();
       this.updateTransacciones.emit();

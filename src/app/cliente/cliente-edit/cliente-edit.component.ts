@@ -3,6 +3,8 @@ import {ToastrService} from 'ngx-toastr';
 
 import {ClienteService} from '../cliente.service';
 import {ClienteDetail} from '../cliente-detail';
+import { Router } from '@angular/router';
+import { Cliente } from '../cliente';
 
 @Component({
     selector: 'app-cliente-edit',
@@ -11,16 +13,22 @@ import {ClienteDetail} from '../cliente-detail';
 })
 export class ClienteEditComponent implements OnInit{
 
+    /**
+     * El contructor del componente para editar un cliente
+     * @param clienteService The cliente's services provider
+     * @param toastrService  the toastr to show messages to the user
+     * @param router 
+     */
     constructor(
         private clienteService: ClienteService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private router: Router
     ){}
 
     /**
-    * The id of the cliebte that the user wants to edit
-    * This is passed as a parameter by the parent component
-    */
-   @Input() cliente_id: number;
+     * El cliente e editar
+     */
+    @Input() cliente : Cliente;
 
    /**
    * The output which tells the parent component
@@ -34,50 +42,34 @@ export class ClienteEditComponent implements OnInit{
    */
    @Output() update = new EventEmitter();
 
-   cliente: ClienteDetail;
-
-    /**
-    * Retrieves the information of the cliente
+   /**
+    * Guarda los cambios que se le han hecho al cliente indicado
     */
-   getCliente(): void {
-    this.clienteService.getClienteDetail(this.cliente_id)
-        .subscribe(cliente => {
-            this.cliente = cliente;
-        });
-    } 
-
-    /**
-    * Updates the cliente's information
-    */
-   editCliente(): void {
+   guardarCambios() {
     this.clienteService.updateCliente(this.cliente)
-        .subscribe(() => {
-            this.update.emit();
-            this.toastrService.success("The cliente's information was updated", "Cliente edition");
-        });
-    }
-
-    
-    /**
-    * Informs the parent component that the user no longer wants to update the cliente
-    */
-   cancelEdition(): void {
-    this.cancel.emit();
-   }
-
-    /**
-    * The function which initializes the component
-    */
-   ngOnInit() {
-    this.cliente = new ClienteDetail();
-    this.getCliente();
-   }
+    .subscribe(() => {
+      this.toastrService.success('Se guardaron los cambios del cliente');
+    }, error => {
+      this.toastrService.error(error, "Error")
+      this.update.emit();
+    });
+  }
 
   /**
-  * The function which is called every time the user chooses to edit a different editorial
+   * Cancela la edicion de un cliente
+   */
+  cancelEdition(): void {
+    this.toastrService.warning('The cliente wasn\'t edited', 'Cliente edition');
+    this.router.navigate(['/clientes/list']);
+    this.cancel.emit();
+}
+
+  /**
+  * Inicializamos el componente.
   */
-  ngOnChanges() {
-    this.ngOnInit();
+  ngOnInit() 
+  {
+    this.cliente = new ClienteDetail();
   }
  
 }

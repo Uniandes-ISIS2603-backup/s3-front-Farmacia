@@ -1,57 +1,113 @@
-<div class="container-fluid">
-    <div class="col-sm-2">
-        <table class="table  table-bordered table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th colspan="6">Cliente info</th>
-                </tr>
-            </thead>
-            <tbody>
-                <th>clienteId</th>
-                <th>nombre</th>
-                <th>apellido</th>
-                <th>ciudad</th>
-                <th>direccionEnvio</th>
-                <th>cedula</th>
-                <tr *ngFor="let cliente of clientes">
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.id}}</dd>
-                    </td>
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.nombre}}</dd>
-                    </td>
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.apellido}}</dd>
-                    </td>
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.ciudad}}</dd>
-                    </td>
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.direccionEnvio}}</dd>
-                    </td>
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.cedula}}</dd>
-                    </td>
-                    <td>
-                        <button class="btn btn-primary" (click)="showHideEdit(cliente.id)"><span class="fa fa-pencil"></span></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="row justify-content-center align-self-center">
-            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                (click)="showHideCreate()">Crear un cliente</button>
+<div class="container-fluid ">
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100 ver1 m-b-110">
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th>Clientes</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="table100-body js-pscroll">
+                        <table>
+                            <tbody>
+                                    <th>clienteId</th>
+                                    <th>nombre</th>
+                                    <th>apellido</th>
+                                    <th>ciudad</th>
+                                    <th>direccionEnvio</th>
+                                    <th>cedula</th>
+                            </tbody>
+                            <tr *ngFor="let cliente of clientes" class="row100 body">
+                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="id">
+                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.id}}</dd>
+                                </td>
+                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="nombre">
+                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.nombre}}</dd>
+                                </td>
+                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="apellido">
+                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.apellido}}</dd>
+                                </td>
+                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="ciudad">
+                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.ciudad}}</dd>
+                                </td>
+                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="direccionEnvio">
+                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.direccionEnvio}}</dd>
+                                </td>
+                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="cedula">
+                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.cedula}}</dd>
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary" (click)="showHideEdit(cliente.id)" data-toggle="modal"
+                                        data-target="#myModal"><span class="fa fa-pencil"></span></button>
+                                    <button type="button " class="btn btn-danger" (click)="deleteCliente(cliente.id)"><span
+                                            class="fa fa-trash"></span></button>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
+                                        class="btn" (click)="showHideCreate()" data-toggle="modal" data-target="#myModal2"><span
+                                            class="fa fa-plus"></span></button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-8">
-        <div *ngIf="selectedCliente">
-            <app-cliente-detail [clienteDetail]="selectedCliente"></app-cliente-detail>
-        </div>
         <div *ngIf="showCreate">
-            <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
+
+            <div class="modal" id="myModal2">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Crear un cliente</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div *ngIf="showEdit">
-            <app-cliente-edit [cliente_id]="cliente_edit_id" (cancel)="showHideEdit(cliente_edit_id)" (update)="updateCliente()"></app-cliente-edit>
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Editar un cliente</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <app-cliente-edit [cliente]="selectedCliente" (cancel)="showHideEdit(selectedCliente.id)"
+                                (update)="updateCliente()"></app-cliente-edit>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

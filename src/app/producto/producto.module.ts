@@ -11,8 +11,8 @@ import { FormsModule } from '@angular/forms';
 import {ProductoAddRegistroComponent} from './producto-add-registro/producto-add-registro.component'
 import { ProductoRegistroComponent} from './producto-registro/producto-registro.component';
 import { MatCommonModule } from '@angular/material/core';
-import { MatCardModule, MatGridListModule } from '@angular/material';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatCardModule, MatGridListModule, MatIconModule } from '@angular/material';
+import { NgbCarouselModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -30,6 +30,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     MatGridListModule,
     NgbCarouselModule,
+    MatIconModule,
     //RegistroModule,
     FormsModule,
     //MatTableModule,
@@ -37,6 +38,6 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   declarations: [ProductoListComponent, ProductoDetailComponent, ProductoCreateComponent,
    ProductoRegistroComponent, ProductoAddRegistroComponent],
-  providers: [ProductoService]
+  providers: [ProductoService, NgbCarouselConfig]
 })
 export class ProductoModule { }

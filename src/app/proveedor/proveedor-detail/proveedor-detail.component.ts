@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProveedorDetail } from '../proveedor-detail';
 import { TransaccionProveedorListComponent } from '../transaccion-proveedor-list/transaccion-proveedor-list.component';
 import { TransaccionProveedorCreateComponent } from '../transaccion-proveedor-create/transaccion-proveedor-create.component';
+import { ProductoDetail } from 'src/app/producto/producto-detail';
 /**
 * Representa el componente detalle de un proveedor
 */
@@ -13,11 +14,14 @@ import { TransaccionProveedorCreateComponent } from '../transaccion-proveedor-cr
   styleUrls: ['./proveedor-detail.component.css']
 })
 export class ProveedorDetailComponent implements OnInit {
-  
+
     /**
     * El proveedor detallado
     */
   @Input() proveedorDetail: ProveedorDetail;
+
+  showAsociate : boolean;
+
 
     /**
     * Constructor for the detailproveedor component
@@ -54,6 +58,14 @@ export class ProveedorDetailComponent implements OnInit {
         this.proveedorDetail = proveedorDetail;
       });
   }
+
+  asociateProducto(productoId) : void {
+    this.proveedorService.asociateProducto(this.proveedor_id, productoId);
+  }
+
+  showHideAsociate() : void {
+    this.showAsociate = !this.showAsociate;
+  }
     /**
     * The method which initializes the component.
     * We need to create the provider so it is never considered as undefined
@@ -64,7 +76,9 @@ export class ProveedorDetailComponent implements OnInit {
     if (this.proveedor_id) {
       this.proveedorDetail = new ProveedorDetail();
       this.getProveedorDetail();
+      
     }
+    this.showAsociate = false;
   }
 
 }

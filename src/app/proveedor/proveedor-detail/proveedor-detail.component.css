@@ -1,0 +1,21 @@
+#imgPro {
+    height: 15em;
+}
+h4{
+    color : white;
+}
+th {
+    text-align: center;
+}
+td.cc{
+    text-align: center;
+}
+
+
+
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 40em;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }

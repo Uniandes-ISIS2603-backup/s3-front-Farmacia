@@ -1,0 +1,17 @@
+<p class="h2 p-2" style = "padding-left: 0px">Agregar un producto</p>
+<form name="producto" (ngSubmit)="f.form.valid && agregarProducto()" #f="ngForm" novalidate>
+ <div class="form-group">
+  
+  <label> id del producto</label>
+  <input type="number" name="id" class="form-control" id="id" [(ngModel)]="idProducto"
+            #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && id.invalid }" required>
+  
+</div>
+<div class="row form-inline justify-content-center align-self-center">
+    <button type="submit" class="btn btn-primary" (Click)="agregarProducto ()">Crear</button>
+</div>
+<p>{{idCliente}}</p>
+<p>{{idTransaccion}}</p>
+<p>{{idProducto}}</p>
+  
+</form>

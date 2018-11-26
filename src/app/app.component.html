@@ -1,22 +1,33 @@
-<div class = "container-fluid">
-<div class = "all">
-    <ul class="nav navbar navbar-expand-sm bg-dark navbar-dark">
+<div class="container-fluid">
+    <div class="all">
+        <ul class="nav navbar navbar-expand-sm bg-light navbar-light">
             <a class="navbar-brand" href="#">
-                    <img src="https://uniandes.edu.co/sites/default/files/logo-uniandes.png" id="Logo" class="center-block" style="width:80px;">
-                    <h2 class="mainTitle">D R U G S H O U S E</h2>
-                    </a>
-        <li class="nav-item">
-            <a id="proveedoresTag" class="nav-link" routerLink="/proveedores/list">Proveedores</a>
-        </li>
-        <li class="nav-item">
-            <a id="productosTag" class ="nav-link" routerLink="/productos/list">Productos</a>
-        </li>
-        <li class = "nav-item">
-            <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
-        </li>
-    </ul>
-    <div class="list">
-        <router-outlet></router-outlet>
+                <img src="https://uniandes.edu.co/sites/default/files/logo-uniandes.png" id="Logo" class="center-block"
+                    style="width:80px;">
+                <h2 class="mainTitle">D R U G S H O U S E</h2>
+            </a>
+            <li class="nav-item">
+                <a id="proveedoresTag" class="nav-link" routerLink="/proveedores/list">Proveedores</a>
+            </li>
+            <li class="nav-item">
+                <a id="productosTag" class="nav-link" routerLink="/productos/list">Productos</a>
+            </li>
+            <li class="nav-item">
+                <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
+            </li>
+            <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
+                <li class="nav-item">
+                    <a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a>
+                </li>
+            </div>
+            <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
+                <li class="nav-item">
+                    <a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a>
+                </li>
+            </div>
+        </ul>
+        <div class="list">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-</div>
 </div>

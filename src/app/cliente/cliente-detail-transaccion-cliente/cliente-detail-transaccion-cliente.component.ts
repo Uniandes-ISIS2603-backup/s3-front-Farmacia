@@ -12,7 +12,8 @@ import {TransaccionClienteDetail} from '../transaccion-Cliete-detail';
 export class ClienteDetailTransaccionClienteComponent implements OnInit {
 
   @Input() transaccionDetail: TransaccionClienteDetail
- 
+  showEdit: boolean;
+
   constructor(
     private clienteService:ClienteService,
     private route: ActivatedRoute
@@ -20,8 +21,6 @@ export class ClienteDetailTransaccionClienteComponent implements OnInit {
    }
    clienteId:number;
    transaccionId:number;
-
-  
 
    getTransaccionDetail(clienteIden,transaccionIden):void{
     this.clienteService.getTransaccionCliente(this.clienteId,this.transaccionId)
@@ -31,14 +30,17 @@ export class ClienteDetailTransaccionClienteComponent implements OnInit {
     );
    }
   ngOnInit() {
+    this.showEdit=false;
     this.clienteId= +this.route.snapshot.paramMap.get('idCliente');
-    
     this.transaccionId= +this.route.snapshot.paramMap.get('idTransaccion');
     if(this.clienteId){
       this.transaccionDetail = new TransaccionClienteDetail();
       this.getTransaccionDetail(this.clienteId,this.transaccionId);
+    }
+   
   }
-    
+  showHideEdit(): void {
+    this.showEdit = !this.showEdit; 
   }
 
 }
