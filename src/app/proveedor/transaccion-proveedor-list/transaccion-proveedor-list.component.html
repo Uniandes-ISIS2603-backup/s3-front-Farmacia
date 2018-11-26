@@ -24,7 +24,7 @@
     </div>
     <div class="col-md-8">
         <div *ngIf="showCreate">
-        <app-transaccion-proveedor-create [proveedor]= "transaccionProveedorDetail" (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"  ></app-transaccion-proveedor-create>
+        <app-transaccion-proveedor-create [proveedor]= "proveedor" (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"  ></app-transaccion-proveedor-create>
         </div>
     </div>
 </div>
