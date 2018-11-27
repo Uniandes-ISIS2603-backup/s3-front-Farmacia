@@ -16,6 +16,7 @@ import {TransaccionClienteModule} from './transaccion-cliente/transaccion-client
 import { ToastrModule } from 'ngx-toastr';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { AuthModule } from './auth/auth.module';
+import { MaterialModule } from './material.module';
 
 
 
@@ -25,7 +26,7 @@ import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
-    AppComponent,       
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +40,7 @@ import { AuthModule } from './auth/auth.module';
     ClienteModule,
     FormsModule,
     BrowserAnimationsModule,
+    MaterialModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right',

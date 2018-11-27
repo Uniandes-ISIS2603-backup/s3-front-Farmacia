@@ -10,15 +10,15 @@ import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 @Component({
   selector: 'app-proveedor',
   templateUrl: './proveedor-list.component.html',
-  styleUrls: ['./proveedor-list.component.css']
+  styleUrls: ['./proveedor-list.component.scss']
 })
 export class ProveedorListComponent implements OnInit {
 
   showCreate: boolean;
 
-  showEdit : boolean;
+  showEdit: boolean;
 
-  selectedProveedor : Proveedor;
+  selectedProveedor: Proveedor;
 
   /**
   * Constructor for the providerlist 
@@ -35,6 +35,12 @@ export class ProveedorListComponent implements OnInit {
   * The list of providers
   */
   proveedores: Proveedor[];
+
+  /**
+   * The list of filtered providers
+   */
+  filtered: Proveedor[];
+
   /**
   * The id of the provider to create
   */
@@ -61,14 +67,13 @@ showHideCreate(): void {
 * Shows or hides the create component
 */
 showHideEdit(proveedor_id: number): void {
-    if (!this.showEdit || (this.showEdit && proveedor_id != this.selectedProveedor.id)) {
+    if (!this.showEdit || (this.showEdit && proveedor_id !== this.selectedProveedor.id)) {
         this.showCreate = false;
         this.showEdit = true;
         this.proveedor_id = proveedor_id;
         this.selectedProveedor = new ProveedorDetail();
         this.getProveedorDetail();
-    }
-    else {
+    } else {
         this.showEdit = false;
     }
 }
@@ -80,13 +85,14 @@ getProveedores(): void {
     this.proveedorService.getProveedores()
         .subscribe(proveedores => {
             this.proveedores = proveedores;
+            this.filtered = this.proveedores;
         });
 }
 
 getProveedorDetail(): void {
     this.proveedorService.getProveedorDetail(this.proveedor_id)
         .subscribe(selectedProveedor => {
-            this.selectedProveedor = selectedProveedor
+            this.selectedProveedor = selectedProveedor;
         });
 }
 
@@ -105,10 +111,10 @@ deleteProveedor(proveedorId): void {
                 buttonClass: 'btn btn-success',
                 onAction: () => {
                     this.proveedorService.deleteProveedor(proveedorId).subscribe(() => {
-                        this.toastrService.success("El proveedor fue eliminado satisfactoriamente.", "Proveedor eliminado");
+                        this.toastrService.success('El proveedor fue eliminado satisfactoriamente.', 'Proveedor eliminado');
                         this.ngOnInit();
                     }, err => {
-                        this.toastrService.error(err, "Error");
+                        this.toastrService.error(err, 'Error');
                     });
                     return true;
                 }
@@ -132,24 +138,11 @@ ngOnInit() {
     this.getProveedores();
 }
 
- myFunction() {
-    // Declare variables 
-    var input, filter, table, tr, td, i;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[1];
-      if (td) {
-        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      } 
-    }
-  }
+filter(input) {
+    this.filtered = this.proveedores.filter(proveedor =>
+        proveedor.nombre.toUpperCase().includes(input.toUpperCase()) ||
+        proveedor.id.toString().includes(input));
+    console.log(input);
+}
 
 }

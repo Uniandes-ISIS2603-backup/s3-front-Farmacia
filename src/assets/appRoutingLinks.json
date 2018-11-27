@@ -1,0 +1,20 @@
+[
+    {
+        "id": "proveedoresTag",
+        "routerLink": "/proveedores/list",
+        "name": "Proveedores",
+        "icon": "local_grocery_store"
+    },
+    {
+        "id": "productosTag",
+        "routerLink": "/productos/list",
+        "name": "Productos",
+        "icon": "style"
+    },
+    {
+        "id": "clientesTag",
+        "routerLink": "/clientes/list",
+        "name": "Clientes",
+        "icon": "person"
+    }
+]

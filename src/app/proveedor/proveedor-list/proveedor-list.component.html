@@ -1,19 +1,12 @@
-<div class="container-fluid ">
-    <div class="limiter">
-            <form style="margin:10px;">
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" class="form-control"  id="myInput" placeholder="Filtrar por nombre">
-                        </div>
-                        <div class="col">
-                            <button type="button" (click)="myFunction()" class="btn btn-primary">Aplicar filtro</button>
-                        </div>
-                    </div>
-                </form>
-        <div class="container-table100">
-            <div class="wrap-table100">
-                <div class="table100 ver1 m-b-110">
-                    <div class="table100-head">
+<div class="container-fluid " style = "width: 100%; margin: 0px; min-height: 0px">
+    <div class="limiter" style="width: 100%;">
+        <mat-form-field style="width:100%; margin-top: 16px;">
+            <input matInput placeholder="Filtrar por nombre o id" (input) ="filter($event.target.value)">
+        </mat-form-field> 
+        <div class="container-table100" style="padding:0px; margin:0px; min-height: 200px; display: block; max-width: 100%;">
+            <div class="wrap-table100" style="margin: 0px; max-width: 100%;">
+                <div class="table100 ver1 m-b-110" style="margin:0px">
+                    <div class="table100-head" style="margin:0px;">
                         <table>
                             <thead>
                                 <tr class="row100 head">
@@ -22,10 +15,10 @@
                             </thead>
                         </table>
                     </div>
-                    <div class="table100-body js-pscroll">
+                    <div class="table100-body js-pscroll" style="margin:0px">
                         <table id="myTable">
                             <tbody>
-                            <tr *ngFor="let proveedor of proveedores" class="row100 body">
+                            <tr *ngFor="let proveedor of filtered" class="row100 body">
                                 <td style="cursor: pointer;" (click)="onSelected(proveedor.id)" id="nom">
                                     <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.id}}</dd>
                                 </td>
