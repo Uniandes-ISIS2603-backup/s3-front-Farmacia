@@ -4,15 +4,13 @@
             <form name="transaccionProveedor" (ngSubmit)="f.form.valid && addProducto()" #f="ngForm" novalidate>
                 <div class="form-group">
                         <label for="id"><b>idProducto</b></label>
-                        <input type="number" name="idProducto1" class="form-control" id="id" [(ngModel)]="idProducto"
-                            #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idProducto.invalid }" required>
+                        <input type="number" name="id" class="form-control" id="id" [(ngModel)]="idProducto"
+                            #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && id.invalid }" required>
                         <div class="invalid-feedback">
                             <div>Escriba el id del producto</div>
                         </div>
                   </div>
                   <div class="row form-inline justify-content-center align-self-center">
                     <button type="submit" class="btn btn-primary">Agregar producto</button>
-                    <div class="divider"></div>
-                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
                 </div>
            </form>

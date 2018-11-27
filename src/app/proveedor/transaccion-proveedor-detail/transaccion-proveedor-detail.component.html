@@ -6,10 +6,6 @@
       <p class="h3 p-3">Tiempo: {{transaccionProveedorDetail.tiempo}}</p>
       <p class="h3 p-3">Monto: $ {{transaccionProveedorDetail.monto}}</p>
       <br>
-      <div class="jumbotron umnbotron-fluid">
-          <p class= "h4 p-3" style=" text-align: center"> Productos de la transacción </p> 
-          <app-transaccion-proveedor-productos [productos]="transaccionProveedorDetail?.productos"></app-transaccion-proveedor-productos>
-        </div>
         <p>
             <button [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" type="button" class="btn"
                     (click)="showHideEdit()">Agregar un producto</button>
@@ -18,5 +14,9 @@
         <div *ngIf="showEdit">
           <app-transaccion-proveedor-edit [idProveedor]="transaccionProveedorDetail.proveedor?.id" [idTransaccionProveedor]="transaccionProveedorDetail?.id"></app-transaccion-proveedor-edit>
         </div>
+        <div class="jumbotron umnbotron-fluid">
+            <p class= "h4 p-3" style=" text-align: center"> Productos de la transacción </p> 
+            <app-transaccion-proveedor-productos [productos]="transaccionProveedorDetail?.productos"></app-transaccion-proveedor-productos>
+          </div>
   </div>
 </div>

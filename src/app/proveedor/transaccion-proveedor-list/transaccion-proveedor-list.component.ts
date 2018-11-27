@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
-import { TransaccionProveedorDetail } from '../transaccion-proveedor-detail';
+import { TransaccionProveedor } from '../transaccion-proveedor';
 import { ActivatedRoute } from '@angular/router';
 import { Proveedor } from '../proveedor';
 
@@ -16,7 +16,7 @@ export class TransaccionProveedorListComponent implements OnInit {
 
   constructor(private proveedorService: ProveedorService, private route: ActivatedRoute) { }
 
-  @Input() transaccionesProveedor: TransaccionProveedorDetail;
+  @Input() transaccionesProveedor: TransaccionProveedor[];
 
 
    //Obtiene las transacciones proveedor con todos sus atributos.
