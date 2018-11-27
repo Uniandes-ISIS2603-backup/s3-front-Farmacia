@@ -38,7 +38,7 @@ export class ProductoDetailComponent implements OnInit {
 
   updateRegistros(): void
     {
-        this.getProductById;
+        this.getProductById();
     }
 
   showHideCreate(): void {

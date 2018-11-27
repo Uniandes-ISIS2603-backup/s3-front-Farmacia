@@ -21,6 +21,10 @@
                         <dd class="figure-caption" routerLink="/proveedores/{{transaccionProveedor.proveedor.id}}/transaccion-proveedor/{{transaccionProveedor.id}}">{{transaccionProveedor.tiempo}}</dd>
                     </td>
                 </tr>
+
+                <div *ngIf="selectedt">
+                        <app-transaccion-proveedor-detail [transaccionProveedorDetail]="selectedt"></app-transaccion-proveedor-detail>
+                     </div>
                 
             </tbody>
         </table>

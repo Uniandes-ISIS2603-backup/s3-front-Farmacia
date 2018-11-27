@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core'; 
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -55,7 +55,12 @@ idProducto: number;
 * Agrega un producto a la transaccion
 */
 addProducto(): void {
-  this.proveedorService.asociateTransaccionProducto(this.idProveedor,this.idTransaccionProveedor,this.idProducto) 
+  this.proveedorService.asociateTransaccionProducto(this.idProveedor,this.idTransaccionProveedor,this.idProducto).subscribe(() => {
+    this.edit.emit();
+    this.toastrService.success('El producto fue agregado', 'Agregar producto');
+}, err => {
+    this.toastrService.error(err, 'Error');
+});
 }
 
 /**
@@ -69,7 +74,8 @@ cancelCreation(): void {
 * This function will initialize the component
 */
 ngOnInit() {
-    
+  this.idProveedor +this.route.snapshot.paramMap.get('idProveedor');  
+  this.idTransaccionProveedor= +this.route.snapshot.paramMap.get('idTransaccionProveedor');
 }
 
 /**

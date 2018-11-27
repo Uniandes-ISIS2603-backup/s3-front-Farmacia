@@ -18,17 +18,18 @@ export class AuthService {
      */
     constructor(private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService, private clienteService: ClienteService) { }
 
+
     start(): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
         this.permissionsService.loadPermissions(['edit_proveedor_permission', 'create_proveedor_permission', 'edit_cliente_permission', 'create_transaccionCliente_permission']);
         const role = localStorage.getItem('role');
         const cedula = localStorage.getItem('cedula');
-        console.log(role + " " + cedula);
+      //  console.log("Esto es el START " + role + " " + cedula);
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
-            this.setAdministratorRole(cedula);
+            this.setAdministratorRole();
         } else {
             this.setClientRole(cedula);
         }
@@ -47,11 +48,11 @@ export class AuthService {
         localStorage.setItem('cedula', cedula )
     }
 
-    setAdministratorRole(cedula): void {
+    setAdministratorRole(): void {
         this.roleService.flushRoles();
         this.roleService.addRole('ADMIN', ['edit_proveedor_permission', 'create_proveedor_permission', 'edit_cliente_permission']);
         localStorage.setItem('role', 'ADMIN');
-        localStorage.setItem('cedula', cedula);
+   //     localStorage.setItem('cedula', cedula);
     }
 
     printRole(): void {
@@ -63,14 +64,16 @@ export class AuthService {
      * @param role The desired role to set to the user
      */
     login(cedula, role): void {
-        if (this.clienteService.getClienteDetailByCedula(cedula) != null) {
+       // console.log("ESTO ES SERVICE DEL AUTH " + Object.values(this.cliente));
+        //if (this.cliente != null) {
             if (role === 'Administrator') {
-                this.setAdministratorRole(cedula);
+                this.setAdministratorRole();
             } else {
                 this.setClientRole(cedula)
             }
-            this.router.navigateByUrl('/proveedores/list');
-        }
+            
+            this.router.navigateByUrl('/productos/list');
+        //}
     }
 
     /**

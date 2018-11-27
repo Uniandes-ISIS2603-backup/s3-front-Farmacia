@@ -1,13 +1,22 @@
 <div class="col-md-12">
-  <div class="container-fluid">   
-        <p class="h3 p-3">Id Proveedor: {{transaccionProveedorDetail.proveedor.id}}</p>
+  <div class="container-fluid">  
+      <p class="h1 p-5">Informacion de la transacción</p> 
+        <p class="h3 p-3">Id Proveedor: {{transaccionProveedorDetail.proveedor?.id}}</p>
       <p class="h3 p-3">Id Transaccion: {{transaccionProveedorDetail.id}}</p>
       <p class="h3 p-3">Tiempo: {{transaccionProveedorDetail.tiempo}}</p>
-      <p class="h3 p-3">Monto: {{transaccionProveedorDetail.monto}}</p>
+      <p class="h3 p-3">Monto: $ {{transaccionProveedorDetail.monto}}</p>
       <br>
-      <div class="jumbotron umnbotron-fluid">
-          <p class= "h4 p-3" style=" text-align: center"> Productos de la transacción </p> 
-          <app-transaccion-proveedor-productos [productos]="transaccionProveedorDetail.productos"></app-transaccion-proveedor-productos>
+        <p>
+            <button [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" type="button" class="btn"
+                    (click)="showHideEdit()">Agregar un producto</button>
+            
+        </p>
+        <div *ngIf="showEdit">
+          <app-transaccion-proveedor-edit [idProveedor]="transaccionProveedorDetail.proveedor?.id" [idTransaccionProveedor]="transaccionProveedorDetail?.id"></app-transaccion-proveedor-edit>
         </div>
+        <div class="jumbotron umnbotron-fluid">
+            <p class= "h4 p-3" style=" text-align: center"> Productos de la transacción </p> 
+            <app-transaccion-proveedor-productos [productos]="transaccionProveedorDetail?.productos"></app-transaccion-proveedor-productos>
+          </div>
   </div>
 </div>

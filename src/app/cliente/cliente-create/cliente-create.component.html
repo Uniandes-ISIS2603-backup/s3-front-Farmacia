@@ -1,42 +1,76 @@
- <p class="h2 p-2" style = "padding-left: 0px">Crear un nuevo cliente</p>
-<form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
-    <div class="form-group">
-        <label for="clienteName"><b>Nombre cliente</b></label>
-        <input type="text" name="clienteName" class="form-control" id="clienteName" [(ngModel)]="cliente.nombre"
-            #clienteName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteName.invalid }" required>
-        <div class="invalid-feedback">
-            <div>Falta el nombre del cliente</div>
-        </div>
-        <label for="clienteLastName"><b>Apellido del cliente</b></label>
-        <input type="text" name="clienteLastName" class="form-control" id="clienteLastName" [(ngModel)]="cliente.apellido"
-            #clienteLastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteLastName.invalid }" required>
-        <div class="invalid-feedback">
-            <div>Falta el apellido del cliente</div>
-        </div>
-        <label for="clienteCity"><b>Ciudad del cliente</b></label>
-        <input type="text" name="clienteCity" class="form-control" id="clienteCity" [(ngModel)]="cliente.ciudad"
-            #clienteCity="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteCity.invalid }" required>
-        <div class="invalid-feedback">
-            <div>Falta la ciudad del cliente</div>
-        </div>
-        <label for="clienteAdress"><b>DireccionEnvio del cliente</b></label>
-        <input type="text" name="clienteAdress" class="form-control" id="clienteAdress" [(ngModel)]="cliente.direccionEnvio"
-            #clienteAdress="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteAdress.invalid }" required>
-        <div class="invalid-feedback">
-            <div>Falta la direccionEnvio del cliente</div>
-        </div>
-        <label for="clienteCedula"><b>Cedula del cliente</b></label>
-        <input type="number" name="clienteCedula" class="form-control" id="clienteCedula" [(ngModel)]="cliente.cedula"
-            #clienteCedula="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteCedula.invalid }" required>
-        <div class="invalid-feedback">
-            <div>Falta la cedula del cliente</div>
-        </div>
-        
-    </div>
-    
-    <div class="row form-inline justify-content-center align-self-center">
-        <button type="submit" class="btn btn-primary">Crear</button>
-    </div>
-    
-</form>
+<div class="row">
+    <div class="col-6 offset-3">
+        <p class="h2 p-2" style = "padding-left: 0px">Crear un nuevo cliente</p>
+        <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="clienteName"><b>Nombre cliente</b></label>
+                <input type="text" name="clienteName" class="form-control" id="clienteName" [(ngModel)]="cliente.nombre"
+                    #clienteName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el nombre del cliente</div>
+                </div>
+                <label for="clienteLastName"><b>Apellido del cliente</b></label>
+                <input type="text" name="clienteLastName" class="form-control" id="clienteLastName" [(ngModel)]="cliente.apellido"
+                    #clienteLastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteLastName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el apellido del cliente</div>
+                </div>
+                <label for="clienteCity"><b>Ciudad del cliente</b></label>
+                <select class="custom-select" name="ciudad" class="form-control" id="ciudad" [(ngModel)]="cliente.ciudad" required>
+            
+                <option	value ="	Armenia	">	Armenia	</option>
+                <option	value ="	Barranquilla	">	Barranquilla	</option>
+                <option	value ="	Bello	">	Bello	</option>
+                <option	value ="	Bogotá	">	Bogotá	</option>
+                <option	value ="	Bucaramanga	">	Bucaramanga	</option>
+                <option	value ="	Buenaventura	">	Buenaventura	</option>
+                <option	value ="	Cali	">	Cali	</option>
+                <option	value ="	Cartagena	">	Cartagena	</option>
+                <option	value ="	Cúcuta	">	Cúcuta	</option>
+                <option	value ="	Dosquebradas	">	Dosquebradas	</option>
+                <option	value ="	Envigado	">	Envigado	</option>
+                <option	value ="	Floridablanca	">	Floridablanca	</option>
+                <option	value ="	Ibagué	">	Ibagué	</option>
+                <option	value ="	Itagüí	">	Itagüí	</option>
+                <option	value ="	Manizales	">	Manizales	</option>
+                <option	value ="	Medellín	">	Medellín	</option>
+                <option	value ="	Montería	">	Montería	</option>
+                <option	value ="	Neiva	">	Neiva	</option>
+                <option	value ="	Palmira	">	Palmira	</option>
+                <option	value ="	Pasto	">	Pasto	</option>
+                <option	value ="	Pereira	">	Pereira	</option>
+                <option	value ="	Popayán	">	Popayán	</option>
+                <option	value ="	Riohacha	">	Riohacha	</option>
+                <option	value ="	Santa Marta	">	Santa Marta	</option>
+                <option	value ="	Sincelejo	">	Sincelejo	</option>
+                <option	value ="	Soacha	">	Soacha	</option>
+                <option	value ="	Soledad	">	Soledad	</option>
+                <option	value ="	Tuluá	">	Tuluá	</option>
+                <option	value ="	Tumaco	">	Tumaco	</option>
+                <option	value ="	Valledupar	">	Valledupar	</option>
+                <option	value ="	Villavicencio	">	Villavicencio	</option>
+                
+            </select>
+                <label for="clienteAdress"><b>DireccionEnvio del cliente</b></label>
+                <input type="text" name="clienteAdress" class="form-control" id="clienteAdress" [(ngModel)]="cliente.direccionEnvio"
+                    #clienteAdress="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteAdress.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta la direccionEnvio del cliente</div>
+                </div>
+                <label for="clienteCedula"><b>Cedula del cliente</b></label>
+                <input type="number" name="clienteCedula" class="form-control" id="clienteCedula" [(ngModel)]="cliente.cedula"
+                    #clienteCedula="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteCedula.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta la cedula del cliente</div>
+                </div>
+                
+            </div>
+            
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Crear</button>
+            </div>
+            
+        </form>
 
+    </div>
+</div>
