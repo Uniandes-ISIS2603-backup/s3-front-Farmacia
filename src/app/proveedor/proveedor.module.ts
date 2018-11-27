@@ -48,10 +48,6 @@ import { MaterialModule } from '../material.module';
     TransaccionProveedorEditComponent,
     TransaccionProveedorProductosComponent
   ],
-<<<<<<< HEAD
-  declarations: [ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent, TransaccionProveedorCreateComponent, TransaccionProveedorDetailComponent, TransaccionProveedorListComponent, ProveedorEditComponent, TransaccionProveedorEditComponent, TransaccionProveedorProductosComponent, ProveedorProductosComponent],
-=======
->>>>>>> 901d74457dcdadbecb46c6c535757324ca7061e2
   providers : [ProveedorService]
 })
 export class ProveedorModule { }
