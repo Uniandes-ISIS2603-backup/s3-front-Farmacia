@@ -20,6 +20,10 @@ export class TransaccionProveedorProductosComponent implements OnInit {
   idTransacionProveedor:number;
   @Input()productos: Producto[];
 
+  eliminarProducto(productoId)
+  {
+    this.servicio.eliminarProducto(this.idProveedor,this.idTransacionProveedor,productoId).subscribe();
+  }
 
 
   ngOnInit() 

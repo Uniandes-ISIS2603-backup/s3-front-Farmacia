@@ -93,4 +93,10 @@ export class ProveedorService {
     asociateTransaccionProducto(proveedorId, transaccionProveedorId, productoId): Observable<any>{
         return this.http.post<ProductoDetail>(API_URL + proveedores + '/'+ proveedorId + transaccionesProveedor + '/' + transaccionProveedorId + '/productos/' + productoId, productoId);
    }
+
+   eliminarProducto(proveedorId,transaccionProveedorId,productoId):Observable<any>
+   {
+       
+       return this.http.delete<any>(API_URL+proveedores+'/'+proveedorId + transaccionesProveedor+'/'+transaccionProveedorId+'/productos'+'/'+productoId);
+   }
 }

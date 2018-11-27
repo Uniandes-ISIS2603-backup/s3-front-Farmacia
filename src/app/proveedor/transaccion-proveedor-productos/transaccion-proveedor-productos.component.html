@@ -9,6 +9,7 @@
           <tbody>
               <tr *ngFor="let p of productos">
                 <td>{{p.id}}</td>
+                <button type="button " class="btn btn-danger"  (click)="eliminarProducto(p.id)"><span class="fa fa-trash"></span></button>
                 </tr>
           </tbody>
        </table>
