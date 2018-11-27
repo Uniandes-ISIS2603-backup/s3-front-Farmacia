@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions'
 //import 'rxjs/add/operator/catch';
 import { ClienteService } from '../cliente/cliente.service';
-import { Cliente } from '../cliente/cliente';
 
 /**
  * The service provider for everything related to authentication

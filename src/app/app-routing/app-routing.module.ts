@@ -14,9 +14,7 @@ import { ProductoDetailComponent } from '../producto/producto-detail/producto-de
 import { ProveedorCreateComponent } from '../proveedor/proveedor-create/proveedor-create.component';
 import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
-import { ClienteEditComponent } from '../cliente/cliente-edit/cliente-edit.component';
 import{ClienteDetailTransaccionClienteComponent} from '../cliente/cliente-detail-transaccion-cliente/cliente-detail-transaccion-cliente.component';
-import { ClienteTransaccionClienteComponent } from '../cliente/cliente-transaccion-cliente/cliente-transaccion-cliente.component';
 import {TransaccionProveedorDetailComponent} from '../proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 
 const routes: Routes = [
@@ -76,12 +74,7 @@ const routes: Routes = [
                 path: 'add',
                 component: ClienteCreateComponent,
                 runGuardsAndResolvers: 'always'
-            }/** ,
-            {
-                path: ':id/edit',
-                component: ClienteEditComponent
             }
-            */
         ]
     },
     {
