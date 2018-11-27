@@ -1,7 +1,8 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import { Producto } from 'src/app/producto/producto';
 import {ProveedorService} from '../proveedor.service';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-transaccion-proveedor-productos',
@@ -12,7 +13,8 @@ export class TransaccionProveedorProductosComponent implements OnInit {
 
   constructor(
     private servicio : ProveedorService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastrService: ToastrService,
   ) { 
     
   }
@@ -20,9 +22,20 @@ export class TransaccionProveedorProductosComponent implements OnInit {
   idTransacionProveedor:number;
   @Input()productos: Producto[];
 
+  /**
+* The output which tells the parent component
+* that the user created a new transaction
+*/
+@Output() edit = new EventEmitter();
+
   eliminarProducto(productoId)
   {
-    this.servicio.eliminarProducto(this.idProveedor,this.idTransacionProveedor,productoId).subscribe();
+    this.servicio.eliminarProducto(this.idProveedor,this.idTransacionProveedor,productoId).subscribe(() => {
+      this.edit.emit();
+      this.toastrService.success('El producto fueeliminado', 'Eliminar producto');
+  }, err => {
+      this.toastrService.error(err, 'Error');
+  });
   }
 
 

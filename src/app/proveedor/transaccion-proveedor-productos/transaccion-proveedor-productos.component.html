@@ -1,14 +1,18 @@
 <div class="container-fluid">
   <div class="col-sm-2">
       <table class="table  table-bordered table-hover">
+          
           <thead class="thead-dark">
-              <tr>
-                  <th colspan="6">Productos</th>
-              </tr>
-          </thead>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Eliminar</th>
+            </thead>
           <tbody>
               <tr *ngFor="let p of productos">
                 <td>{{p.id}}</td>
+                <td>{{p.nombre}}</td>
+                <td>{{p.cantidad}}</td>
                 <button type="button " class="btn btn-danger"  (click)="eliminarProducto(p.id)"><span class="fa fa-trash"></span></button>
                 </tr>
           </tbody>

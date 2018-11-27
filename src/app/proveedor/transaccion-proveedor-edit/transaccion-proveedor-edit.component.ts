@@ -60,7 +60,7 @@ addProducto(): void {
     this.toastrService.success('El producto fue agregado', 'Agregar producto');
 }, err => {
     this.toastrService.error(err, 'Error');
-});;
+});
 }
 
 /**
