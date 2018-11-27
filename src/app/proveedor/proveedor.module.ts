@@ -17,7 +17,12 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { TransaccionProveedorEditComponent } from './transaccion-proveedor-edit/transaccion-proveedor-edit.component';
 import { TransaccionProveedorProductosComponent } from './transaccion-proveedor-productos/transaccion-proveedor-productos.component';
+<<<<<<< HEAD
+import { ProveedorProductosComponent } from './proveedor-productos/proveedor-productos.component';
+
+=======
 import { MaterialModule } from '../material.module';
+>>>>>>> 901d74457dcdadbecb46c6c535757324ca7061e2
 
 
 /**
@@ -46,6 +51,10 @@ import { MaterialModule } from '../material.module';
     TransaccionProveedorEditComponent,
     TransaccionProveedorProductosComponent
   ],
+<<<<<<< HEAD
+  declarations: [ProveedorListComponent, ProveedorDetailComponent, ProveedorCreateComponent, TransaccionProveedorCreateComponent, TransaccionProveedorDetailComponent, TransaccionProveedorListComponent, ProveedorEditComponent, TransaccionProveedorEditComponent, TransaccionProveedorProductosComponent, ProveedorProductosComponent],
+=======
+>>>>>>> 901d74457dcdadbecb46c6c535757324ca7061e2
   providers : [ProveedorService]
 })
 export class ProveedorModule { }

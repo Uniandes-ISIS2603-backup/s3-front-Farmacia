@@ -45,7 +45,7 @@
                         <td colspan="5">
                             <div class="row justify-content-center align-self-center">
                                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
-                                    class="btn" (click)="showHideCreate()">Generar nueva orden pedido</button>
+                                    class="btn" (click)="showHideCreate() " data-toggle="modal" data-target="#myModal2">Generar nueva orden pedido</button>
                             </div>
                         </td>
                     </tr>
@@ -54,8 +54,24 @@
             <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor" proveedorId= "{{proveedorDetail.id}}"></app-transaccion-proveedor-list>
             <div class="col-md-8">
                     <div *ngIf="showCreate">
-                        <app-transaccion-proveedor-create [proveedor]="proveedorDetail" (cancel)="showHideCreate()"
-                            (create)="ngOnInit()" *ngIf="showCreate"></app-transaccion-proveedor-create>
+                            <div class="modal" id="myModal2">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                    
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Generar una orden pedido.</h4>
+                                                <button type="button" class="close" data-dismiss="modal" (click)="showHideCreate() ">&times;</button>
+                                            </div>
+                    
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                    <app-transaccion-proveedor-create [proveedor]="proveedorDetail" (cancel)="showHideCreate()"
+                                                    (create)="ngOnInit()"></app-transaccion-proveedor-create>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                     </div>
                 </div>
         </div>
@@ -76,7 +92,7 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            
+                            <app-proveedor-productos [idProveedor]="proveedorDetail.id"></app-proveedor-productos>
                         </div>
                     </div>
                 </div>
