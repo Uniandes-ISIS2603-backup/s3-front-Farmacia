@@ -21,7 +21,7 @@ export class ProveedorListComponent implements OnInit {
   selectedProveedor: Proveedor;
 
   /**
-  * Constructor for the providerlist 
+  * Constructor for the providerlist
   * @param proveedorService The provider's services supplier
   */
   constructor(
