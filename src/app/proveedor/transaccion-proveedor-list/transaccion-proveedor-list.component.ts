@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
-import { TransaccionProveedor } from '../transaccion-proveedor';
+import { TransaccionProveedorDetail } from '../transaccion-proveedor-detail';
 import { ActivatedRoute } from '@angular/router';
 import { Proveedor } from '../proveedor';
 
@@ -12,22 +12,22 @@ import { Proveedor } from '../proveedor';
 })
 export class TransaccionProveedorListComponent implements OnInit {
 
- @Input() proveedorId: String;
+ @Input() proveedorId: number;
 
   constructor(private proveedorService: ProveedorService, private route: ActivatedRoute) { }
 
-  @Input() transaccionesProveedor: TransaccionProveedor[];
+  @Input() transaccionesProveedor: TransaccionProveedorDetail;
 
 
    //Obtiene las transacciones proveedor con todos sus atributos.
   getTransaccionesProveedor(idProveedor): void {
-    this.proveedorService.getTransaccionesProveedor(idProveedor)
-    .subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);
+    //this.proveedorService.getTransaccionesProveedor(idProveedor)
+    //.subscribe(transaccionesProveedor => this.transaccionesProveedor = transaccionesProveedor);
   }
 
   //Oculta el componente de crear y llama el método que trae las transacciónes del proveedor.
   ngOnInit() {
-   
+    
   //  this.getTransaccionesProveedor(this.proveedorId + "");
   }
 

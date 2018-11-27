@@ -90,7 +90,7 @@ export class ProveedorService {
          this.http.post<ProductoDetail>(API_URL + proveedores + '/'+ proveedorId + '/productos', productoId);
     }
 
-    asociateTransaccionProducto(proveedorId, transaccionProveedorId, productoId): void{
-        this.http.post<ProductoDetail>(API_URL + proveedores + '/'+ proveedorId + transaccionesProveedor + '/' + transaccionProveedorId + '/productos', productoId);
+    asociateTransaccionProducto(proveedorId, transaccionProveedorId, productoId): Observable<any>{
+        return this.http.post<ProductoDetail>(API_URL + proveedores + '/'+ proveedorId + transaccionesProveedor + '/' + transaccionProveedorId + '/productos/' + productoId, productoId);
    }
 }

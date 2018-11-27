@@ -1,11 +1,11 @@
 <br>
             <h2 class="text-center">Agregar un producto</h2>
             <br>
-            <form name="transaccionProveedor" (ngSubmit)="f.form.valid && createTransaccionProveedor()" #f="ngForm" novalidate>
+            <form name="transaccionProveedor" (ngSubmit)="f.form.valid && addProducto()" #f="ngForm" novalidate>
                 <div class="form-group">
-                        <label for="idProducto"><b>idProducto</b></label>
-                        <input type="number" name="idProducto" class="form-control" id="idProducto" [(ngModel)]="idProducto"
-                            #transaccionProveedorMonto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idProducto.invalid }" required>
+                        <label for="id"><b>idProducto</b></label>
+                        <input type="number" name="idProducto1" class="form-control" id="id" [(ngModel)]="idProducto"
+                            #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idProducto.invalid }" required>
                         <div class="invalid-feedback">
                             <div>Escriba el id del producto</div>
                         </div>

@@ -24,8 +24,7 @@ export class TransaccionProveedorProductosComponent implements OnInit {
 
   ngOnInit() 
   {
-    
-    this.idProveedor=+this.route.snapshot.paramMap.get('iProveedor');
+    this.idProveedor=+this.route.snapshot.paramMap.get('idProveedor');
     this.idTransacionProveedor=+this.route.snapshot.paramMap.get('idTransaccionProveedor'); 
    
   }
