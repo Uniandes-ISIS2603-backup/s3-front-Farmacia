@@ -28,9 +28,9 @@ export class TransaccionProveedorProductosComponent implements OnInit {
 */
 @Output() edit = new EventEmitter();
 
-  eliminarProducto(productoId)
+  eliminarProductoTransaccion(productoId)
   {
-    this.servicio.eliminarProducto(this.idProveedor,this.idTransacionProveedor,productoId).subscribe(() => {
+    this.servicio.eliminarProductoTransaccion(this.idProveedor,this.idTransacionProveedor,productoId).subscribe(() => {
       this.edit.emit();
       this.toastrService.success('El producto fueeliminado', 'Eliminar producto');
   }, err => {

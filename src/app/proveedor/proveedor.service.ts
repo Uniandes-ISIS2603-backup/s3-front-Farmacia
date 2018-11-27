@@ -94,9 +94,18 @@ export class ProveedorService {
         return this.http.post<ProductoDetail>(API_URL + proveedores + '/'+ proveedorId + transaccionesProveedor + '/' + transaccionProveedorId + '/productos/' + productoId, productoId);
    }
 
-   eliminarProducto(proveedorId,transaccionProveedorId,productoId):Observable<any>
+   eliminarProductoTransaccion(proveedorId,transaccionProveedorId,productoId):Observable<any>
    {
        
        return this.http.delete<any>(API_URL+proveedores+'/'+proveedorId + transaccionesProveedor+'/'+transaccionProveedorId+'/productos'+'/'+productoId);
    }
+
+   agregarProducto(proveedorId, productoId) : Observable<any>
+   {
+       return this.http.post<any>(API_URL+  proveedores + '/' + proveedorId + '/' + 'productos/'+ productoId, productoId);
+   }
+
+   getProductos(proveedorId): Observable<ProductoDetail[]> {
+    return this.http.get<ProductoDetail[]>(API_URL + proveedores + '/' + proveedorId + '/productos/faltantes');
+}
 }
