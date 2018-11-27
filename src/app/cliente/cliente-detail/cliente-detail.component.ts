@@ -48,7 +48,7 @@ export class ClienteDetailComponent implements OnInit {
 
     updateTransacciones(): void
     {
-        this.getClienteDetail;
+        this.getClienteDetail();
     }
 
         /**
