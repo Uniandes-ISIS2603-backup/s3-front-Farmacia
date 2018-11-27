@@ -71,6 +71,7 @@ export class AuthService {
             } else {
                 this.setClientRole(cedula)
             }
+            
             this.router.navigateByUrl('/productos/list');
         //}
     }
