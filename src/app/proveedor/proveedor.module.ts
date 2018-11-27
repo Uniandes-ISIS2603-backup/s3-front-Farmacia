@@ -49,6 +49,7 @@ import { MaterialModule } from '../material.module';
     ProveedorProductosComponent
   ],
 
+
   providers : [ProveedorService]
 })
 export class ProveedorModule { }
