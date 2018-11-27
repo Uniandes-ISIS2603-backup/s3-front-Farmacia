@@ -18,7 +18,6 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { TransaccionProveedorEditComponent } from './transaccion-proveedor-edit/transaccion-proveedor-edit.component';
 import { TransaccionProveedorProductosComponent } from './transaccion-proveedor-productos/transaccion-proveedor-productos.component';
 import { ProveedorProductosComponent } from './proveedor-productos/proveedor-productos.component';
-
 import { MaterialModule } from '../material.module';
 
 
@@ -46,8 +45,11 @@ import { MaterialModule } from '../material.module';
     TransaccionProveedorListComponent,
     ProveedorEditComponent,
     TransaccionProveedorEditComponent,
-    TransaccionProveedorProductosComponent
+    TransaccionProveedorProductosComponent,
+    ProveedorProductosComponent
   ],
+
+
   providers : [ProveedorService]
 })
 export class ProveedorModule { }
