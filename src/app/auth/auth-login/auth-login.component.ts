@@ -6,7 +6,7 @@ import { User } from '../user';
 
 import { ToastrService } from 'ngx-toastr';
 
-import { Cliente } from '../../cliente/cliente'
+import { Cliente } from '../../cliente/cliente';
 import { ClienteService } from 'src/app/cliente/cliente.service';
 
 
@@ -42,31 +42,28 @@ export class AuthLoginComponent implements OnInit {
     * Logs the user in with the selected role
     */
     login(): void {
-        console.log("ESTO ES EL COMPONENTE LOGIN " + this.user.cedula + "  rol: " + this.user.role)
+        console.log('ESTO ES EL COMPONENTE LOGIN ' + this.user.cedula + '  rol: ' + this.user.role);
         this.cedula_log = this.user.cedula;
 
-
-        if (this.user.role == 'Administrator') {
+        if (this.user.role === 'Administrator') {
             this.loguear = true;
-        }
-        else if (this.user.role == 'Client') {
+        } else if (this.user.role === 'Client') {
             this.getClienteByCedula();
-
         }
         if (this.loguear === true) {
             this.authService.login(this.user.cedula, this.user.role);
-            this.toastrService.success('Logged in')
+            this.toastrService.success('Logged in');
         }
     }
 
     getClienteByCedula(): void {
-        console.log("ESTO ES EL METODO GETCLIENTEBYCEDULA DEL COMPONENTE" + " " + this.cedula_log)
+        console.log('ESTO ES EL METODO GETCLIENTEBYCEDULA DEL COMPONENTE ' + this.cedula_log);
         this.clienteService.getClienteDetailByCedula(this.cedula_log)
             .subscribe(cliente => {
-                this.cliente = cliente
+                this.cliente = cliente;
                 this.loguear = true;
             }, error => {
-                this.toastrService.error(error, "No existe un cliente con esa cedula")
+                this.toastrService.error(error, 'No existe un cliente con esa cedula');
                 this.loguear = false;
             });
     }

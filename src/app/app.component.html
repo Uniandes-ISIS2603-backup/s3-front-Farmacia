@@ -57,7 +57,9 @@
                 <span>Drugshouse</span>
                 <span class="toolbar-spacer"></span>
                 <span routerLink = "/auth/login" style = "cursor: pointer" *ngxPermissionsOnly="['GUEST']">Iniciar sesión</span>
-                <span routerLink = "" style = "cursor: pointer" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">Cerrar sesión</span>
+                <span (click)="logout()" style = "cursor: pointer" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">Cerrar sesión</span>
+                <span *ngxPermissionsOnly="['GUEST']">|</span>
+                <span routerLink = "/auth/crear" style = "cursor: pointer" *ngxPermissionsOnly="['GUEST']">Registrarme</span>
             </mat-toolbar>
             <router-outlet></router-outlet>
     </mat-drawer-content>

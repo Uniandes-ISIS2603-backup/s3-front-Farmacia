@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions'
-//import 'rxjs/add/operator/catch';
+import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions';
 import { ClienteService } from '../cliente/cliente.service';
 
 /**
@@ -16,13 +15,21 @@ export class AuthService {
      * @param roleService NgxRolesService to manage authentication roles
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
-    constructor(private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService, private clienteService: ClienteService) { }
+    constructor(
+        private router: Router,
+        private roleService: NgxRolesService,
+        private permissionsService: NgxPermissionsService,
+        private clienteService: ClienteService
+    ) { }
 
 
     start(): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
-        this.permissionsService.loadPermissions(['edit_proveedor_permission', 'create_proveedor_permission', 'edit_cliente_permission', 'create_transaccionCliente_permission']);
+        this.permissionsService.loadPermissions(['edit_proveedor_permission',
+            'create_proveedor_permission',
+            'edit_cliente_permission',
+            'create_transaccionCliente_permission']);
         const role = localStorage.getItem('role');
         const cedula = localStorage.getItem('cedula');
       //  console.log("Esto es el START " + role + " " + cedula);
@@ -33,7 +40,6 @@ export class AuthService {
         } else {
             this.setClientRole(cedula);
         }
-        
     }
 
     setGuestRole(): void {
@@ -45,7 +51,7 @@ export class AuthService {
         this.roleService.flushRoles();
         this.roleService.addRole('CLIENT', ['create_transaccionCliente_permission']);
         localStorage.setItem('role', 'CLIENT');
-        localStorage.setItem('cedula', cedula )
+        localStorage.setItem('cedula', cedula );
     }
 
     setAdministratorRole(): void {
@@ -65,15 +71,12 @@ export class AuthService {
      */
     login(cedula, role): void {
        // console.log("ESTO ES SERVICE DEL AUTH " + Object.values(this.cliente));
-        //if (this.cliente != null) {
-            if (role === 'Administrator') {
-                this.setAdministratorRole();
-            } else {
-                this.setClientRole(cedula)
-            }
-            
-            this.router.navigateByUrl('/productos/list');
-        //}
+        if (role === 'Administrator') {
+               this.setAdministratorRole();
+        } else {
+            this.setClientRole(cedula);
+        }
+        this.router.navigateByUrl('/productos/list');
     }
 
     /**
