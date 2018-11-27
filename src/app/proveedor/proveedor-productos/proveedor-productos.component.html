@@ -1,0 +1,24 @@
+<table class="table table-bordered table-hover" id="myTable">
+    <thead>
+        <th colspan="4">Productos posibles a agregar</th>
+    </thead>
+    <div class="table100-body js-pscroll">
+    <thead class="thead-dark">
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th></th>
+    </thead>
+        <tr *ngFor="let producto of productos">
+            <td >
+                <dd >{{producto.nombre}}</dd>
+            </td>
+            <td >
+                <dd>{{producto.tipoProducto}}</dd>
+            </td>
+            <td style="cursor: pointer;" (click)="onSelected(producto.id)">
+                <button type="button" class="btn btn-primary" (click)="agregarProducto(producto.id)" data-toggle="modal" data-target="#myModal"><span
+                    class="fa fa-plus"></span></button>
+            </td>
+        </tr>
+      </div>
+</table>

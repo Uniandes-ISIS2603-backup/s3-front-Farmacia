@@ -1,0 +1,56 @@
+@import '~@angular/material/theming';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+mat-toolbar {
+    position: sticky;
+    top: 0px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.header-button {
+    margin: 0 7px 0 0;
+}
+
+mat-drawer, .mat-drawer-inner-container {
+    width: 35vw;
+    min-width: 270px;
+    max-width: 360px;
+}
+
+.mat-drawer-container {
+    background: white;
+    /*padding: 0px;
+    margin: 0px;*/
+    margin: auto;
+    display: block;
+}
+
+.mat-drawer-header {
+    width: 100%;
+    height: calc(35vw * 9 / 16);
+    min-height: calc(270px * 9 / 16);
+    max-height: calc(360px * 9 / 16);
+    
+    margin-bottom: 16px;
+}
+
+.mat-drawer-inner-header {
+    box-sizing: border-box;
+    display: flex;
+    
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: column;
+    
+    height: 100%;
+    width: 100%;
+    padding: 0 16px 22px 16px;
+}
+
+.mat-drawer-inner-header > span[class^="mat"] {
+    margin-bottom: -6px;
+    color: white;
+}

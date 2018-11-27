@@ -1,3 +1,6 @@
+@import '~@angular/material/theming';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 * {
 	box-sizing: border-box;
 }
@@ -228,7 +231,7 @@ table {
   color: #fff;
   line-height: 1.4;
 
-  background-color:rgb(0, 102, 255);
+  background-color: map-get($mat-indigo, 500);
 }
 
 .table100.ver1 td {
@@ -268,4 +271,10 @@ table {
   border:2px solid #FF0000;
 }
 
+.btn-primary {
+  background: map-get($mat-indigo, 500);
+}
 
+.btn-danger {
+  background: map-get($mat-red, 500 )
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { ProductoService } from '../producto.service';
 
@@ -19,7 +19,6 @@ export class    ProductoListComponent implements OnInit {
   isHidden: boolean;
 
   constructor(private productoService: ProductoService, config: NgbCarouselConfig) {
-    // this.isHidden = (Math.random() * 2) === 0;
     this.isHidden = true;
     console.log(this.isHidden);
     config.interval = 1000;

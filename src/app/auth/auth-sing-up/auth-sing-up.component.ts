@@ -12,22 +12,18 @@ import { Cliente } from '../../cliente/cliente';
 export class AuthSingUpComponent implements OnInit {
 
   constructor(
-    private servicio:AuthService,
-    private toastr:ToastrService,
+    private servicio: AuthService,
+    private toastr: ToastrService,
   ) { }
 user: User;
-cliente:Cliente
-roles:string[];
+cliente: Cliente;
+roles: string[];
 
-singUp()
-{
-  this.servicio.login(this.user.cedula,this.user.role);
-  this.toastr.success("Se ha creado exitosamente")
+singUp() {
+  this.servicio.login(this.user.cedula, this.user.role);
+  this.toastr.success('Se ha creado exitosamente');
 }
 
-  ngOnInit() 
-  {
-    
-  }
+  ngOnInit() {}
 
 }

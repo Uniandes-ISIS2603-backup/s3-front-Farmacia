@@ -18,6 +18,7 @@ import {TransaccionClienteModule} from './transaccion-cliente/transaccion-client
 import { ToastrModule } from 'ngx-toastr';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { AuthModule } from './auth/auth.module';
+import { MaterialModule } from './material.module';
 import { HttpErrorInterceptor } from './interceptors/interceptors.component';
 
 
@@ -28,8 +29,7 @@ import { HttpErrorInterceptor } from './interceptors/interceptors.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-           
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +43,7 @@ import { HttpErrorInterceptor } from './interceptors/interceptors.component';
     ClienteModule,
     FormsModule,
     BrowserAnimationsModule,
+    MaterialModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
@@ -51,7 +52,6 @@ import { HttpErrorInterceptor } from './interceptors/interceptors.component';
     TransaccionClienteModule,
     AppRoutingModule
   ],
-  
   bootstrap: [AppComponent],
   providers: [
     {

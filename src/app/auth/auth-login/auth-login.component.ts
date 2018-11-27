@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../auth.service';
 
@@ -7,10 +7,9 @@ import { User } from '../user';
 import { ToastrService } from 'ngx-toastr';
 import {Router} from '@angular/router';
 
-import { Cliente } from '../../cliente/cliente'
+import { Cliente } from '../../cliente/cliente';
 import { ClienteService } from 'src/app/cliente/cliente.service';
 import { TransaccionCliente } from '../../cliente/transaccion-cliente';
-import { TransaccionClienteDetail } from 'src/app/cliente/transaccion-Cliete-detail';
 
 
 
@@ -50,6 +49,7 @@ export class AuthLoginComponent implements OnInit {
 
     transaccion: TransaccionCliente;
 
+
     postTransacciones(pTransaccion:TransaccionCliente): void{
         
         this.clienteService.createTransaccion(this.cliente.id,
@@ -74,12 +74,16 @@ export class AuthLoginComponent implements OnInit {
             .subscribe(cliente => {
                 this.cliente = cliente;
                 this.clienteId = cliente.id;
+        this.clienteService.getClienteDetailByCedula(this.cedula_log)
+            .subscribe(cliente => {
+                this.cliente = cliente;
                 this.loguear = true;
             }, error => {
-                this.toastrService.error(error, "No existe un cliente con esa cedula")
+                this.toastrService.error(error, 'No existe un cliente con esa cedula');
                 this.loguear = false;
             });
-    }
+    });
+}
 
     getultimaTransaccion():void{
         this.clienteService.getUltimaTransaccion(this.clienteId)
