@@ -7,7 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
-//import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
+import { AuthSingUpComponent } from './auth-sing-up/auth-sing-up.component';
+import {ClienteModule} from '../cliente/cliente.module';
+// import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
 
 @NgModule({
     imports: [
@@ -16,9 +18,10 @@ import { AuthLoginComponent } from './auth-login/auth-login.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbModule
+        NgbModule,
+        ClienteModule
     ],
-    declarations: [AuthLoginComponent],
+    declarations: [AuthLoginComponent, AuthSingUpComponent],
     providers: [AuthService],
     bootstrap: [AuthLoginComponent]
 })

@@ -11,6 +11,7 @@ import {ProductoDetail} from '../producto/producto-detail';
 import {ProductoService} from '../producto/producto.service'
 import { variable } from '@angular/compiler/src/output/output_ast';
 import { projectionDef } from '@angular/core/src/render3/instructions';
+import {Router} from '@angular/router';
 
 /**
  * Ruta que maneja la conexion con el back
@@ -31,7 +32,8 @@ export class ClienteService {
      * @param http The httpClient
      */
     constructor(private http: HttpClient,
-        private servicioProducto:ProductoService 
+        private servicioProducto:ProductoService ,
+        private router:Router
         ) { }
         private productoDetail: Observable<ProductoDetail>;
     /**
@@ -62,7 +64,9 @@ export class ClienteService {
      * @param cliente  the new cliente
      */
     createCliente(cliente): Observable<Cliente> {
+        this.router.navigateByUrl('/productos/list');
         return this.http.post<Cliente>(API_URL + clientes, cliente);
+
     }
 
     /**

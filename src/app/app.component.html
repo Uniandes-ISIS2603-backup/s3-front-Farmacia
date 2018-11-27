@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="all">
         <ul class="nav navbar navbar-expand-sm bg-light navbar-light">
             <a class="navbar-brand" href="#">
@@ -6,13 +6,13 @@
                     style="width:80px;">
                 <h2 class="mainTitle">D R U G S H O U S E</h2>
             </a>
-            <li class="nav-item">
+            <li class="nav-item"  *ngxPermissionsOnly="['ADMIN']" >
                 <a id="proveedoresTag" class="nav-link" routerLink="/proveedores/list">Proveedores</a>
             </li>
             <li class="nav-item">
                 <a id="productosTag" class="nav-link" routerLink="/productos/list">Productos</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">
                 <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
             </li>
             <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
@@ -25,9 +25,40 @@
                     <a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a>
                 </li>
             </div>
+            <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
+                <li class="nav-item">
+                    <a id="login-navbar-item" routerLink="/auth/crear"><span class="fa fa-sign-in"></span>Registrar</a>
+                </li>
+            </div>
         </ul>
         <div class="list">
             <router-outlet></router-outlet>
         </div>
     </div>
-</div>
+
+</div> -->
+
+<mat-drawer-container class = "container">
+    <!--<mat-drawer #drawer [mode] = "over">
+        <mat-nav-list>
+            <div *ngFor="let link of links">
+                <a [routerLink]="link.routerLink" [routerLinkActive]="['mat-primary']" mat-list-item>
+                    <mat-icon matListIcon>{{ link.icon }}</mat-icon>
+                    <p matLine>{{ link.name }}</p>
+                </a>
+            </div>
+        </mat-nav-list>
+    </mat-drawer> -->
+    <mat-drawer-content>
+            <mat-toolbar color="primary" style="z-index: 1">
+                <button mat-icon-button class="header-button" routerLink = "">
+                        <mat-icon>home</mat-icon>
+                </button>
+                <span>Drugshouse</span>
+                <span class="toolbar-spacer"></span>
+                <span routerLink = "/auth/login" style = "cursor: pointer" *ngxPermissionsOnly="['GUEST']">Iniciar sesión</span>
+                <span routerLink = "" style = "cursor: pointer" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">Cerrar sesión</span>
+            </mat-toolbar>
+            <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

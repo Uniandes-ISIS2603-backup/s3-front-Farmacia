@@ -44,15 +44,23 @@ export class AuthLoginComponent implements OnInit {
     login(): void {
         console.log("ESTO ES EL COMPONENTE LOGIN " + this.user.cedula + "  rol: " + this.user.role)
         this.cedula_log = this.user.cedula;
-        this.getClienteByCedula();
+
+
+        if (this.user.role == 'Administrator') {
+            this.loguear = true;
+        }
+        else if (this.user.role == 'Client') {
+            this.getClienteByCedula();
+
+        }
         if (this.loguear === true) {
             this.authService.login(this.user.cedula, this.user.role);
             this.toastrService.success('Logged in')
         }
     }
 
-    getClienteByCedula() : void{
-        console.log("ESTO ES EL METODO GETCLIENTEBYCEDULA DEL COMPONENTE" + " " + this.cedula_log )
+    getClienteByCedula(): void {
+        console.log("ESTO ES EL METODO GETCLIENTEBYCEDULA DEL COMPONENTE" + " " + this.cedula_log)
         this.clienteService.getClienteDetailByCedula(this.cedula_log)
             .subscribe(cliente => {
                 this.cliente = cliente
@@ -69,7 +77,7 @@ export class AuthLoginComponent implements OnInit {
     ngOnInit() {
         this.user = new User();
         this.cliente = new Cliente();
-        this.cedula_log = undefined; 
+        this.cedula_log = undefined;
         this.loguear = undefined;
         this.roles = ['Administrator', 'Client'];
     }
