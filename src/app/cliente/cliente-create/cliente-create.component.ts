@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import { ToastrService } from 'ngx-toastr';
 import { Cliente } from '../cliente';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cliente-create',
@@ -22,7 +23,8 @@ export class ClienteCreateComponent implements OnInit {
    */
   constructor(
     private clienteService: ClienteService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router:ActivatedRoute
   ) { }
 
   /**
@@ -46,8 +48,11 @@ export class ClienteCreateComponent implements OnInit {
         this.create.emit();
         this.toastrService.success("El cliente fue creado", "Creación cliente");
       });
+      
     return this.cliente;
   }
+
+  
   /**
 * Emits the signal to tell the parent component that the
 * user no longer wants to create 
