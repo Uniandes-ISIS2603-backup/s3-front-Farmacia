@@ -64,16 +64,12 @@ export class AuthService {
      * @param role The desired role to set to the user
      */
     login(cedula, role): void {
-       // console.log("ESTO ES SERVICE DEL AUTH " + Object.values(this.cliente));
-        //if (this.cliente != null) {
             if (role === 'Administrator') {
                 this.setAdministratorRole();
             } else {
                 this.setClientRole(cedula)
             }
             
-            this.router.navigateByUrl('/productos/list');
-        //}
     }
 
     /**

@@ -94,6 +94,10 @@ export class ClienteService {
         
         
     }
+    getUltimaTransaccion(clienteId): Observable<TransaccionCliente>
+    {
+        return this.http.get<TransaccionCliente>(API_URL+clientes+'/'+clienteId + transacciones+'/ultima');
+    }
     getProductos(clienteId,transaccionId):Observable<ProductoDetail[]>
     {
        return this.http.get<ProductoDetail[]>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId);

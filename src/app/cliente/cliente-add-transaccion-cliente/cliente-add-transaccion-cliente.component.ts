@@ -29,12 +29,12 @@ export class ClienteAddTransaccionClienteComponent implements OnInit, OnChanges 
 
   @Output() updateTransacciones = new EventEmitter;
 
-  postTransacciones(transaccionForm:NgForm):TransaccionCliente{
+  postTransacciones(transaccion:TransaccionCliente):TransaccionCliente{
     this.transaccionCliente.cliente= this.cliente;
     this.clienteService.createTransaccion(this.cliente.id,
-      this.transaccionCliente).subscribe(() => 
+      transaccion).subscribe(() => 
     {
-      transaccionForm.resetForm();
+      
       this.updateTransacciones.emit();
       this.tostrService.success("Se creó la transaccion correctamente",'transaccion agregada');
     }, err =>{
@@ -42,6 +42,8 @@ export class ClienteAddTransaccionClienteComponent implements OnInit, OnChanges 
     });
     return this.transaccionCliente;
   }
+
+  
   ngOnInit() {
     this.isCollapsed=false;
     
