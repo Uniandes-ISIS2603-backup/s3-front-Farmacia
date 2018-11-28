@@ -127,15 +127,15 @@ export class AuthLoginComponent implements OnInit {
             this.getClienteByCedula();
             this.postTransacciones(this.transaccion);
 
-            await new Promise((resolve)  => setTimeout(resolve,1000));
+            await new Promise((resolve)  => setTimeout(resolve,500));
 
             this.getultimaTransaccion();
 
-            await new Promise((resolve)  => setTimeout(resolve,2000));
+            await new Promise((resolve)  => setTimeout(resolve,1000));
 
             this.router.navigateByUrl('/clientes/'+this.clienteId + '/transacciones/' + this.transaccionId);
 
-            await new Promise((resolve)  => setTimeout(resolve,1000));
+            await new Promise((resolve)  => setTimeout(resolve,500));
             this.toastrService.success('Logged in')
 
 

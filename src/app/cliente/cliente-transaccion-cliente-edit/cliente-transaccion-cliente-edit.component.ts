@@ -25,14 +25,14 @@ export class ClienteTransaccionClienteEditComponent implements OnInit {
   
   @Input()idTransaccion:number;
   @Input()idCliente:number;
-  idProducto:number;
+  
 
   @Output() actualizarProductos = new EventEmitter();
 
-  agregarProducto ():void
+  agregarProducto (idProducto:number):void
   {
       
-    this.clienteService.agregarProducto(this.idCliente,this.idTransaccion,this.idProducto).subscribe()
+    this.clienteService.agregarProducto(this.idCliente,this.idTransaccion,idProducto).subscribe()
    
   }
 
