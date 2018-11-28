@@ -1,7 +1,5 @@
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-
-button[mat-fab].add-button {
+.add-button {
     position: fixed;
     right: 2.5%;
-    bottom: 4%;
+    bottom: 4%; 
 }

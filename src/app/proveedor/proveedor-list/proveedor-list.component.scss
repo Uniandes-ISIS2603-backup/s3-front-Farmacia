@@ -1,5 +1,6 @@
-@import '~@angular/material/theming';
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/_theming.scss';
+
+
 
 * {
 	box-sizing: border-box;
@@ -166,7 +167,7 @@ iframe {
 
 .container-table100 {
   width: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
   background: #fff;
 
   display: -webkit-box;
@@ -182,16 +183,19 @@ iframe {
 
 .wrap-table100 {
   width: 1170px;
+  max-height: calc(100vh - 180px);
 }
 
 /*//////////////////////////////////////////////////////////////////
 [ Table ]*/
 .table100 {
   background-color: #fff;
+  max-height: calc(100vh - 180px);
 }
 
 table {
   width: 100%;
+  max-height: calc(100vh - 180px);
 }
 
 .table100-head th {
