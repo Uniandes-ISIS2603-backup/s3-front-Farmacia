@@ -14,7 +14,7 @@ import {Producto} from '../producto';
 })
 export class ProductoAddRegistroComponent implements OnInit, OnChanges {
   /**
-   * 
+   * Contructor del componente
    * @param productoService The producto's service provider
    * @param tostrService the toastr to show messages to the user
    */
