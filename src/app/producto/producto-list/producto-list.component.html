@@ -1,5 +1,5 @@
 <div class = "container" style="width:100%; height:80%">
-    <mat-grid-list cols="4" rowHeight="350px">
+    <mat-grid-list cols="5" rowHeight="350px">
         <mat-grid-tile
             *ngFor="let producto of productos" colspan=1>
             <mat-card style="cursor:pointer;">
@@ -18,7 +18,7 @@
                     Cantidad: {{producto.cantidad}}<br>
                     Unidades disponibles: {{producto.unidadesDisponibles}}
                 </mat-card-content>
-                <button class="btn btn-primary" (click)=anadirProducto(producto.id)><span class="fa fa-cart-plus"></span> añadir al carrito</button>
+                <button class="btn btn-primary" (click)=anadirProducto(producto.id)>Añadir al carrito <span class="fa fa-cart-plus"></span></button>
             </mat-card>
         </mat-grid-tile>
     </mat-grid-list>

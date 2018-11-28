@@ -124,6 +124,8 @@ export class AuthLoginComponent implements OnInit {
         if (this.user.role == 'Administrator') {
             this.loguear = true;
             this.authService.login(this.user.cedula, this.user.role);
+            
+
         }
         else if (this.user.role == 'Client') {
 
