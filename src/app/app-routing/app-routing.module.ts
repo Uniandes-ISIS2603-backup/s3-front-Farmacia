@@ -41,6 +41,10 @@ const routes: Routes = [
         path: 'productos',
         children: [
             {
+                path : 'add',
+                component : ProductoCreateComponent
+            },
+            {
                 path: 'list',
                 component: ProductoListComponent
             },
@@ -48,10 +52,7 @@ const routes: Routes = [
                 path: ':id',
                 component: ProductoDetailComponent
             },
-            {
-                path : 'add',
-                component : ProductoCreateComponent
-            }
+            
         ]
     },
     {
