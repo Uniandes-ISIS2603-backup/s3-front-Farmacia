@@ -14,9 +14,8 @@ import { ProductoDetailComponent } from '../producto/producto-detail/producto-de
 import { ProveedorCreateComponent } from '../proveedor/proveedor-create/proveedor-create.component';
 import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
-import{ClienteDetailTransaccionClienteComponent} from '../cliente/cliente-detail-transaccion-cliente/cliente-detail-transaccion-cliente.component';
 import {TransaccionProveedorDetailComponent} from '../proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
-import {AuthSingUpComponent} from '../auth/auth-sing-up/auth-sing-up.component'
+import {AuthSingUpComponent} from '../auth/auth-sing-up/auth-sing-up.component';
 const routes: Routes = [
     {
         path: 'proveedores',

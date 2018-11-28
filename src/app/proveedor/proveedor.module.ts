@@ -46,7 +46,8 @@ import { MaterialModule } from '../material.module';
     TransaccionProveedorListComponent,
     ProveedorEditComponent,
     TransaccionProveedorEditComponent,
-    TransaccionProveedorProductosComponent
+    TransaccionProveedorProductosComponent,
+    ProveedorProductosComponent
   ],
   providers : [ProveedorService]
 })
