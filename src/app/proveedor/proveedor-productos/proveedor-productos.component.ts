@@ -45,7 +45,6 @@ export class ProveedorProductosComponent implements OnInit
   }
   onSelected(productoId): void
   {
-    console.log(productoId);
     this.idProducto = productoId;
     this.selectedProducto = new ProductoDetail();
     this.productoService.getProductoDetail(this.idProducto).subscribe(selectedProducto => {
@@ -55,7 +54,6 @@ export class ProveedorProductosComponent implements OnInit
   ngOnInit() {
     this.idProducto=+this.route.snapshot.paramMap.get('idProducto'); 
     this.getProductos();
-    console.log(this.productos.length);
   }
 
 }
