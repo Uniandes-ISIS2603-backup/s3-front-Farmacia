@@ -35,6 +35,13 @@ export class ProductoService {
 
     createRegistro(productoId, registro):Observable<Registro>
     {
-        return this.http.post<Registro>(API_URL+producto+'/'+productoId+registros,registro);
+
+        return this.http.post<Registro>(API_URL+registros,registro);
+    }
+
+    asociateRegistro(productoId,registroId):Observable<any>
+    {
+        console.log(API_URL + producto + '/' +productoId + '/asociate/registro/' + registroId);
+        return this.http.post(API_URL + producto + '/' +productoId + '/asociate/registro/' + registroId,null);
     }
 }
