@@ -26,6 +26,7 @@ mat-drawer, .mat-drawer-inner-container {
     margin: 0px;*/
     margin: auto;
     display: block;
+    min-height: 100vh;
 }
 
 .mat-drawer-header {
@@ -54,3 +55,4 @@ mat-drawer, .mat-drawer-inner-container {
     margin-bottom: -6px;
     color: white;
 }
+

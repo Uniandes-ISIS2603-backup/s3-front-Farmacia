@@ -39,7 +39,7 @@
 </div> -->
 
 <mat-drawer-container>
-    <!--<mat-drawer #drawer [mode] = "over">
+    <mat-drawer #drawer [mode] = "over" class ="nav-list">
         <mat-nav-list>
             <div *ngFor="let link of links">
                 <a [routerLink]="link.routerLink" [routerLinkActive]="['mat-primary']" mat-list-item>
@@ -48,11 +48,14 @@
                 </a>
             </div>
         </mat-nav-list>
-    </mat-drawer> -->
-    <mat-drawer-content>
+    </mat-drawer>
+    <mat-drawer-content style="min-height: 100%;">
             <mat-toolbar color="primary" style="z-index: 1">
                 <button mat-icon-button class="header-button" routerLink = "">
                         <mat-icon>home</mat-icon>
+                </button>
+                <button mat-icon-button class="header-button" (click)="drawer.toggle()" *ngxPermissionsOnly="['ADMIN']">
+                    <mat-icon>menu</mat-icon>
                 </button>
                 <span>Drugshouse</span>
                 <span class="toolbar-spacer"></span>
