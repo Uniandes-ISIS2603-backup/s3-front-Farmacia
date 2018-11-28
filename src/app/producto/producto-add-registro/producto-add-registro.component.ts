@@ -13,11 +13,9 @@ import {Producto} from '../producto';
   styleUrls: ['./producto-add-registro.component.css']
 })
 export class ProductoAddRegistroComponent implements OnInit, OnChanges {
-
   constructor(
     private productoService: ProductoService,
     private tostrService :ToastrService
-
 
   ) { }
 
@@ -29,23 +27,35 @@ export class ProductoAddRegistroComponent implements OnInit, OnChanges {
 
   @Output() updateRegistros = new EventEmitter;
 
-  postRegistros(registroForm:NgForm):Registro{
-    this.registro.producto= this.producto;
+  async postRegistros(registroForm:NgForm)
+  {
+   // this.registro.producto= this.producto;
     this.productoService.createRegistro(this.producto.id,
-      this.registro).subscribe(() =>
+      this.registro).subscribe(registro =>
     {
-      registroForm.resetForm();
-      this.updateRegistros.emit();
-      this.tostrService.success("Se creó el registro correctamente",'registro agregado');
+      this.registro = registro;
     }, err =>{
       this.tostrService.error(err,'Error');
     });
+
+    await new Promise((resolve)  => setTimeout(resolve,1000));
+
+    this.productoService.asociateRegistro(this.producto.id, this.registro.id).subscribe();
+
+    await new Promise((resolve)  => setTimeout(resolve,1000));
+
+
+
+      registroForm.resetForm();
+      this.updateRegistros.emit();
+      this.tostrService.success("Se creó el registro correctamente",'registro agregado');
+    
     return this.registro;
   }
   ngOnInit() {
     this.isCollapsed=false;
     
-    this.registro = new Registro;
+    this.registro = new Registro();
   }
   ngOnChanges()
   {

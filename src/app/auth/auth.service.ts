@@ -58,6 +58,10 @@ export class AuthService {
         this.roleService.flushRoles();
         this.roleService.addRole('ADMIN', ['edit_proveedor_permission', 'create_proveedor_permission', 'edit_cliente_permission']);
         localStorage.setItem('role', 'ADMIN');
+
+        this.router.navigateByUrl('/proveedores/list');
+
+
     }
 
     printRole(): void {

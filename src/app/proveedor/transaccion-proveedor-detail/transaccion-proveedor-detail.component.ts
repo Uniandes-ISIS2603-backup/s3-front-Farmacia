@@ -41,9 +41,7 @@ export class TransaccionProveedorDetailComponent implements OnInit {
     if(this.proveedorId){
       this.getTransaccionProveedorDetail();
     }
-
-    console.log(this.transaccionProveedorDetail.productos);
-    
+  
 }
 showHideEdit(): void {
   this.showEdit = !this.showEdit; 

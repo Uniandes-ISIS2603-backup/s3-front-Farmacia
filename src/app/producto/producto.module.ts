@@ -9,6 +9,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { ProductoCreateComponent } from './producto-create/producto-create.component';
 import { FormsModule } from '@angular/forms';
 import {ProductoAddRegistroComponent} from './producto-add-registro/producto-add-registro.component'
+import {ProductoRegistroEditComponent} from './producto-registro-edit/producto-registro-edit.component'
 import { ProductoRegistroComponent} from './producto-registro/producto-registro.component';
 import { MatCommonModule } from '@angular/material/core';
 import { MatCardModule, MatGridListModule, MatIconModule } from '@angular/material';
@@ -41,7 +42,7 @@ import { MaterialModule } from '../material.module';
     //FormsModule
   ],
   declarations: [ProductoListComponent, ProductoDetailComponent, ProductoCreateComponent,
-   ProductoRegistroComponent, ProductoAddRegistroComponent],
+   ProductoRegistroComponent, ProductoAddRegistroComponent, ProductoRegistroEditComponent],
   providers: [ProductoService, NgbCarouselConfig]
 })
 export class ProductoModule { }

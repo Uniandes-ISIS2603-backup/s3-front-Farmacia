@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-12">
+        <form name="registro" (ngSubmit)="f.form.valid && guardarCambios()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="registroCantidad"><b>Cantidad</b></label>
+                <input type="number" name="registroCantidad" class="form-control" id="registroCantidad" [(ngModel)]="registro.cantidad"
+                    #registroCantidad="ngModel" [ngClass]="{ 'is-invalid':registroForm.submit && registroCantidad.invalid }"
+                    required>
+                <div class="invalid-feedback">
+                    <div>Falta la cantidad del registro</div>
+                </div>
+                <label for="registroTipo"><b>Tipo del registro</b></label>
+                <select name="registroTipo" class="form-control" id="registroTipo" [(ngModel)]="registro.tipoRegistro"
+                    #registroTipo="ngModel" [ngClass]="{ 'is-invalid':registroForm.submit && registroTipo.invalid }"
+                    required>
+                    <div class="invalid-feedback">
+                        <div>Falta tipo del registro </div>
+                    </div>
+                    <option value="ORDEN_REAPROVISONAMIENTO">ORDEN_REAPROVISONAMIENTO</option>
+                    <option value="TRASLADO_BODEGA">TRASLADO_BODEGA</option>
+                    <option value="DESPACHO_CLIENTE">DESPACHO_CLIENTE</option>
+                    <option value="ROBO">ROBO</option>
+                    <option value="PERDIDA">PERDIDA</option>
+                    <option value="VENCIMIENTO">VENCIMIENTO</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+            <button type="submit" class="btn btn-success" (click)="guardarCambios()" data-dismiss="modal">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="cancelEdition()" data-dismiss="modal">Cancelar</button>
+        </div>
+    </div>
+</div>

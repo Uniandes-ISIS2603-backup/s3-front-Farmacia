@@ -1,15 +1,49 @@
-<div >
+<div>
     <table class="table table-striped">
-      <th>id Registro</th>
-      <th> cantidad </th>
-      <th> tipo registro</th>
-      <th> id producto </th>
-            <tr *ngFor="let r of registros">
-                <td> {{r.id}}</td>
-                <td> {{r.cantidad}}</td>
-                <td> {{r.tipoRegistro}}</td>
-                <td>{{r.producto.id}}</td>
-            </tr>
+        <th>id Registro</th>
+        <th> cantidad </th>
+        <th> tipo registro</th>
+        <th> id producto </th>
+        <tr *ngFor="let r of registros">
+            <td style="cursor: pointer;" (click)="onSelected(r.id)" id="id">
+                <dd class="figure-caption">{{r.id}}</dd>
+            </td>
+            <td style="cursor: pointer;" (click)="onSelected(r.id)" id="cantidad">
+                <dd class="figure-caption">{{r.cantidad}}</dd>
+            </td>
+            <td style="cursor: pointer;" (click)="onSelected(r.id)" id="tipoRegistro">
+                <dd class="figure-caption">{{r.tipoRegistro}}</dd>
+            </td>
+            <td style="cursor: pointer;" (click)="onSelected(r.id)" id="productoId">
+                <dd class="figure-caption">{{r.producto.id}}</dd>
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="showHideEdit(r.id)" data-toggle="modal" data-target="#myModal"><span
+                        class="fa fa-pencil"></span></button>
+            </td>
+        </tr>
         </tbody>
     </table>
-  </div>
+    <div class="col-8">
+        <div *ngIf="showEdit">
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                          
+                        <div class="modal-header">
+                            <h4 class="modal-title">Editar un Registro</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                         
+                        <div class="modal-body">
+                            <app-producto-registro-edit [registro]="selectedRegistro" (cancel)="showHideEdit(selectedRegistro.id)"
+                                (update)="updateRegistro()"></app-producto-registro-edit>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

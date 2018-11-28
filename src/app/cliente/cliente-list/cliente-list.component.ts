@@ -10,7 +10,7 @@ import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente-list.component.html',
-  styleUrls: ['./cliente-list.component.css']
+  styleUrls: ['./cliente-list.component.scss']
 })
 export class ClienteListComponent implements OnInit {
 
