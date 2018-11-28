@@ -1,13 +1,45 @@
 <div class="col-md-12">
     <div class="container-fluid" *ngIf="productoDetail">
-        <p class="h2 p-2" style="padding-left: 0px">{{productoDetail.nombre}}</p>
-        <p class="h6 p-6">Cantidad: {{productoDetail.cantidad}}</p>
-        <p class="h6 p-6">Precio: {{productoDetail.precio}}</p>
-        <p class="h6 p-6">Tipo producto: {{productoDetail.tipoProducto}}</p>
-        <p class="h6 p-6">Unidades disponibles: {{productoDetail.unidadesDisponibles}}</p>
+        <br>
+        <br>
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>      {{productoDetail.nombre}}</h3></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="container-fluid">
+                                <img id="imgPro" class=" img-fluid" src="https://www.ecestaticos.com/imagestatic/clipping/271/b71/271b71dff2c4b5b2e1903651aaec637d/un-medicamento-de-uso-habitual-en-espana-causa-200-muertes-al-ano-en-francia.jpg?mtime=1429633152"
+                                alt="card image">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                                <ul class="list-group list-group-flush">
+                                        <li> </li>
+                                        <li class="list-group-item list-group-item-info">
+                                                <h6><p>FECHA:</p> {{productoDetail.fecha}} </h6>
+                                        </li>
+                                        <li class="list-group-item list-group-item-primary">
+                                                <h6><p>CANTIDAD:</p> {{productoDetail.cantidad}} </h6>
+                                        </li>
+                                        <li class="list-group-item list-group-item-info">
+                                                <h6><p>PRECIO:</p>{{productoDetail.precio}} </h6>
+                                        </li>
+                                        <li class="list-group-item list-group-item-primary">
+                                                <h6><p>UNIDADES DISPONIBLES:</p>{{productoDetail.unidadesDisponibles}} </h6>   
+                                        </li>
+                                        <li class="list-group-item list-group-item-info">
+                                                <h6><p>PERECEDERO:</p>{{productoDetail.perecedero}} </h6>   
+                                        </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <br>
         <div class="jumbotron umnbotron-fluid">
-            <p class="h4 p-3" style=" text-align: center"> Registros del producto</p>
+            <p class="h4 p-3" style=" text-align: center">REGISTROS</p>
             <app-producto-registro [registros]="productoDetail.registros"></app-producto-registro>
             <p>
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
