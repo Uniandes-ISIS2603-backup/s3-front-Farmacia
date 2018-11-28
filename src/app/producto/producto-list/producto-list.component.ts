@@ -12,6 +12,7 @@ import {ClienteService} from '../../cliente/cliente.service';
 import { TransaccionClienteDetail } from '../../cliente/transaccion-Cliete-detail';
 
 
+
  
 
 
@@ -49,7 +50,7 @@ export class    ProductoListComponent implements OnInit {
     this.agregar.agregarProducto(this.idCliente, this.idTransacion, idProducto).subscribe();
     
     await new Promise((resolve)  => setTimeout(resolve,200));
-    
+    this.total();
     
     this.ngOnInit();
     this.showCarrito=true;
@@ -62,11 +63,14 @@ export class    ProductoListComponent implements OnInit {
 
   getCarrito()
   {
+    if(this.idTransacion!=0)
+    {
     this.agregar.getTransaccionCliente(this.idCliente,this.idTransacion)
     .subscribe(transaccionDetail => {
       this.carrito = transaccionDetail
       this.productosCarrito= this.carrito.productos;
     });
+  }
     
   }
   total()
@@ -84,6 +88,9 @@ export class    ProductoListComponent implements OnInit {
 
     this.ngOnInit();
     
+    await new Promise((resolve)  => setTimeout(resolve,200));
+    this.total();
+
     this.showCarrito=true;
     
   }
@@ -99,10 +106,12 @@ export class    ProductoListComponent implements OnInit {
     this.carrito= new TransaccionClienteDetail();
     this.showCarrito=false;
     this.subtotal=0;
-    this.getCarrito();
+    
     this.getProductos();
-    await new Promise((resolve)  => setTimeout(resolve,200));
-    this.total();
+    console.log('cargar');
+    this.getCarrito();
+    
+    
       
   }
 

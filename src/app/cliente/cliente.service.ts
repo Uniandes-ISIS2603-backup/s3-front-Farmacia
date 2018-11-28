@@ -78,32 +78,62 @@ export class ClienteService {
         return this.http.put<ClienteDetail>(API_URL + clientes + '/' + cliente.id, cliente);
     }
 
+    /**
+     * Crea una transaccion a un cliente
+     * @param clienteId el id del cliente al cual se le quiere crear una transaccion
+     * @param transaccion la transaccion que se creo
+     */
     createTransaccion(clienteId,transaccion):Observable<TransaccionCliente>
     {
         return this.http.post<TransaccionCliente>(API_URL+clientes+'/'+clienteId+transacciones,transaccion);
     }
+
+    /**
+     * Obtiene una transaccion especifica de un cliente
+     * @param clienteId El id del cliente dueño de la transaccion
+     * @param transaccion el id de la transaccion que se queire obtener
+     */
     getTransaccionCliente(clienteId,transaccion): Observable<TransaccionClienteDetail>
     {
         return this.http.get<TransaccionClienteDetail>(API_URL+clientes+'/'+clienteId+transacciones+'/'+transaccion);
     }
     
+    /**
+     * Agrega un producto a una transaccion de cierto cliente
+     * @param clienteId El id del cliente dueño de la transaccion
+     * @param transaccionId el id d ela transaccion a la cual se le va a añadir el producto
+     * @param productoId el id del producto que se quiere añadir a la transaccion
+     */
     agregarProducto(clienteId,transaccionId,productoId): Observable<any>
     {
        console.log(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId+productos+'/'+productoId);
-       return this.http.post<any>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId+productos+'/'+productoId,productoId);
-        
-        
-        
+       return this.http.post<any>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId+productos+'/'+productoId,productoId);      
     }
+
+    /**
+     * Obtiene la ultima transaccion hecha por un cliente
+     * @param clienteId el id del cliente del cual se quiere saber su ultima transaccion
+     */
     getUltimaTransaccion(clienteId): Observable<TransaccionCliente>
     {
         return this.http.get<TransaccionCliente>(API_URL+clientes+'/'+clienteId + transacciones+'/ultima');
     }
+    /**
+     * Obtiene los productos de una transaccion que pertenece a cierto cliente
+     * @param clienteId el id del cliente dueño de la transaccion
+     * @param transaccionId el id de la transaccion de la cual se quiere saber sus productos
+     */
     getProductos(clienteId,transaccionId):Observable<Producto[]>
     {
        return this.http.get<Producto[]>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId);
     }
 
+    /**
+     * Eliminar un producto de una transaccion que pertenece a cierto cliente
+     * @param clienteId el id del cliente dueño de la transaccion
+     * @param transaccionId el id de la transaccion de la cual se va a eliminar un producto
+     * @param productoId el id del producto que se quiere eliminar d ela transaccion
+     */
     eliminarProducto(clienteId,transaccionId,productoId):Observable<any>
     {
         

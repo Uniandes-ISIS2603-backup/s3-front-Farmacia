@@ -39,6 +39,9 @@ export class ClienteDetailComponent implements OnInit {
 
     //transaccionesCliente
 
+    /**
+     * Obtiene el cliente detail del cual se quiere saber la informacion
+     */
     getClienteDetail(): void {
         this.clienteService.getClienteDetail(this.cliente_id)
             .subscribe(clienteDetail => {
@@ -46,6 +49,9 @@ export class ClienteDetailComponent implements OnInit {
             });
     }
 
+    /**
+     * Actualiza las transacciones del cliente
+     */
     updateTransacciones(): void
     {
         this.getClienteDetail();
@@ -64,6 +70,9 @@ export class ClienteDetailComponent implements OnInit {
         }
         this.showCreate=false;
     }
+    /**
+     * Muestra o esconde el modulo crear de una transaccion
+     */
     showHideCreate(): void {
         this.showCreate = !this.showCreate;
       }

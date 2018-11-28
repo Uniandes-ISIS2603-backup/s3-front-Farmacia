@@ -1,37 +1,37 @@
 
 <div class="col-md-12">
-  <div class="container-fluid">  
-    <div class = "row">
-    <div class= "col">
+  <div class="container-fluid">
+    <div class = "col">
+      <div class="card" style="width: 40rem;"> 
       <p class="h1 p-3 text-primary">Informacion del proveedor</p>
       <p class="h3 p-3 text-secondary">Id Proveedor: {{transaccionProveedorDetail.proveedor?.id}}</p>
       <p class="h3 p-3 text-secondary">Nombre del proveedor: {{transaccionProveedorDetail.proveedor?.nombre}}</p>
-    </div>
-    <div class= "col">
+      </div>
+      <div class="card" style="width: 40rem;">
       <p class="h1 p-3 text-primary">Informacion de la transacción</p>         
       <p class="h3 p-3 text-secondary">Id Transaccion: {{transaccionProveedorDetail.id}}</p>
       <p class="h3 p-3 text-secondary">Tiempo: {{transaccionProveedorDetail.tiempo}}</p>
       <p class="h3 p-3 text-secondary">Monto: $ {{transaccionProveedorDetail.monto}}</p>
-    </div>
-  </div>
-      <br>
-      <div class= "col text-center">
-        <p>
-            
-            <button [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" type="button" class="btn btn-outline-primary btn-lg"
-                    (click)="showHideEdit()">Agregar un producto</button>
-            
-            
-        </p>
       </div>
-        <div *ngIf="showEdit">
-          <app-transaccion-proveedor-edit [idProveedor]="transaccionProveedorDetail.proveedor?.id" [idTransaccionProveedor]="transaccionProveedorDetail?.id"></app-transaccion-proveedor-edit>
-        </div>
-        
-        <div class="jumbotron umnbotron-fluid">
+    </div> 
+    <div class = "col">  
+      <br>
+      <p>            
+            <button [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" type="button" class="btn btn-outline-primary btn-lg"
+                    (click)="showHideEdit()">Agregar un producto</button>      
+        </p>
+ 
+
+      <div class = "row">
+        <div class="card" style="width: 30rem;">
             
             <p class= "h2 p-3 text-primary " > Productos de la transacción </p>             
             <app-transaccion-proveedor-productos [productos]="transaccionProveedorDetail?.productos"></app-transaccion-proveedor-productos>
         </div>
+        <div *ngIf="showEdit">
+            <app-transaccion-proveedor-edit [idProveedor]="transaccionProveedorDetail.proveedor?.id" [idTransaccionProveedor]="transaccionProveedorDetail?.id"></app-transaccion-proveedor-edit>
+        </div>
+      </div>
+  </div> 
   </div>
 </div>

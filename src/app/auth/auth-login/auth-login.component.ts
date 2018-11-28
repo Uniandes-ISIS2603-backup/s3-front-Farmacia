@@ -52,7 +52,7 @@ export class AuthLoginComponent implements OnInit {
 
     postTransacciones(pTransaccion:TransaccionCliente): void{
         
-        console.log(this.transaccion,this.transaccionId);
+        
         this.clienteService.createTransaccion(this.cliente.id,
             pTransaccion).subscribe(transaccione => 
         {

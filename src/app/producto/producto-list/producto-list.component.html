@@ -22,7 +22,7 @@
             </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
-    <button mat-fab class="add-button" *ngxPermissionsOnly="['ADMIN']" color="warn"><mat-icon>add</mat-icon></button>
+    <button mat-fab class="add-button" *ngxPermissionsOnly="['ADMIN']" color="warn" routerLink="/productos/add"><mat-icon>add</mat-icon></button>
     <button mat-fab class="add-button" *ngxPermissionsOnly="['CLIENT']" color="primary" style="margin-right: 65px ;" (click)="ShowCarrito()"data-toggle="popover" data-placement="top" data-content="Pipe lo mama">
   <mat-icon>shopping_cart</mat-icon></button>
   <div id="demo">

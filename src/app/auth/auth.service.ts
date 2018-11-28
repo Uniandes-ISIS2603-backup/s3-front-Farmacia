@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxRolesService, NgxPermissionsService } from 'ngx-permissions';
-import { ClienteService } from '../cliente/cliente.service';
+
 
 /**
  * The service provider for everything related to authentication
@@ -19,7 +19,7 @@ export class AuthService {
         private router: Router,
         private roleService: NgxRolesService,
         private permissionsService: NgxPermissionsService,
-        private clienteService: ClienteService
+        
     ) { }
 
 
@@ -55,7 +55,8 @@ export class AuthService {
 
     setAdministratorRole(): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['edit_proveedor_permission', 'create_proveedor_permission', 'edit_cliente_permission']);
+        console.log("aqui");
+        this.roleService.addRole('ADMIN', ['edit_proveedor_permission', 'create_proveedor_permission']);
         localStorage.setItem('role', 'ADMIN');
 
         this.router.navigateByUrl('/proveedores/list');
@@ -73,6 +74,7 @@ export class AuthService {
      */
     login(cedula, role): void {
             if (role === 'Administrator') {
+                console.log("entro");
                 this.setAdministratorRole();
             } else {
                 this.setClientRole(cedula)

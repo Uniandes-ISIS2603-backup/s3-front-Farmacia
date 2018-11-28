@@ -26,7 +26,7 @@ export class ClienteEditComponent implements OnInit{
     ){}
 
     /**
-     * El cliente e editar
+     * El cliente para editar
      */
     @Input() cliente : Cliente;
 
