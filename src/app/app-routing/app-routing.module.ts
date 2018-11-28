@@ -66,6 +66,12 @@ const routes: Routes = [
 
             },
             {
+                path:':idCliente/transaccionesCliente/:idTransaccion',
+                component: ClienteDetailTransaccionClienteComponent
+
+            }
+            ,
+            {
                 path: ':id',
                 component: ClienteDetailComponent
             },

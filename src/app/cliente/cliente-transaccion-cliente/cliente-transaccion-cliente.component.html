@@ -5,7 +5,7 @@
     <th> id cliente</th>
     <th>tipo de pago</th>
           <tr *ngFor="let t of transacciones">
-              <td routerLink="/clientes/{{t.cliente.id}}/transacciones/{{t.id}}"> {{t.id}}</td>
+              <td routerLink="/clientes/{{t.cliente.id}}/transaccionesCliente/{{t.id}}"> {{t.id}}</td>
               <td> $ {{t.monto}}</td>
               <td> {{t.cliente.id}}</td>
               <td> {{t.tipoDePago}}</td>
