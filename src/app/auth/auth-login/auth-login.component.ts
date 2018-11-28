@@ -133,6 +133,7 @@ export class AuthLoginComponent implements OnInit {
         }
         else if (this.user.role == 'Client') {
 
+            try{
             this.authService.login(this.user.cedula, this.user.role);
 
             await new Promise((resolve)  => setTimeout(resolve,1000));
@@ -154,7 +155,11 @@ export class AuthLoginComponent implements OnInit {
 
             await new Promise((resolve)  => setTimeout(resolve,1000));
             this.toastrService.success('Logged in')
-
+        }
+        catch(err)
+        {
+            this.router.navigateByUrl('/productos/list');
+        }
 
         }
         if (this.loguear === true) {
