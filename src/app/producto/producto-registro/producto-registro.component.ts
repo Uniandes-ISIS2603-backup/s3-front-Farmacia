@@ -7,6 +7,7 @@ import { ProductoService } from '../producto.service';
 
 @Component({
   selector: 'app-producto-registro',
+  styleUrls: ['./producto-registro.component.css'],
   templateUrl: './producto-registro.component.html'
 })
 export class ProductoRegistroComponent implements OnInit {
