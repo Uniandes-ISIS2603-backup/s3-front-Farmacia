@@ -3,7 +3,7 @@
             <br>
             <form name="transaccionProveedor" (ngSubmit)="f.form.valid && addProducto()" #f="ngForm" novalidate>
                 <div class="form-group">
-                        <label for="id"><b>idProducto</b></label>
+                        <label for="id"><b>Id del producto a agregar</b></label>
                         <input type="number" name="id" class="form-control" id="id" [(ngModel)]="idProducto"
                             #id="ngModel" [ngClass]="{ 'is-invalid': f.submitted && id.invalid }" required>
                         <div class="invalid-feedback">
