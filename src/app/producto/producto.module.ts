@@ -15,6 +15,7 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatCardModule, MatGridListModule, MatIconModule } from '@angular/material';
 import { NgbCarouselModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from '../material.module';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 
 
@@ -37,7 +38,7 @@ import { MaterialModule } from '../material.module';
     MaterialModule,
     //RegistroModule,
     FormsModule,
-    
+    NgxPermissionsModule
     //MatTableModule,
     //FormsModule
   ],

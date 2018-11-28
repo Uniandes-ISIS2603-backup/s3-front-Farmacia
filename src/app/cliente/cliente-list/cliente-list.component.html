@@ -22,7 +22,7 @@
                                     <th>direccionEnvio</th>
                                     <th>cedula</th>
                                 <tr *ngFor="let cliente of clientes" class="row100 body">
-                                    <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="id">
+                                    <td *ngxPermissionsOnly="['ADMIN']" style="cursor: pointer;" (click)="onSelected(cliente.id)" id="id">
                                         <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.id}}</dd>
                                     </td>
                                     <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="nombre">
