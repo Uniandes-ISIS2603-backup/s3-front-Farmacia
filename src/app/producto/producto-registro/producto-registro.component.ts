@@ -11,6 +11,13 @@ import { ProductoService } from '../producto.service';
 })
 export class ProductoRegistroComponent implements OnInit {
 
+  /**
+   * 
+   * @param productoService The producto's services provider
+   * @param toastrService the toastr to show messages to the user
+   * @param router 
+   * @param route 
+   */
   constructor(
     private productoService: ProductoService,
     private toastrService: ToastrService,
@@ -18,18 +25,40 @@ export class ProductoRegistroComponent implements OnInit {
     private route: ActivatedRoute,
   ) { }
 
+  /**
+   * La lista de registros del producto
+   */
   @Input() registros: Registro[];
 
+  /**
+   * El id del producto dueno de los registros
+   */
   @Input() idProducto: number;
 
+  /**
+   * Booleano que indica si s eesta mostrando o no el componente crear registro
+   */
   showCreate: Boolean;
 
+  /**
+   * Booleano que indica si se esta mostrando el componente editar del registro
+   */
   showEdit: Boolean;
 
+  /**
+   * El id del registro
+   */
   registro_id: number;
 
+  /**
+   * El registro seleccionado
+   */
   selectedRegistro: Registro;
 
+  /**
+   * Selecciona un registro
+   * @param id el id del registro seleccionado
+   */
   onSelected(id: number): void {
     this.showCreate = false;
     this.showEdit = false;
@@ -38,6 +67,9 @@ export class ProductoRegistroComponent implements OnInit {
     this.getRegistro();
   }
 
+  /**
+   * Muestra no no muestra el componente crear de un registro
+   */
   showHideCreate(): void {
     this.showEdit = false;
     this.showCreate = !this.showCreate;
@@ -78,6 +110,9 @@ export class ProductoRegistroComponent implements OnInit {
     this.showEdit = false;
   }
 
+  /**
+   * Metodo que se ejecuta al inicializar el componente
+   */
   ngOnInit() {
     this.showCreate = false;
     this.showEdit = false;

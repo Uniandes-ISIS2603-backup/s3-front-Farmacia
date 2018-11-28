@@ -13,20 +13,38 @@ import {Producto} from '../producto';
   styleUrls: ['./producto-add-registro.component.css']
 })
 export class ProductoAddRegistroComponent implements OnInit, OnChanges {
+  /**
+   * 
+   * @param productoService The producto's service provider
+   * @param tostrService the toastr to show messages to the user
+   */
   constructor(
     private productoService: ProductoService,
     private tostrService :ToastrService
 
   ) { }
 
+  /**
+   * El producto dueno del registro
+   */
   @Input() producto: Producto;
 
+  /**
+   * registro que se va a crear
+   */
   registro :Registro;
 
   public isCollapsed :Boolean;
 
+  /**
+   * Actualiza registros
+   */
   @Output() updateRegistros = new EventEmitter;
 
+  /**
+   * Crea un registro
+   * @param registroForm 
+   */
   async postRegistros(registroForm:NgForm)
   {
    // this.registro.producto= this.producto;
@@ -52,11 +70,18 @@ export class ProductoAddRegistroComponent implements OnInit, OnChanges {
     
     return this.registro;
   }
+
+  /**
+   * Metodo que se ejecuta al inicializar el componente
+   */
   ngOnInit() {
     this.isCollapsed=false;
     
     this.registro = new Registro();
   }
+  /**
+   * MEtodo que se ejecuta cuando hay cambios en el componente
+   */
   ngOnChanges()
   {
     this.ngOnInit();
