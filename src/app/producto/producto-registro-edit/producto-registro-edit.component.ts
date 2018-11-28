@@ -15,8 +15,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductoRegistroEditComponent implements OnInit{
 
     /**
-     * El contructor del componente para editar un cliente
-     * @param clienteService The cliente's services provider
+     * El contructor del componente para editar un registro
+     * @param productoService The producto's services provider
      * @param toastrService  the toastr to show messages to the user
      * @param router 
      */
@@ -30,24 +30,24 @@ export class ProductoRegistroEditComponent implements OnInit{
     @Input()idProducto: number;
 
     /**
-     * El cliente e editar
+     * El registro e editar
      */
     @Input() registro : Registro;
 
    /**
    * The output which tells the parent component
-   * that the user no longer wants to create a cliente
+   * that the user no longer wants to create a registro
    */
    @Output() cancel = new EventEmitter();
 
    /**
    * The output which tells the parent component
-   * that the user updated a new cliente
+   * that the user updated a new registro
    */
    @Output() update = new EventEmitter();
 
    /**
-    * Guarda los cambios que se le han hecho al cliente indicado
+    * Guarda los cambios que se le han hecho al registro indicado
     */
    guardarCambios() {
     this.productoService.updateRegistro(this.idProducto, this.registro)
@@ -60,7 +60,7 @@ export class ProductoRegistroEditComponent implements OnInit{
   }
 
   /**
-   * Cancela la edicion de un cliente
+   * Cancela la edicion de un registro
    */
   cancelEdition(): void {
     this.toastrService.warning('The registro wasn\'t edited', 'Registro edition');

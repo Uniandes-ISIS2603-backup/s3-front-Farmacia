@@ -17,6 +17,7 @@ import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail
 import {TransaccionProveedorDetailComponent} from '../proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 import {AuthSingUpComponent} from '../auth/auth-sing-up/auth-sing-up.component';
 import { ClienteDetailTransaccionClienteComponent } from '../cliente/cliente-detail-transaccion-cliente/cliente-detail-transaccion-cliente.component';
+import { ProductoCreateComponent } from '../producto/producto-create/producto-create.component';
 const routes: Routes = [
     {
         path: 'proveedores',
@@ -33,11 +34,6 @@ const routes: Routes = [
                 path:':idProveedor/transaccion-proveedor/:idTransaccionProveedor',
                 component: TransaccionProveedorDetailComponent
 
-            },
-            {
-                path: 'add',
-                component: ProveedorCreateComponent,
-                runGuardsAndResolvers: 'always'
             }
         ]
     },
@@ -51,6 +47,10 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: ProductoDetailComponent
+            },
+            {
+                path : 'add',
+                component : ProductoCreateComponent
             }
         ]
     },

@@ -5,3 +5,6 @@ th {
 td.cc{
     text-align: center;
 }
+.thead{
+    background-color: rgb(8, 178, 184);
+}
