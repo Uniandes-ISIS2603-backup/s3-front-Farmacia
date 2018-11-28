@@ -38,7 +38,7 @@
 
 </div> -->
 
-<mat-drawer-container class = "container">
+<mat-drawer-container>
     <!--<mat-drawer #drawer [mode] = "over">
         <mat-nav-list>
             <div *ngFor="let link of links">
@@ -58,7 +58,7 @@
                 <span class="toolbar-spacer"></span>
                 <span routerLink = "/auth/login" style = "cursor: pointer" *ngxPermissionsOnly="['GUEST']">Iniciar sesión</span>
                 <span (click)="logout()" style = "cursor: pointer" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">Cerrar sesión</span>
-                <span *ngxPermissionsOnly="['GUEST']">|</span>
+                <span *ngxPermissionsOnly="['GUEST']"> &nbsp;|&nbsp; </span>
                 <span routerLink = "/auth/crear" style = "cursor: pointer" *ngxPermissionsOnly="['GUEST']">Registrarme</span>
             </mat-toolbar>
             <router-outlet></router-outlet>
