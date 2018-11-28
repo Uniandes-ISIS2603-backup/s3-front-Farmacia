@@ -1,34 +1,37 @@
 <div class="container-fluid">
         <br>
         <div class="row">
-                <div class="col-md-4" style="margin:0 auto;">
-                        <div class="card" style="width: 18rem;">
-                                <img id="imgPro" class=" img-fluid" src="http://www.pasopatiindonesia.com/assets/img/team/default.png"
-                                        alt="card image">
-                                <div class="card-body text-center" id="colorTarjeta" style=" background-color : rgb(79, 62, 179);">
-                                        <h4 class="card-text text-center">{{clienteDetail.apellido}}</h4>
-                                        <h5 class="card-text text-center">{{clienteDetail.cedula}}</h5>
+                <div class="col-lg-12">
+                        <div class="col-md-4" style="margin:0 auto;">
+                                <div class="card" style="width: 18rem;">
+                                        <img id="imgPro" class=" img-fluid" src="http://www.pasopatiindonesia.com/assets/img/team/default.png"
+                                                alt="card image">
+                                        <div class="card-body text-center" id="colorTarjeta" style=" background-color : rgb(79, 62, 179);">
+                                                <h4 class="card-text text-center">{{clienteDetail.apellido}}</h4>
+                                                <h5 class="card-text text-center">{{clienteDetail.cedula}}</h5>
+                                        </div>
                                 </div>
                         </div>
-                </div>
-                <div class="col-md-8">
-                        <div class="card">
-                                <br>
-                                <h4 class="card-title text-center">{{clienteDetail.nombre}}
-                                        {{clienteDetail.apellido}}</h4>
-                                <div class="card-body">
+                        <div class="col-md-8">
+                                <div class="card">
+                                        <br>
+                                        <h4 class="card-title text-center">{{clienteDetail.nombre}}
+                                                {{clienteDetail.apellido}}</h4>
+                                        <div class="card-body">
 
-                                        <ul class="list-group list-group-flush">
-                                                <li class="list-group-item list-group-item-info">
-                                                        <h6>Cédula.</h6>   {{clienteDetail.cedula}}
-                                                </li>
-                                                <li class="list-group-item list-group-item-primary">
-                                                        <h6>Dirección de envío.</h6>    {{clienteDetail.direccionEnvio}}
-                                                </li>
-                                                <li class="list-group-item list-group-item-info">
-                                                        <h6>Ciudad.</h6>    {{clienteDetail.ciudad}}
-                                                </li>
-                                        </ul>
+                                                <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item list-group-item-info">
+                                                                <h6>Cédula.</h6> {{clienteDetail.cedula}}
+                                                        </li>
+                                                        <li class="list-group-item list-group-item-primary">
+                                                                <h6>Dirección de envío.</h6>
+                                                                {{clienteDetail.direccionEnvio}}
+                                                        </li>
+                                                        <li class="list-group-item list-group-item-info">
+                                                                <h6>Ciudad.</h6> {{clienteDetail.ciudad}}
+                                                        </li>
+                                                </ul>
+                                        </div>
                                 </div>
                         </div>
                 </div>
