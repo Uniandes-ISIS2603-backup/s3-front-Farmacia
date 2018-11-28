@@ -21,6 +21,7 @@ import { MaterialModule } from '../material.module';
 
 
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -35,6 +36,7 @@ import { MaterialModule } from '../material.module';
     MaterialModule,
     //RegistroModule,
     FormsModule,
+    
     //MatTableModule,
     //FormsModule
   ],

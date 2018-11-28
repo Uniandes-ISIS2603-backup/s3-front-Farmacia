@@ -36,7 +36,7 @@ export class ClienteAddTransaccionClienteComponent implements OnInit, OnChanges 
     {
       
       this.updateTransacciones.emit();
-      this.tostrService.success("Se creó la transaccion correctamente",'transaccion agregada');
+      this.tostrService.success("Se creó la transaccion corr  ectamente",'transaccion agregada');
     }, err =>{
       this.tostrService.error(err,'Error');
     });

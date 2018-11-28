@@ -12,6 +12,7 @@ import {ProductoService} from '../producto/producto.service'
 import { variable } from '@angular/compiler/src/output/output_ast';
 import { projectionDef } from '@angular/core/src/render3/instructions';
 import {Router} from '@angular/router';
+import { Producto } from '../producto/producto';
 
 /**
  * Ruta que maneja la conexion con el back
@@ -98,9 +99,9 @@ export class ClienteService {
     {
         return this.http.get<TransaccionCliente>(API_URL+clientes+'/'+clienteId + transacciones+'/ultima');
     }
-    getProductos(clienteId,transaccionId):Observable<ProductoDetail[]>
+    getProductos(clienteId,transaccionId):Observable<Producto[]>
     {
-       return this.http.get<ProductoDetail[]>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId);
+       return this.http.get<Producto[]>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId);
     }
 
     eliminarProducto(clienteId,transaccionId,productoId):Observable<any>
@@ -115,7 +116,7 @@ export class ClienteService {
      * @param clienteId el id del cliente a eliminar
      */
     deleteCliente (clienteId): Observable<boolean> {
-        return this.http.delete<boolean>(API_URL + clientes + '/' + clienteId);
+        return this.http.delete<boolean>(API_URL + clientes + '/' + clienteId+'/delete');
     }
 
 }

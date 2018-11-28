@@ -8,9 +8,9 @@
             </thead>
             <tbody>
                 
-                <tr *ngFor="let p of productos">
+                <tr *ngFor="let p of productosCarrito">
                   <td>{{p.id}}</td>
-                  <button type="button " class="btn btn-danger"  (click)="eliminarProducto(p.id)"><span class="fa fa-trash"></span></button>
+                  <button type="button" class="btn btn-danger" (click)="eliminarProducto(p.id)" ><span class="fa fa-trash"></span></button>
                   </tr>
                   
                   

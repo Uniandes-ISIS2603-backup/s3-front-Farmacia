@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { ProductoService } from '../producto.service';
+import {ProductoDetail} from '../producto-detail';
 
 import { Producto } from '../producto';
 
@@ -8,6 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {ClienteService} from '../../cliente/cliente.service';
+import { TransaccionClienteDetail } from '../../cliente/transaccion-Cliete-detail';
+
+
+ 
 
 
 @Component({
@@ -19,13 +24,18 @@ export class    ProductoListComponent implements OnInit {
 
   productos: Producto[];
   isHidden: boolean;
+  carrito:TransaccionClienteDetail;
+  productosCarrito:Producto[];
+  showCarrito:boolean;
 
   idCliente: number;
   idTransacion: number;
+  subtotal:number;
 
   constructor(private productoService: ProductoService, config: NgbCarouselConfig,
     private agregar: ClienteService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    ) {
     this.isHidden = true;
     console.log(this.isHidden);
     config.interval = 1000;
@@ -34,8 +44,15 @@ export class    ProductoListComponent implements OnInit {
     config.pauseOnHover = false;
    }
 
-   anadirProducto(idProducto) {
+   async anadirProducto(idProducto) {
+    
     this.agregar.agregarProducto(this.idCliente, this.idTransacion, idProducto).subscribe();
+    
+    await new Promise((resolve)  => setTimeout(resolve,200));
+    
+    
+    this.ngOnInit();
+    this.showCarrito=true;
    }
 
   getProductos() {
@@ -43,10 +60,50 @@ export class    ProductoListComponent implements OnInit {
         .subscribe(productos => this.productos = productos);
   }
 
-  ngOnInit() {
+  getCarrito()
+  {
+    this.agregar.getTransaccionCliente(this.idCliente,this.idTransacion)
+    .subscribe(transaccionDetail => {
+      this.carrito = transaccionDetail
+      this.productosCarrito= this.carrito.productos;
+    });
+    
+  }
+  total()
+  {
+    for (var i = 0; i < this.productosCarrito.length; i++) {
+      var num = this.productosCarrito[i];
+      this.subtotal= this.subtotal+num.precio;
+  }
+  }
+ async eliminarProducto(idProducto)
+  {
+    this.agregar.eliminarProducto(this.idCliente,this.idTransacion,idProducto).subscribe();
+
+    await new Promise((resolve)  => setTimeout(resolve,200));
+
+    this.ngOnInit();
+    
+    this.showCarrito=true;
+    
+  }
+  ShowCarrito()
+  {
+    this.showCarrito=!this.showCarrito;
+    
+  }
+
+  async ngOnInit() {
     this.idCliente = +this.route.snapshot.paramMap.get('idCliente');
     this.idTransacion = +this.route.snapshot.paramMap.get('idTransaccion');
-      this.getProductos();
+    this.carrito= new TransaccionClienteDetail();
+    this.showCarrito=false;
+    this.subtotal=0;
+    this.getCarrito();
+    this.getProductos();
+    await new Promise((resolve)  => setTimeout(resolve,200));
+    this.total();
+      
   }
 
 }

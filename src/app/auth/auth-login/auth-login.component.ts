@@ -115,6 +115,10 @@ export class AuthLoginComponent implements OnInit {
         this.transaccionId = undefined;
         this.roles = ['Administrator', 'Client'];
         this.transaccion= new TransaccionCliente();
+        this.transaccion.monto=0;
+        this.transaccion.parcial=true;
+        this.transaccion.tiempo=0;
+        this.transaccion.tipoDePago='efectivo';
     }
 
     async login(){
@@ -124,7 +128,7 @@ export class AuthLoginComponent implements OnInit {
         if (this.user.role == 'Administrator') {
             this.loguear = true;
             this.authService.login(this.user.cedula, this.user.role);
-            
+            this.router.navigateByUrl('/productos/list');
 
         }
         else if (this.user.role == 'Client') {

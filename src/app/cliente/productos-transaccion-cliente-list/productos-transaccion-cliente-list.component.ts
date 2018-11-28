@@ -24,7 +24,7 @@ export class ProductosTransaccionClienteListComponent implements OnInit {
   eliminarProducto(productoId)
   {
     this.servicio.eliminarProducto(this.idCliente,this.idTransacion,productoId).subscribe();
-    console.log('producto:'+productoId,'cliente:'+this.idCliente,'transacción;'+this.idTransacion)
+    
   }
 
   ngOnInit() 

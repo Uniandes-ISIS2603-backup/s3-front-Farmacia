@@ -38,7 +38,7 @@ export class ClienteTransaccionClienteEditComponent implements OnInit {
 
   ngOnInit() {
     this.idCliente +this.route.snapshot.paramMap.get('idCliente');  
-    this.idTransaccion= +this.route.snapshot.paramMap.get('idTransaccion');
+    
   }
 
 }
