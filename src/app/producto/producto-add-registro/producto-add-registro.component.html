@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="form-group">
                             <label for="registroTipo"><b>Tipo del registro</b></label>
-                            <select name="registroTipo" class="form-control" id="registroTipo" [(ngModel)]="registro.tipoRegistro" 
+                            <select name="registroTipo" class="form-control" id="registroTipo" [(ngModel)]="registro.tipoRegistro"
                                 #registroTipo="ngModel" [ngClass]="{ 'is-invalid':registroForm.submit && registroTipo.invalid }"
                                 required>
                                 <div class="invalid-feedback">

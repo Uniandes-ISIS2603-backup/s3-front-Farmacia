@@ -44,4 +44,13 @@ export class ProductoService {
         console.log(API_URL + producto + '/' +productoId + '/asociate/registro/' + registroId);
         return this.http.post(API_URL + producto + '/' +productoId + '/asociate/registro/' + registroId,null);
     }
+
+    updateRegistro(productoId, registro): Observable<Registro>
+    {
+        return this.http.put<Registro>(API_URL+producto+'/'+productoId+registros+'/'+registro.id,registro)
+    }
+
+    getRegistro(productoId,registroId): Observable<Registro>{
+        return this.http.get<Registro>(API_URL+producto+'/'+ productoId+ registros+ '/'+ registroId);
+    }
 }

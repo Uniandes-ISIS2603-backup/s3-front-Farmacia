@@ -1,3 +1,7 @@
+@import '~@angular/material/_theming.scss';
+
+
+
 * {
 	box-sizing: border-box;
 }
@@ -37,6 +41,7 @@ div {
 #nom{
     text-align:  center;
 }
+
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 * {
@@ -162,7 +167,7 @@ iframe {
 
 .container-table100 {
   width: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
   background: #fff;
 
   display: -webkit-box;
@@ -178,36 +183,19 @@ iframe {
 
 .wrap-table100 {
   width: 1170px;
+  max-height: calc(100vh - 180px);
 }
 
 /*//////////////////////////////////////////////////////////////////
 [ Table ]*/
 .table100 {
   background-color: #fff;
+  max-height: calc(100vh - 180px);
 }
 
 table {
   width: 100%;
-}
-.column1 {
-  width: 33%;
-  padding-left: 40px;
-}
-
-.column2 {
-  width: 13%;
-}
-
-.column3 {
-  width: 22%;
-}
-
-.column4 {
-  width: 19%;
-}
-
-.column5 {
-  width: 13%;
+  max-height: calc(100vh - 180px);
 }
 
 .table100-head th {
@@ -247,7 +235,7 @@ table {
   color: #fff;
   line-height: 1.4;
 
-  background-color:rgb(0, 102, 255);
+  background-color: map-get($mat-indigo, 500);
 }
 
 .table100.ver1 td {
@@ -281,4 +269,16 @@ table {
 
 .table100.ver1 .ps__rail-y .ps__thumb-y::before {
   background-color: #cccccc;
+}
+
+#myInput{
+  border:2px solid #FF0000;
+}
+
+.btn-primary {
+  background: map-get($mat-indigo, 500);
+}
+
+.btn-danger {
+  background: map-get($mat-red, 500 )
 }
