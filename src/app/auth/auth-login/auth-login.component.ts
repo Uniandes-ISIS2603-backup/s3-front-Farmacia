@@ -52,13 +52,16 @@ export class AuthLoginComponent implements OnInit {
 
     postTransacciones(pTransaccion:TransaccionCliente): void{
         
+        console.log(this.transaccion,this.transaccionId);
         this.clienteService.createTransaccion(this.cliente.id,
             pTransaccion).subscribe(transaccione => 
         {
             this.transaccion = transaccione;
             this.transaccionId = transaccione.id;
+            
           this.toastrService.success("Se creó la transaccion correctamente",'transaccion agregada');
         }, err =>{
+            console.log(pTransaccion.id);
           this.toastrService.error(err,'Error');
         });
 
@@ -123,11 +126,19 @@ export class AuthLoginComponent implements OnInit {
             this.authService.login(this.user.cedula, this.user.role);
         }
         else if (this.user.role == 'Client') {
+
             this.authService.login(this.user.cedula, this.user.role);
+
+            await new Promise((resolve)  => setTimeout(resolve,1000));
+
+
             this.getClienteByCedula();
+
+            await new Promise((resolve)  => setTimeout(resolve,1000));
+
             this.postTransacciones(this.transaccion);
 
-            await new Promise((resolve)  => setTimeout(resolve,500));
+            await new Promise((resolve)  => setTimeout(resolve,1000));
 
             this.getultimaTransaccion();
 
@@ -135,7 +146,7 @@ export class AuthLoginComponent implements OnInit {
 
             this.router.navigateByUrl('/clientes/'+this.clienteId + '/transacciones/' + this.transaccionId);
 
-            await new Promise((resolve)  => setTimeout(resolve,500));
+            await new Promise((resolve)  => setTimeout(resolve,1000));
             this.toastrService.success('Logged in')
 
 

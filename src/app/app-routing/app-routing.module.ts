@@ -16,6 +16,8 @@ import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 import {TransaccionProveedorDetailComponent} from '../proveedor/transaccion-proveedor-detail/transaccion-proveedor-detail.component';
 import {AuthSingUpComponent} from '../auth/auth-sing-up/auth-sing-up.component';
+import{ClienteDetailTransaccionClienteComponent} from '../cliente/cliente-detail-transaccion-cliente/cliente-detail-transaccion-cliente.component';
+
 const routes: Routes = [
     {
         path: 'proveedores',

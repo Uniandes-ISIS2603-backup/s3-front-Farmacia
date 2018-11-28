@@ -58,7 +58,6 @@ export class AuthService {
         this.roleService.flushRoles();
         this.roleService.addRole('ADMIN', ['edit_proveedor_permission', 'create_proveedor_permission', 'edit_cliente_permission']);
         localStorage.setItem('role', 'ADMIN');
-   //     localStorage.setItem('cedula', cedula);
     }
 
     printRole(): void {
@@ -75,13 +74,6 @@ export class AuthService {
             } else {
                 this.setClientRole(cedula)
             }
-            
-        if (role === 'Administrator') {
-               this.setAdministratorRole();
-        } else {
-            this.setClientRole(cedula);
-        }
-        this.router.navigateByUrl('/productos/list');
     }
 
     /**
