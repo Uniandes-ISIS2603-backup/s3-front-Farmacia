@@ -15,6 +15,12 @@ import {Producto} from '../../producto/producto';
 })
 export class ClienteTransaccionClienteEditComponent implements OnInit {
 
+  /**
+   * Contructor del componente
+   * @param clienteService Servicio del cliente del cual se invocan los metodos que conectan con el back
+   * @param toastrService 
+   * @param route 
+   */
   constructor(
     private clienteService : ClienteService,
     private toastrService : ToastrService,
@@ -22,13 +28,22 @@ export class ClienteTransaccionClienteEditComponent implements OnInit {
     private route : ActivatedRoute
   ) { }
 
-  
+  /**
+   * el id de la transaccion que se quiere modificar
+   */
   @Input()idTransaccion:number;
+  /**
+   * el id del cliente dueño de la transaccion
+   */
   @Input()idCliente:number;
   
 
   @Output() actualizarProductos = new EventEmitter();
 
+  /**
+   * Metodo que agrega un producto a una transaccion por medio del idProducto
+   * @param idProducto id del producto que se quiere agregar a la transaccion
+   */
   agregarProducto (idProducto:number):void
   {
       
@@ -36,6 +51,9 @@ export class ClienteTransaccionClienteEditComponent implements OnInit {
    
   }
 
+  /**
+   * Metodo que se ejecuto al inicialzar el componente
+   */
   ngOnInit() {
     this.idCliente +this.route.snapshot.paramMap.get('idCliente');  
     

@@ -104,6 +104,10 @@ updateCliente(): void {
   this.showEdit = false;
 }
 
+/**
+ * Elimina el cliente especificado por el id que entra por parametro
+ * @param clienteId Id del cliente que se va a eliminar
+ */
 deleteCliente(clienteId): void {
   this.modalDialogService.openDialog(this.viewRef, {
       title: 'Eliminar un cliente.',
