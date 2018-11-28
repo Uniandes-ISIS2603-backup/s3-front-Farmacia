@@ -1,27 +1,55 @@
-<div class="col-md-12">
-    <div class="container-fluid">   
-        <p class="h3 p-3">idCliente: {{clienteDetail.id}}</p>
-        <p class="h3 p-3">nombreCliente: {{clienteDetail.nombre}}</p>
-        <p class="h3 p-3">apellidoCliente: {{clienteDetail.apellido}}</p>
-        <p class="h3 p-3">direccionEnvioCliente: {{clienteDetail.direccionEnvio}}</p>
-        <p class="h3 p-3">cedulaCliente: {{clienteDetail.cedula}}</p>
+<div class="container-fluid">
         <br>
-        <!---->
-        <div class="jumbotron umnbotron-fluid">
-        <p class= "h4 p-3" style=" text-align: center"> Transacciones ejecutadas</p> 
-         <app-cliente-transaccion-cliente [transacciones]="clienteDetail.transaccionesCliente"></app-cliente-transaccion-cliente>
-         <p>
-            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">crear transacción</button>
-            
-        </p>
+        <div class="row">
+                <div class="col-md-4" style="margin:0 auto;">
+                        <div class="card" style="width: 18rem;">
+                                <img id="imgPro" class=" img-fluid" src="http://www.pasopatiindonesia.com/assets/img/team/default.png"
+                                        alt="card image">
+                                <div class="card-body text-center" id="colorTarjeta" style=" background-color : rgb(79, 62, 179);">
+                                        <h4 class="card-text text-center">{{clienteDetail.apellido}}</h4>
+                                        <h5 class="card-text text-center">{{clienteDetail.cedula}}</h5>
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-8">
+                        <div class="card">
+                                <br>
+                                <h4 class="card-title text-center">{{clienteDetail.nombre}}
+                                        {{clienteDetail.apellido}}</h4>
+                                <div class="card-body">
+
+                                        <ul class="list-group list-group-flush">
+                                                <li class="list-group-item list-group-item-info">
+                                                        <h6>Cédula.</h6>   {{clienteDetail.cedula}}
+                                                </li>
+                                                <li class="list-group-item list-group-item-primary">
+                                                        <h6>Dirección de envío.</h6>    {{clienteDetail.direccionEnvio}}
+                                                </li>
+                                                <li class="list-group-item list-group-item-info">
+                                                        <h6>Ciudad.</h6>    {{clienteDetail.ciudad}}
+                                                </li>
+                                        </ul>
+                                </div>
+                        </div>
+                </div>
         </div>
-        <div class="col-md-8">
-                <div *ngIf="showCreate">
-                        <app-cliente-add-transaccion-cliente [cliente]="clienteDetail"(cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"(updateTransacciones)="updateTransacciones()"></app-cliente-add-transaccion-cliente> 
-                
-                
-            </div>
-            </div>
-    </div>
+        <br>
+        <br>
+        <div class="row">
+                <div class="col-md-12">
+                        <div class="jumbotron umnbotron-fluid">
+                                <p class="h4 p-3" style=" text-align: center">TRANSACCIONES EJECUTADAS</p>
+                                <app-cliente-transaccion-cliente [transacciones]="clienteDetail.transaccionesCliente"></app-cliente-transaccion-cliente>
+                                <p>
+                                        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }"
+                                                type="button" class="btn" (click)="showHideCreate()">Registrar una
+                                                transaccion ejecutada.</button>
+                                </p>
+                        </div>
+                        <div *ngIf="showCreate">
+                                <app-cliente-add-transaccion-cliente [cliente]="clienteDetail" (cancel)="showHideCreate()"
+                                        (create)="ngOnInit()" *ngIf="showCreate" (updateTransacciones)="updateTransacciones()"></app-cliente-add-transaccion-cliente>
+                        </div>
+                </div>
+        </div>
 </div>
