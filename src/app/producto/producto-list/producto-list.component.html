@@ -1,7 +1,4 @@
-<div class = "container" style="width:100%; height:80%">
-   
-            
-       
+<div class = "container" style="width:100%; height:80%">      
     <mat-grid-list cols="5" rowHeight="350px">
         <mat-grid-tile
             *ngFor="let producto of productos" colspan=1>
@@ -26,10 +23,11 @@
         </mat-grid-tile>
     </mat-grid-list>
     <button mat-fab class="add-button" color="warn"><mat-icon>add</mat-icon></button>
-    <button mat-fab class="add-button" color="primary" style="margin-right: 65px ;" (click)="ShowCarrito()"
-><mat-icon>shopping_cart</mat-icon></button>
+    <button mat-fab class="add-button" color="primary" style="margin-right: 65px ;" (click)="ShowCarrito()"data-toggle="popover" data-placement="top" data-content="Pipe lo mama">
+  <mat-icon>shopping_cart</mat-icon></button>
+  <div id="demo">
     <div *ngIf=showCarrito>
-            <div class="limiter" style="width: 20%;">
+            <div class="card" >
                     <div class="container-table100" style = "padding:0px; margin: 0px;">
                         <div class="wrap-table100" style="margin-top:0px">
                             <div class="table100 ver1 m-b-110" style="margin:0px auto">
@@ -67,6 +65,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
     
 </div>
