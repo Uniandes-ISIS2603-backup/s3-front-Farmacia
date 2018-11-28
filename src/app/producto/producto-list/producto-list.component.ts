@@ -20,11 +20,11 @@ export class    ProductoListComponent implements OnInit {
   productos: Producto[];
   isHidden: boolean;
 
-  idCliente:number;
-  idTransacion:number;
+  idCliente: number;
+  idTransacion: number;
 
   constructor(private productoService: ProductoService, config: NgbCarouselConfig,
-    private agregar:ClienteService,
+    private agregar: ClienteService,
     private route: ActivatedRoute) {
     this.isHidden = true;
     console.log(this.isHidden);
@@ -34,9 +34,8 @@ export class    ProductoListComponent implements OnInit {
     config.pauseOnHover = false;
    }
 
-   anadirProducto(idProducto)
-   {
-    this.agregar.agregarProducto(this.idCliente,this.idTransacion,idProducto).subscribe();
+   anadirProducto(idProducto) {
+    this.agregar.agregarProducto(this.idCliente, this.idTransacion, idProducto).subscribe();
    }
 
   getProductos() {
@@ -45,10 +44,8 @@ export class    ProductoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    
-    this.idCliente=+this.route.snapshot.paramMap.get('idCliente');
-    this.idTransacion=+this.route.snapshot.paramMap.get('idTransaccion'); 
+    this.idCliente = +this.route.snapshot.paramMap.get('idCliente');
+    this.idTransacion = +this.route.snapshot.paramMap.get('idTransaccion');
       this.getProductos();
   }
 
