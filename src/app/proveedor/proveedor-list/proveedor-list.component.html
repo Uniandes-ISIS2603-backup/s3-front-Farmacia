@@ -19,14 +19,14 @@
                         <table id="myTable">
                             <tbody>
                             <tr *ngFor="let proveedor of filtered" class="row100 body">
-                                <td style="cursor: pointer;" (click)="onSelected(proveedor.id)" id="nom">
+                                <td style="cursor: pointer;" (click)="onSelected(proveedor.id)" id="nom" >
                                     <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.id}}</dd>
                                 </td>
-                                <td style="cursor: pointer;" (click)="onSelected(proveedor.id)" id="nom">
-                                    <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.nombre}}</dd>
+                                <td style="cursor: pointer;" contenteditable='true' (input)="saveName($event)" (click)="onSelected(proveedor.id)" id="nom">
+                                    <dd class="figure-caption" >{{proveedor.nombre}}</dd>
                                 </td>
                                 <td>
-                                    <button class="btn btn-primary" (click)="showHideEdit(proveedor.id)" data-toggle="modal"
+                                    <button class="btn btn-primary" (click)="edit(proveedor.id)" data-toggle="modal"
                                         data-target="#myModal" color = "primary"><span class="fa fa-pencil"></span></button>
                                     <button type="button" class="btn btn-danger" (click)="deleteProveedor(proveedor.id)"><span
                                             class="fa fa-trash"></span></button>
@@ -37,59 +37,22 @@
                                 <td>
 
                                 </td>
-                                <td>
-
+                                
+                                <td *ngIf= "!showCreate">
+                                    <dd (input)="saveNameCreate($event)" contenteditable='true' ></dd>
                                 </td>
+                                <td *ngIf= "showCreate">
+                                        <dd (input)="saveNameCreate($event)" contenteditable='true' ></dd>
+                                </td>
+
                                 <td>
                                     <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
-                                        class="btn" (click)="showHideCreate()" data-toggle="modal" data-target="#myModal2"><span
+                                        class="btn" (click)="create()" data-toggle="modal" data-target="#myModal2"><span
                                             class="fa fa-plus"></span></button>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-8">
-        <div *ngIf="showCreate">
-
-            <div class="modal" id="myModal2">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Crear un proveedor</h4>
-                            <button type="button" class="close" data-dismiss="modal" (click)="showHideCreate()">&times;</button>
-                        </div>
-
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div *ngIf="showEdit">
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Editar un proveedor</h4>
-                            <button type="button" class="close" data-dismiss="modal" (click)="showHideCreate() ">&times;</button>
-                        </div>
-
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <app-proveedor-edit [proveedor]="selectedProveedor" (cancel)="showHideEdit(selectedProveedor.id)"
-                                (update)="updateProveedor()"></app-proveedor-edit>
-                        </div>
                     </div>
                 </div>
             </div>

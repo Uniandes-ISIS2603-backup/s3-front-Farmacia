@@ -32,7 +32,6 @@ export class AuthService {
             'create_transaccionCliente_permission']);
         const role = localStorage.getItem('role');
         const cedula = localStorage.getItem('cedula');
-      //  console.log("Esto es el START " + role + " " + cedula);
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {

@@ -1,9 +1,9 @@
 <div class="container-fluid ">
-    <div class="limiter">
-        <div class="container-table100">
-            <div class="wrap-table100">
-                <div class="table100 ver1 m-b-110">
-                    <div class="table100-head">
+    <div class="limiter" style="width: 100%;">
+        <div class="container-table100" style="padding:0px; margin: 0px;">
+            <div class="wrap-table100" style="margin-top:0px">
+                <div class="table100 ver1 m-b-110" style="margin:0px auto">
+                    <div class="table100-head" style="margin:0px;">
                         <table>
                             <thead>
                                 <tr class="row100 head">
@@ -12,8 +12,8 @@
                             </thead>
                         </table>
                     </div>
-                    <div class="table100-body js-pscroll">
-                        <table>
+                    <div class="table100-body js-pscroll" style="margin:0px">
+                        <table id="myTable">
                             <tbody>
                                     <th>clienteId</th>
                                     <th>nombre</th>
@@ -21,41 +21,41 @@
                                     <th>ciudad</th>
                                     <th>direccionEnvio</th>
                                     <th>cedula</th>
-                            </tbody>
-                            <tr *ngFor="let cliente of clientes" class="row100 body">
-                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="id">
-                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.id}}</dd>
-                                </td>
-                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="nombre">
-                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.nombre}}</dd>
-                                </td>
-                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="apellido">
-                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.apellido}}</dd>
-                                </td>
-                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="ciudad">
-                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.ciudad}}</dd>
-                                </td>
-                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="direccionEnvio">
-                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.direccionEnvio}}</dd>
-                                </td>
-                                <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="cedula">
-                                    <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.cedula}}</dd>
-                                </td>
-                                <td>
-                                    <button class="btn btn-primary" (click)="showHideEdit(cliente.id)" data-toggle="modal"
-                                        data-target="#myModal"><span class="fa fa-pencil"></span></button>
-                                    <button type="button " class="btn btn-danger" (click)="deleteCliente(cliente.id)"><span
-                                            class="fa fa-trash"></span></button>
+                                <tr *ngFor="let cliente of clientes" class="row100 body">
+                                    <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="id">
+                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.id}}</dd>
+                                    </td>
+                                    <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="nombre">
+                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.nombre}}</dd>
+                                    </td>
+                                    <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="apellido">
+                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.apellido}}</dd>
+                                    </td>
+                                    <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="ciudad">
+                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.ciudad}}</dd>
+                                    </td>
+                                    <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="direccionEnvio">
+                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.direccionEnvio}}</dd>
+                                    </td>
+                                    <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="cedula">
+                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.cedula}}</dd>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" (click)="showHideEdit(cliente.id)" data-toggle="modal"
+                                            data-target="#myModal"><span class="fa fa-pencil"></span></button>
+                                        <button type="button " class="btn btn-danger" (click)="deleteCliente(cliente.id)"><span
+                                                class="fa fa-trash"></span></button>
 
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-8">
+   <div class="col-8">
         <div *ngIf="showCreate">
 
             <div class="modal" id="myModal2">

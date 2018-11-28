@@ -282,3 +282,10 @@ table {
 .btn-danger {
   background: map-get($mat-red, 500 )
 }
+.modal-backdrop {
+  position: absolute !important;
+}
+
+html body.modal-open div.modal-backdrop {
+  position : relative !important;
+}
