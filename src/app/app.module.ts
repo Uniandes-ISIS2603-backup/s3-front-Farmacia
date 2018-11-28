@@ -51,7 +51,7 @@ import { HttpErrorInterceptor } from './interceptors/interceptors.component';
      }),
     TransaccionClienteModule,
     AppRoutingModule
-  ],
+    ],
   bootstrap: [AppComponent],
   providers: [
     {

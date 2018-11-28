@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ProveedorDetail } from '../proveedor-detail';
 import { TransaccionProveedorListComponent } from '../transaccion-proveedor-list/transaccion-proveedor-list.component';
 import { TransaccionProveedorCreateComponent } from '../transaccion-proveedor-create/transaccion-proveedor-create.component';
-import { ProductoDetail } from 'src/app/producto/producto-detail';
 /**
 * Representa el componente detalle de un proveedor
 */
