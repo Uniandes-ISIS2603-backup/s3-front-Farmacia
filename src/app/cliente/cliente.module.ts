@@ -16,7 +16,7 @@ import {ClienteDetailTransaccionClienteComponent} from './cliente-detail-transac
 import { ClienteTransaccionClienteComponent} from './cliente-transaccion-cliente/cliente-transaccion-cliente.component';
 import {ClienteTransaccionClienteEditComponent} from './cliente-transaccion-cliente-edit/cliente-transaccion-cliente-edit.component';
 import {ProductosTransaccionClienteListComponent} from'./productos-transaccion-cliente-list/productos-transaccion-cliente-list.component';
-
+import {NgxPermissionsModule} from 'ngx-permissions';
 @NgModule({
   imports: [
     BrowserModule,
@@ -24,7 +24,8 @@ import {ProductosTransaccionClienteListComponent} from'./productos-transaccion-c
     HttpClientModule,
     CommonModule,
     FormsModule,
-    TransaccionClienteModule
+    TransaccionClienteModule,
+    NgxPermissionsModule
   ],
   declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent, 
     ClienteTransaccionClienteComponent,ClienteAddTransaccionClienteComponent,ClienteDetailTransaccionClienteComponent,ClienteTransaccionClienteEditComponent
