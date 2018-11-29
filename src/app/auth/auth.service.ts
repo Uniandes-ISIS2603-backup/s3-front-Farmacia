@@ -23,6 +23,9 @@ export class AuthService {
     ) { }
 
 
+    /**
+     * Metodo start del componente
+     */
     start(): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
@@ -41,11 +44,18 @@ export class AuthService {
         }
     }
 
+    /**
+     * Coloca el rol Guest a la sesion
+     */
     setGuestRole(): void {
         this.roleService.flushRoles();
         this.roleService.addRole('GUEST', ['']);
     }
 
+    /**
+     * Coloca el tol Client a la sesion
+     * @param cedula 
+     */
     setClientRole(cedula): void {
         this.roleService.flushRoles();
         this.roleService.addRole('CLIENT', ['create_transaccionCliente_permission']);
@@ -53,6 +63,9 @@ export class AuthService {
         localStorage.setItem('cedula', cedula );
     }
 
+    /**
+     * Coloca la sesion administrado a la sesion
+     */
     setAdministratorRole(): void {
         this.roleService.flushRoles();
         console.log("aqui");
