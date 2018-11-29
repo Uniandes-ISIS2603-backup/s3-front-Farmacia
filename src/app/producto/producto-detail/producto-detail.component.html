@@ -13,7 +13,7 @@
                                 alt="card image"> -->
                                 <ngb-carousel style="height:240px; background-color: #E0E0E0; width:320px;" *ngIf=" productoDetail.fotos != undefined">
                                     <ng-template ngbSlide *ngFor="let imagen of productoDetail.fotos">
-                                        <img src = "{{imagen}}" color="#E0E0E0">
+                                        <img style="width: 320px; height: 240px" src = "{{imagen}}" color="#E0E0E0">
                                     </ng-template>
                             </ngb-carousel>
                             </div>
@@ -47,18 +47,11 @@
             <p class="h4 p-3" style=" text-align: center">REGISTROS</p>
             <app-producto-registro [registros]="productoDetail.registros" [productoDetail] = "productoDetail"></app-producto-registro>
             <p>
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear un registro</button>
+                <button type="button" class="btn"
+                    (click)="createRegistro()">Crear un registro</button>
 
             </p>
         </div>
-        <div class="col-md-8">
-            <div *ngIf="showCreate">
-                <app-producto-add-registro [producto]="productoDetail" (cancel)="showHideCreate()" (create)="ngOnInit()"
-                    *ngIf="showCreate" (updateRegistros)="updateRegistros()"></app-producto-add-registro>
-
-
-            </div>
-        </div>
     </div>
 </div>
+<button mat-fab class="edit-button" *ngxPermissionsOnly="['ADMIN']" color="warn" (click)=openDialog()><mat-icon>edit</mat-icon></button>

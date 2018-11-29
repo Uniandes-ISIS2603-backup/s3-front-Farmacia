@@ -47,6 +47,6 @@ import { ProductoEditComponent } from './producto-edit/producto-edit.component';
   declarations: [ProductoListComponent, ProductoDetailComponent, ProductoCreateComponent,
    ProductoRegistroComponent, ProductoAddRegistroComponent, ProductoRegistroEditComponent, ProductoCreateDialogComponent, ProductoEditComponent],
   providers: [ProductoService, NgbCarouselConfig],
-  entryComponents: [ProductoCreateDialogComponent]
+  entryComponents: [ProductoCreateDialogComponent, ProductoEditComponent, ProductoAddRegistroComponent]
 })
 export class ProductoModule { }

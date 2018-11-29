@@ -19,3 +19,9 @@ button{
 h6, p{
     font-weight: bold;
 }
+
+.edit-button {
+    position: fixed;
+    right: 2.5%;
+    bottom: 4%; 
+}

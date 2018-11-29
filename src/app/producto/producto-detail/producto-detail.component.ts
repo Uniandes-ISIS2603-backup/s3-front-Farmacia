@@ -3,6 +3,8 @@ import { ProductoService } from '../producto.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductoDetail } from '../producto-detail';
 import {ProductoAddRegistroComponent} from '../producto-add-registro/producto-add-registro.component';
+import { MatDialog } from '@angular/material';
+import { ProductoEditComponent } from '../producto-edit/producto-edit.component';
 
 @Component({
   selector: 'app-producto-detail',
@@ -13,7 +15,8 @@ export class ProductoDetailComponent implements OnInit {
 
   constructor(
     private productoService: ProductoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) { }
 
   productoId: string;
@@ -43,6 +46,20 @@ export class ProductoDetailComponent implements OnInit {
 
   showHideCreate(): void {
     this.showCreate = !this.showCreate;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ProductoEditComponent, {
+      width: '80%',
+      data: {service: this.productoService, product: this.productoDetail}
+    });
+  }
+
+  createRegistro(): void {
+    const dialogRef = this.dialog.open(ProductoAddRegistroComponent, {
+      width: '80%',
+      data: {service: this.productoService, product: this.productoDetail}
+    });
   }
 
 }

@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, EventEmitter, Output, Inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 
 import {Registro} from '../registro';
 import {ProductoService} from '../producto.service';
 import {Producto} from '../producto';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ProductoEditComponent, EditInterface } from '../producto-edit/producto-edit.component';
 
 
 @Component({
@@ -20,65 +22,47 @@ export class ProductoAddRegistroComponent implements OnInit, OnChanges {
    */
   constructor(
     private productoService: ProductoService,
-    private tostrService :ToastrService
-
-  ) { }
+    private tostrService: ToastrService,
+    public dialogRef: MatDialogRef<ProductoEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public editInterface: EditInterface
+  ) { this.producto = editInterface.product; this.productoService = editInterface.service; }
 
   /**
    * El producto dueno del registro
    */
-  @Input() producto: Producto;
+  producto: Producto;
 
   /**
    * registro que se va a crear
    */
-  registro :Registro;
-
-  public isCollapsed :Boolean;
+  registro: Registro;
 
   /**
    * Actualiza registros
    */
   @Output() updateRegistros = new EventEmitter;
 
-  /**
-   * Crea un registro
-   * @param registroForm 
-   */
-  async postRegistros(registroForm:NgForm)
-  {
-   // this.registro.producto= this.producto;
-    this.productoService.createRegistro(this.producto.id,
-      this.registro).subscribe(registro =>
-    {
+  async send() {
+    await this.productoService.createRegistro(this.producto.id, this.registro).subscribe(registro => {
       this.registro = registro;
-    }, err =>{
-      this.tostrService.error(err,'Error');
+      this.productoService.asociateRegistro(this.producto.id, this.registro.id).subscribe(result => {
+        this.updateRegistros.emit();
+        this.tostrService.success('Se creó el registro correctamente', 'registro agregado');
+      });
+      this.dialogRef.close();
+    }, err => {
+      this.tostrService.error(err, 'Error');
     });
-
-    await new Promise((resolve)  => setTimeout(resolve,1000));
-
-    this.productoService.asociateRegistro(this.producto.id, this.registro.id).subscribe();
-
-    await new Promise((resolve)  => setTimeout(resolve,1000));
-
-
-
-      registroForm.resetForm();
-      this.updateRegistros.emit();
-      this.tostrService.success("Se creó el registro correctamente",'registro agregado');
-    
-    return this.registro;
   }
+
 
   /**
    * Metodo que se ejecuta al inicializar el componente
    */
   ngOnInit() {
-    this.isCollapsed=false;
-    
     this.registro = new Registro();
   }
+
   /**
    * MEtodo que se ejecuta cuando hay cambios en el componente
    */
@@ -88,3 +72,4 @@ export class ProductoAddRegistroComponent implements OnInit, OnChanges {
   }
 
 }
+
