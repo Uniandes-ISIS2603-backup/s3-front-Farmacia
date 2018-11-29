@@ -15,83 +15,40 @@
                     <div class="table100-body js-pscroll" style="margin:0px">
                         <table id="myTable">
                             <tbody>
-                                    <th>clienteId</th>
-                                    <th>nombre</th>
-                                    <th>apellido</th>
-                                    <th>ciudad</th>
-                                    <th>direccionEnvio</th>
-                                    <th>cedula</th>
+                                <th>clienteId</th>
+                                <th>nombre</th>
+                                <th>apellido</th>
+                                <th>ciudad</th>
+                                <th>direccionEnvio</th>
+                                <th>cedula</th>
                                 <tr *ngFor="let cliente of clientes" class="row100 body">
-                                    <td *ngxPermissionsOnly="['ADMIN']" style="cursor: pointer;" (click)="onSelected(cliente.id)" id="id">
+                                    <td *ngxPermissionsOnly="['ADMIN']" style="cursor: pointer;" (click)="onSelected(cliente.id)"
+                                        id="id">
                                         <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.id}}</dd>
                                     </td>
+                                    <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="cedula">
+                                        <dd class="figure-caption" (input)="saveCedula($event)" contenteditable='true' >{{cliente.cedula}}</dd>
+                                    </td>
                                     <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="nombre">
-                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.nombre}}</dd>
+                                        <dd class="figure-caption" (input)="saveNombre($event)" contenteditable='true'>{{cliente.nombre}}</dd>
                                     </td>
                                     <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="apellido">
-                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.apellido}}</dd>
+                                        <dd class="figure-caption" (input)="saveApellido($event)" contenteditable='true'>{{cliente.apellido}}</dd>
                                     </td>
                                     <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="ciudad">
-                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.ciudad}}</dd>
+                                        <dd class="figure-caption" (input)="saveCiudad($event)"contenteditable='true'>{{cliente.ciudad}}</dd>
                                     </td>
                                     <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="direccionEnvio">
-                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.direccionEnvio}}</dd>
-                                    </td>
-                                    <td style="cursor: pointer;" (click)="onSelected(cliente.id)" id="cedula">
-                                        <dd class="figure-caption" routerLink="/clientes/{{cliente.id}}">{{cliente.cedula}}</dd>
+                                        <dd class="figure-caption" (input)="saveDireccion($event)" contenteditable='true'>{{cliente.direccionEnvio}}</dd>
                                     </td>
                                     <td>
-                                        <button class="btn btn-primary" (click)="showHideEdit(cliente.id)" data-toggle="modal"
-                                            data-target="#myModal"><span class="fa fa-pencil"></span></button>
+                                        <button class="btn btn-primary" (click)="edit(cliente.id)"><span class="fa fa-pencil"></span></button>
                                         <button type="button " class="btn btn-danger" (click)="deleteCliente(cliente.id)"><span
                                                 class="fa fa-trash"></span></button>
-
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-   <div class="col-8">
-        <div *ngIf="showCreate">
-
-            <div class="modal" id="myModal2">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Crear un cliente</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <app-cliente-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-create>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div *ngIf="showEdit">
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Editar un cliente</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <app-cliente-edit [cliente]="selectedCliente" (cancel)="showHideEdit(selectedCliente.id)"
-                                (update)="updateCliente()"></app-cliente-edit>
-                        </div>
                     </div>
                 </div>
             </div>

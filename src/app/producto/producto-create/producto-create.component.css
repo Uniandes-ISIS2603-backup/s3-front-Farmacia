@@ -10,4 +10,7 @@ input {
   color: white;
   outline: none;
 }
+button{
+    background-color: rgb(97, 16, 129);
+}
 
