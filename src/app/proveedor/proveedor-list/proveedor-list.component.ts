@@ -107,6 +107,7 @@ export class ProveedorListComponent implements OnInit {
 
         this.showEdit = false;
     }
+    
     deleteProveedor(proveedorId): void {
         this.modalDialogService.openDialog(this.viewRef, {
             title: 'Eliminar un proveedor.',

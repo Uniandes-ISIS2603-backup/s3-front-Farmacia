@@ -1,0 +1,16 @@
+
+input {
+  margin: 15px 0;
+  font-size: 20px;
+  padding: 0;
+  width: 250px;
+  border: 1px solid rgb(97, 16, 129);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  outline: none;
+}
+button{
+    background-color: rgb(97, 16, 129);
+}
+
