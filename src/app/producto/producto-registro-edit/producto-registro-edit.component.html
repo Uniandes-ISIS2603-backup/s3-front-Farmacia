@@ -4,14 +4,14 @@
             <div class="form-group">
                 <label for="registroCantidad"><b>Cantidad</b></label>
                 <input type="number" name="registroCantidad" class="form-control" id="registroCantidad" [(ngModel)]="registro.cantidad"
-                    #registroCantidad="ngModel" [ngClass]="{ 'is-invalid':registroForm.submit && registroCantidad.invalid }"
+                    #registroCantidad="ngModel" [ngClass]="{ 'is-invalid':f.submit && registroCantidad.invalid }"
                     required>
                 <div class="invalid-feedback">
                     <div>Falta la cantidad del registro</div>
                 </div>
                 <label for="registroTipo"><b>Tipo del registro</b></label>
                 <select name="registroTipo" class="form-control" id="registroTipo" [(ngModel)]="registro.tipoRegistro"
-                    #registroTipo="ngModel" [ngClass]="{ 'is-invalid':registroForm.submit && registroTipo.invalid }"
+                    #registroTipo="ngModel" [ngClass]="{ 'is-invalid':f.submit && registroTipo.invalid }"
                     required>
                     <div class="invalid-feedback">
                         <div>Falta tipo del registro </div>

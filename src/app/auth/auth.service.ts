@@ -73,10 +73,12 @@ export class AuthService {
      * @param role The desired role to set to the user
      */
     login(cedula, role): void {
+        
             if (role === 'Administrator') {
-                console.log("entro");
+                
                 this.setAdministratorRole();
             } else {
+                
                 this.setClientRole(cedula)
             }
     }

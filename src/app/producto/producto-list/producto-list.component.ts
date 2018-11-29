@@ -14,10 +14,6 @@ import { ProductoCreateDialogComponent } from '../producto-create/producto-creat
 import { MatDialog } from '@angular/material';
 
 
-
- 
-
-
 @Component({
   selector: 'app-producto',
   templateUrl: './producto-list.component.html',

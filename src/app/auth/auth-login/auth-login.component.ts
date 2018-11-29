@@ -61,7 +61,7 @@ export class AuthLoginComponent implements OnInit {
             
           this.toastrService.success("Se creó la transaccion correctamente",'transaccion agregada');
         }, err =>{
-            console.log(pTransaccion.id);
+            
           this.toastrService.error(err,'Error');
         });
 
@@ -76,17 +76,18 @@ export class AuthLoginComponent implements OnInit {
         this.clienteService.getClienteDetailByCedula(this.cedula_log)
             .subscribe(cliente => {
                 this.cliente = cliente;
-                this.clienteId = cliente.id;
-        this.clienteService.getClienteDetailByCedula(this.cedula_log)
-            .subscribe(cliente => {
-                this.cliente = cliente;
                 this.loguear = true;
+                
+                if(this.cliente.cedula==undefined)
+                {
+                
+                }
             }, error => {
                 this.toastrService.error(error, 'No existe un cliente con esa cedula');
                 this.loguear = false;
             });
-    });
-}
+    }
+
 
     getultimaTransaccion():void{
         this.clienteService.getUltimaTransaccion(this.clienteId)
@@ -122,9 +123,10 @@ export class AuthLoginComponent implements OnInit {
     }
 
     async login(){
+
         this.cedula_log = this.user.cedula;
 
-
+        
         if (this.user.role == 'Administrator') {
             this.loguear = true;
             this.authService.login(this.user.cedula, this.user.role);
@@ -134,6 +136,7 @@ export class AuthLoginComponent implements OnInit {
         else if (this.user.role == 'Client') {
 
             try{
+            
             this.authService.login(this.user.cedula, this.user.role);
 
             await new Promise((resolve)  => setTimeout(resolve,1000));
@@ -141,8 +144,17 @@ export class AuthLoginComponent implements OnInit {
 
             this.getClienteByCedula();
 
+            
             await new Promise((resolve)  => setTimeout(resolve,1000));
-
+                if(this.cliente.cedula===undefined)
+                {
+                    this.authService.setGuestRole()
+                    console.log(this.user.role);
+                    await new Promise((resolve)  => setTimeout(resolve,500));
+                    this.router.navigateByUrl('/productos/list');
+                }
+                else
+                {
             this.postTransacciones(this.transaccion);
 
             await new Promise((resolve)  => setTimeout(resolve,1000));
@@ -156,6 +168,7 @@ export class AuthLoginComponent implements OnInit {
             await new Promise((resolve)  => setTimeout(resolve,1000));
             this.toastrService.success('Logged in')
         }
+    }
         catch(err)
         {
             this.router.navigateByUrl('/productos/list');

@@ -60,4 +60,7 @@ body, html {
   max-height: 350px;
   overflow: auto;
 }
+button{
+  background-color: rgb(79, 62, 179);
+}
 
