@@ -58,7 +58,6 @@ export class AuthService {
         console.log("aqui");
         this.roleService.addRole('ADMIN', ['edit_proveedor_permission', 'create_proveedor_permission']);
         localStorage.setItem('role', 'ADMIN');
-
         this.router.navigateByUrl('/proveedores/list');
 
 

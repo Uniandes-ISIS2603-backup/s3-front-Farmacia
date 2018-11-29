@@ -76,8 +76,9 @@ export class AuthLoginComponent implements OnInit {
         this.clienteService.getClienteDetailByCedula(this.cedula_log)
             .subscribe(cliente => {
                 this.cliente = cliente;
+                this.clienteId=cliente.id;
                 this.loguear = true;
-                
+                console.log(this.cliente.id)
                 if(this.cliente.cedula==undefined)
                 {
                 
@@ -94,7 +95,7 @@ export class AuthLoginComponent implements OnInit {
         .subscribe(transaccione => {
             this.transaccion = transaccione;
             this.transaccionId = transaccione.id;
-            console.log(this.transaccionId);
+            
           this.toastrService.success('Se guardaron los cambios de la transaccion');
         }, error => {
           this.toastrService.error(error, "Error")
@@ -157,15 +158,16 @@ export class AuthLoginComponent implements OnInit {
                 {
             this.postTransacciones(this.transaccion);
 
-            await new Promise((resolve)  => setTimeout(resolve,1000));
+            await new Promise((resolve)  => setTimeout(resolve,2000));
 
             this.getultimaTransaccion();
 
-            await new Promise((resolve)  => setTimeout(resolve,1000));
+            await new Promise((resolve)  => setTimeout(resolve,200));
 
+            console.log(this.clienteId);
             this.router.navigateByUrl('/clientes/'+this.clienteId + '/transacciones/' + this.transaccionId);
 
-            await new Promise((resolve)  => setTimeout(resolve,1000));
+            await new Promise((resolve)  => setTimeout(resolve,2000));
             this.toastrService.success('Logged in')
         }
     }

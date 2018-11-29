@@ -128,6 +128,11 @@ export class ClienteService {
        return this.http.get<Producto[]>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId);
     }
 
+    actualizarTransaccion(clienteId,transaccionId,transaccion):Observable<TransaccionClienteDetail>
+    {
+        return this.http.put<TransaccionClienteDetail>(API_URL+clientes+'/'+clienteId + transacciones+'/'+transaccionId,transaccion);
+    }
+
     /**
      * Eliminar un producto de una transaccion que pertenece a cierto cliente
      * @param clienteId el id del cliente dueño de la transaccion
