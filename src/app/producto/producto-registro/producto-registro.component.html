@@ -1,9 +1,11 @@
 <div>
-    <table class="table table-striped">
-        <th>id Registro</th>
-        <th> cantidad </th>
-        <th> tipo registro</th>
-        <th> id producto </th>
+    <table class="table table-striped ">
+        <thead class="thead-dark">
+        <th>Identificador</th>
+        <th>Cantidad</th>
+        <th>Tipo Registro</th>
+        <th></th>
+        </thead>
         <tr *ngFor="let r of registros">
             <td style="cursor: pointer;" (click)="onSelected(r.id)" id="id">
                 <dd class="figure-caption">{{r.id}}</dd>
@@ -13,9 +15,6 @@
             </td>
             <td style="cursor: pointer;" (click)="onSelected(r.id)" id="tipoRegistro">
                 <dd class="figure-caption">{{r.tipoRegistro}}</dd>
-            </td>
-            <td style="cursor: pointer;" (click)="onSelected(r.id)" id="productoId">
-                <dd class="figure-caption">{{r.producto.id}}</dd>
             </td>
             <td>
                 <button class="btn btn-primary" (click)="showHideEdit(r.id)" data-toggle="modal" data-target="#myModal"><span

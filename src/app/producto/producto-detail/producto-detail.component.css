@@ -16,6 +16,6 @@ background-color: rgb(246, 235, 255);
 button{
     background-color : rgb(79, 62, 179);
 }
-h6 + p{
+h6, p{
     font-weight: bold;
 }
