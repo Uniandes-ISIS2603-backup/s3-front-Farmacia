@@ -4,8 +4,8 @@ import { ProductoService } from '../producto.service';
 import {ProductoDetail} from '../producto-detail';
 
 import { Producto } from '../producto';
-
-import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute,Router } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {ClienteService} from '../../cliente/cliente.service';
@@ -36,6 +36,8 @@ export class    ProductoListComponent implements OnInit {
   constructor(private productoService: ProductoService, config: NgbCarouselConfig,
     private agregar: ClienteService,
     private route: ActivatedRoute,
+    private router:Router,
+    private toastrService: ToastrService
     ) {
     this.isHidden = true;
     console.log(this.isHidden);
@@ -79,6 +81,12 @@ export class    ProductoListComponent implements OnInit {
     }
     
   }
+pagar()
+{
+  this.router.navigateByUrl('productos/list');
+  this.toastrService.success('Transaccion realizada');
+}
+
   async total()
   {
     
