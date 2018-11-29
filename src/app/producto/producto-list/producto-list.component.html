@@ -26,7 +26,7 @@
     </mat-grid-list>
 
     <button mat-fab class="add-button" *ngxPermissionsOnly="['ADMIN']" color="warn" routerLink="/productos/add"><mat-icon>add</mat-icon></button>
-    <button mat-fab class="add-button" *ngxPermissionsOnly="['CLIENT']" color="warn" routerLink="/clientes/{{idCliente}}"><mat-icon>add</mat-icon></button>
+    <button mat-fab class="add-button" *ngxPermissionsOnly="['CLIENT']" color="warn" routerLink="/clientes/{{idCliente}}"><mat-icon>info</mat-icon></button>
     <button mat-fab class="add-button" *ngxPermissionsOnly="['CLIENT']" color="primary" style="margin-right: 65px ;" (click)="ShowCarrito()"data-toggle="popover" data-placement="top" >
     </button>
     <button mat-fab class="add-button" *ngxPermissionsOnly="['ADMIN']" color="warn" (click)=openDialog()><mat-icon>add</mat-icon></button>
