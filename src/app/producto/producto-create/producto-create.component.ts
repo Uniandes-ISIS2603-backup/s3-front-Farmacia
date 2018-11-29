@@ -47,7 +47,7 @@ export class ProductoCreateComponent implements OnInit {
  */
 openDialog(): void {
   const dialogRef = this.dialog.open(ProductoCreateDialogComponent, {
-    width: '250px',
+    width: '80%',
     data: this.nuevoProducto
   });
 
