@@ -37,7 +37,7 @@
 
                          
                         <div class="modal-body">
-                            <app-producto-registro-edit [registro]="selectedRegistro" (cancel)="showHideEdit(selectedRegistro.id)"
+                            <app-producto-registro-edit [registro]="selectedRegistro" [idProducto] = productoDetail.id (cancel)="showHideEdit(selectedRegistro.id)"
                                 (update)="updateRegistro()"></app-producto-registro-edit>
                         </div>
                     </div>

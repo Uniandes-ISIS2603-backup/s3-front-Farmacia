@@ -51,6 +51,6 @@ export class ProductoService {
     }
 
     getRegistro(productoId,registroId): Observable<Registro>{
-        return this.http.get<Registro>(API_URL+producto+'/'+ productoId+ registros+ '/'+ registroId);
+        return this.http.get<Registro>(API_URL+ registros+'/'+ productoId + '/'+ registroId);
     }
 }

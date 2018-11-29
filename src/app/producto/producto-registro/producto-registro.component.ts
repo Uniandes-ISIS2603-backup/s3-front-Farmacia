@@ -4,6 +4,7 @@ import { Registro } from '../registro';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { ProductoService } from '../producto.service';
+import { ProductoDetail } from '../producto-detail';
 
 @Component({
   selector: 'app-producto-registro',
@@ -34,7 +35,7 @@ export class ProductoRegistroComponent implements OnInit {
   /**
    * El id del producto dueno de los registros
    */
-  @Input() idProducto: number;
+  @Input() productoDetail: ProductoDetail;
 
   /**
    * Booleano que indica si s eesta mostrando o no el componente crear registro
@@ -98,7 +99,7 @@ export class ProductoRegistroComponent implements OnInit {
    */
 
   getRegistro(): void {
-    this.productoService.getRegistro(this.idProducto, this.registro_id)
+    this.productoService.getRegistro(this.productoDetail.id, this.registro_id)
       .subscribe(selectedRegistro => {
         this.selectedRegistro = selectedRegistro
       });
@@ -119,7 +120,7 @@ export class ProductoRegistroComponent implements OnInit {
     this.showEdit = false;
     this.selectedRegistro = undefined;
     this.registro_id = undefined;
-    this.idProducto + this.route.snapshot.paramMap.get('idProducto');
+    
   }
 
 }
