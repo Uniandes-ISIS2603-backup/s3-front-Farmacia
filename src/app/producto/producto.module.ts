@@ -16,6 +16,7 @@ import { MatCardModule, MatGridListModule, MatIconModule } from '@angular/materi
 import { NgbCarouselModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from '../material.module';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import { ProductoCreateDialogComponent } from './producto-create/producto-create-dialog.component';
 
 
 
@@ -43,7 +44,8 @@ import {NgxPermissionsModule} from 'ngx-permissions';
     //FormsModule
   ],
   declarations: [ProductoListComponent, ProductoDetailComponent, ProductoCreateComponent,
-   ProductoRegistroComponent, ProductoAddRegistroComponent, ProductoRegistroEditComponent],
-  providers: [ProductoService, NgbCarouselConfig]
+   ProductoRegistroComponent, ProductoAddRegistroComponent, ProductoRegistroEditComponent, ProductoCreateDialogComponent],
+  providers: [ProductoService, NgbCarouselConfig],
+  entryComponents: [ProductoCreateDialogComponent]
 })
 export class ProductoModule { }

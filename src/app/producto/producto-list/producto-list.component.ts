@@ -47,14 +47,13 @@ export class    ProductoListComponent implements OnInit {
 
    async anadirProducto(idProducto) {
     
-    this.agregar.agregarProducto(this.idCliente, this.idTransacion, idProducto).subscribe();    
+    this.agregar.agregarProducto(this.idCliente, this.idTransacion, idProducto).subscribe();
     
-    await new Promise((resolve)  => setTimeout(resolve,200));
-    this.ngOnInit();
-    this.showCarrito=true;
     await new Promise((resolve)  => setTimeout(resolve,200));
     this.total();
     
+    this.ngOnInit();
+    this.showCarrito = true;
    }
 
   getProductos() {
@@ -62,63 +61,44 @@ export class    ProductoListComponent implements OnInit {
         .subscribe(productos => this.productos = productos);
   }
 
-  getCarrito()
-  {
-    if(this.idTransacion!==0)
+  getCarrito() {
+    if(this.idTransacion !== 0)
     {
-      this.agregar.getTransaccionCliente(this.idCliente,this.idTransacion)
-      .subscribe(transaccionDetail => {
-        this.carrito = transaccionDetail
-        this.productosCarrito= this.carrito.productos;
-      });
-    }
-    else{
-      
-    
-  
-    }
+    this.agregar.getTransaccionCliente(this.idCliente, this.idTransacion)
+    .subscribe(transaccionDetail => {
+      this.carrito = transaccionDetail
+      this.productosCarrito= this.carrito.productos;
+    });
+  }
     
   }
-  async total()
-  {
-    
-    for (var i = 0; i < this.productosCarrito.length; i++) {
-      var num = this.productosCarrito[i];
-      this.subtotal= this.subtotal+num.precio;
-  }
+  total() {
+    for (let i = 0; this.productosCarrito && i < this.productosCarrito.length; i++) {
+      const num = this.productosCarrito[i];
+      this.subtotal = this.subtotal + num.precio;
+    }
   }
  async eliminarProducto(idProducto)
   {
-    this.agregar.eliminarProducto(this.idCliente,this.idTransacion,idProducto).subscribe();
-
-    await new Promise((resolve)  => setTimeout(resolve,200));
-
-    this.ngOnInit();
-    this.showCarrito=true;
-    await new Promise((resolve)  => setTimeout(resolve,200));
+    await this.agregar.eliminarProducto(this.idCliente, this.idTransacion, idProducto).toPromise();
+    await this.ngOnInit();
     this.total();
-    
-    
+    this.showCarrito = true;
   }
-  ShowCarrito()
-  {
-    this.showCarrito=!this.showCarrito;
-    
+
+  ShowCarrito() {
+    this.showCarrito = !this.showCarrito;
   }
 
   async ngOnInit() {
     this.idCliente = +this.route.snapshot.paramMap.get('idCliente');
     this.idTransacion = +this.route.snapshot.paramMap.get('idTransaccion');
-    this.carrito= new TransaccionClienteDetail();
-    this.showCarrito=false;
-    this.subtotal=0;
-    
+    this.carrito = new TransaccionClienteDetail();
+    this.showCarrito = false;
+    this.subtotal = 0;
     this.getProductos();
     console.log('cargar');
     this.getCarrito();
-    
-    
-      
   }
 
 }
