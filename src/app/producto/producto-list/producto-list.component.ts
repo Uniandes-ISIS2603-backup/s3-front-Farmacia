@@ -9,11 +9,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {ClienteService} from '../../cliente/cliente.service';
-import { TransaccionClienteDetail } from '../../cliente/transaccion-Cliete-detail';
-
-
-
- 
+import { TransaccionClienteDetail } from '../../cliente/transaccion-Cliete-detail'; 
 
 
 @Component({
