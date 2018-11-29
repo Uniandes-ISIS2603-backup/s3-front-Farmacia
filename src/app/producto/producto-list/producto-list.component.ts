@@ -4,8 +4,8 @@ import { ProductoService } from '../producto.service';
 import {ProductoDetail} from '../producto-detail';
 
 import { Producto } from '../producto';
-
-import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute,Router } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {ClienteService} from '../../cliente/cliente.service';
@@ -34,7 +34,11 @@ export class    ProductoListComponent implements OnInit {
   constructor(private productoService: ProductoService, config: NgbCarouselConfig,
     private agregar: ClienteService,
     private route: ActivatedRoute,
+    private router:Router,
+    private toastrService:ToastrService,
+
     public dialog: MatDialog
+
     ) {
     this.isHidden = true;
     console.log(this.isHidden);
@@ -49,10 +53,18 @@ export class    ProductoListComponent implements OnInit {
     this.agregar.agregarProducto(this.idCliente, this.idTransacion, idProducto).subscribe();
     
     await new Promise((resolve)  => setTimeout(resolve,200));
-    this.total();
     
     this.ngOnInit();
     this.showCarrito = true;
+    this.total();
+
+    await new Promise((resolve)  => setTimeout(resolve,200));
+    
+    
+
+    
+
+    
    }
 
   getProductos() {
@@ -76,28 +88,39 @@ export class    ProductoListComponent implements OnInit {
       const num = this.productosCarrito[i];
       this.subtotal = this.subtotal + num.precio;
     }
+    this.carrito.monto=this.subtotal;
   }
  async eliminarProducto(idProducto)
   {
-    await this.agregar.eliminarProducto(this.idCliente, this.idTransacion, idProducto).toPromise();
-    await this.ngOnInit();
+
+     this.agregar.eliminarProducto(this.idCliente, this.idTransacion, idProducto).toPromise();
+    
+     await new Promise((resolve)  => setTimeout(resolve,200));
+     this.ngOnInit();
+     this.showCarrito = true;
     this.total();
-    this.showCarrito = true;
+    
+    
+  }
+  pagar()
+  {
+    this.router.navigateByUrl('productos/list');
+    
   }
 
   ShowCarrito() {
     this.showCarrito = !this.showCarrito;
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.idCliente = +this.route.snapshot.paramMap.get('idCliente');
     this.idTransacion = +this.route.snapshot.paramMap.get('idTransaccion');
     this.carrito = new TransaccionClienteDetail();
     this.showCarrito = false;
     this.subtotal = 0;
     this.getProductos();
-    console.log('cargar');
     this.getCarrito();
+    
   }
 
   openDialog(): void {

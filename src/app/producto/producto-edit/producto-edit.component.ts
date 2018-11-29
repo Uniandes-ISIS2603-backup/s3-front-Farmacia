@@ -62,10 +62,12 @@ export class ProductoEditComponent implements OnInit {
       this.dialogRef.close();
     })
     .catch(err => this.toastr.error(err, 'Error'));
+
   }
 
-  ngOnInit() {
-    console.log(this.data.precio);
+  ngOnInit() 
+  {
+
   }
 
 }
