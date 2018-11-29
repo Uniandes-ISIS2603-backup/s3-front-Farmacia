@@ -17,7 +17,9 @@ button{
     background-color: rgb(8, 178, 184);
 }
 
-
+.modal-backdrop .show{
+    display: none;
+}
 
 .table-wrapper-scroll-y {
     display: block;

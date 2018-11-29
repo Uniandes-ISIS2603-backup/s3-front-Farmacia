@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProveedorDetail } from '../proveedor-detail';
 import { TransaccionProveedorListComponent } from '../transaccion-proveedor-list/transaccion-proveedor-list.component';
 import { TransaccionProveedorCreateComponent } from '../transaccion-proveedor-create/transaccion-proveedor-create.component';
+import { MatDialog } from '@angular/material';
+import { TransaccionProveedorService } from 'src/app/transaccion-proveedor/transaccion-proveedor.service';
 /**
 * Representa el componente detalle de un proveedor
 */
@@ -31,7 +33,8 @@ export class ProveedorDetailComponent implements OnInit {
     */
   constructor(
     private proveedorService: ProveedorService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog,
   ) { }
 
  /**
@@ -89,6 +92,13 @@ export class ProveedorDetailComponent implements OnInit {
 
   showHideCreate(): void {
     this.showCreate = !this.showCreate;
+  }
+
+  createTransaccionProveedor(): void {
+    const dialogRef = this.dialog.open(TransaccionProveedorCreateComponent, {
+      width: '80%',
+      data: this.proveedorDetail
+    });
   }
 
 }

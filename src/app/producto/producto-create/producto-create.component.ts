@@ -40,7 +40,7 @@ export class ProductoCreateComponent implements OnInit {
         this.toastr.success('El producto fue creado', 'Producto creation');
       })
       .catch(err => this.toastr.error(err, 'Error'));
-}
+  }
 
 /**
  * Construye un nuevo dialogo y obtiene la data de este
