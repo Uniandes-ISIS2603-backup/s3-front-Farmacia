@@ -1,13 +1,12 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
 
 import { ProveedorService } from '../proveedor.service';
 
 import { TransaccionProveedor } from '../transaccion-proveedor';
-
-import { ActivatedRoute } from '@angular/router';
-import { Proveedor } from '../proveedor';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Proveedor } from 'src/app/proveedor/proveedor';
 
 @Component({
     selector: 'app-transaccion-proveedor-create',
@@ -18,24 +17,21 @@ export class TransaccionProveedorCreateComponent implements OnInit {
 
     /**
     * Constructor for the component
-    * @param ProveedorService
+    * @param transaccionProveedorService
     * @param toastrService The toastr to show messages to the user
     */
     constructor(
-        private proveedorService: ProveedorService,
         private toastrService: ToastrService,
-        private route: ActivatedRoute
-    ) { }
-
+        private proveedorService: ProveedorService,
+        public dialogRef: MatDialogRef<TransaccionProveedorCreateComponent>,
+    @Inject(MAT_DIALOG_DATA) public proveedor: Proveedor
+    ) { this.transaccionProveedor = new TransaccionProveedor();
+        this.transaccionProveedor.proveedor = proveedor;
+     }
     /**
     * La nueva transaccion proveedor
     */
     transaccionProveedor: TransaccionProveedor;
-
-    /**
-    * id del proveedor
-    */
-    @Input() proveedor: Proveedor;
 
     /**
     * The output which tells the parent component
@@ -49,17 +45,28 @@ export class TransaccionProveedorCreateComponent implements OnInit {
     */
     @Output() create = new EventEmitter();
 
+
+    send() {
+        if (!this.transaccionProveedor.tiempo || !this.transaccionProveedor.monto) {
+            this.toastrService.error('Todos los campos son requeridos', 'Error');
+            return;
+        }
+        console.log(this.proveedor.id);
+        this.createTransaccionProveedor();
+    }
+
     /**
     * Creates a new transaction
     */
     createTransaccionProveedor(): void {
-        this.transaccionProveedor.proveedor = this.proveedor;
         this.proveedorService.createTransaccionProveedor(this.transaccionProveedor, this.proveedor.id)
             .subscribe(() => {
                 this.create.emit();
-                this.toastrService.success('La transaccion fue creada', 'Creacion TransaccionProveedor');
+                this.toastrService.success('The transaction was created', 'TransaccionProveedor creation');
+                this.dialogRef.close();
             }, err => {
                 this.toastrService.error(err, 'Error');
+                this.dialogRef.close();
             });
     }
 
@@ -70,18 +77,19 @@ export class TransaccionProveedorCreateComponent implements OnInit {
         this.cancel.emit();
     }
 
+    onNoClick(): void {
+        this.dialogRef.close();
+    }
+
     /**
     * This function will initialize the component
     */
     ngOnInit() {
         this.transaccionProveedor = new TransaccionProveedor();
     }
-
-    /**
-    * The function which notices that the input which defines the book_id has changed.
-    * If the book has changed, we update the reviews to show
-    */
-   ngOnChanges() {
-    this.ngOnInit();
 }
+
+export interface ProveedorAndService {
+    proveedor: Proveedor;
+    service: ProveedorService;
 }

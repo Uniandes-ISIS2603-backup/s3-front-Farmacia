@@ -50,6 +50,7 @@ import { MaterialModule } from '../material.module';
   ],
 
 
-  providers : [ProveedorService]
+  providers : [ProveedorService],
+  entryComponents: [TransaccionProveedorCreateComponent]
 })
 export class ProveedorModule { }

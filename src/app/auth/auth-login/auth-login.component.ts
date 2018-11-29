@@ -50,6 +50,10 @@ export class AuthLoginComponent implements OnInit {
     transaccion: TransaccionCliente;
 
 
+    /**
+     * Crea una transaccion cliente a la sesiom
+     * @param pTransaccion
+     */
     postTransacciones(pTransaccion:TransaccionCliente): void{
         
         
@@ -90,6 +94,9 @@ export class AuthLoginComponent implements OnInit {
     }
 
 
+    /**
+     * Obtiene la ultima transaccion 
+     */
     getultimaTransaccion():void{
         this.clienteService.getUltimaTransaccion(this.clienteId)
         .subscribe(transaccione => {
@@ -123,6 +130,9 @@ export class AuthLoginComponent implements OnInit {
         this.transaccion.tipoDePago='efectivo';
     }
 
+    /**
+     * Metodo para loguear un cliente
+     */
     async login(){
 
         this.cedula_log = this.user.cedula;

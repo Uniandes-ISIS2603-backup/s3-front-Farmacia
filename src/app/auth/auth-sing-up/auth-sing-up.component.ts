@@ -11,6 +11,11 @@ import { Cliente } from '../../cliente/cliente';
 })
 export class AuthSingUpComponent implements OnInit {
 
+  /**
+   * Contructor del componente
+   * @param servicio Auhtor's service provides
+   * @param toastr  
+   */
   constructor(
     private servicio: AuthService,
     private toastr: ToastrService,
@@ -19,6 +24,9 @@ user: User;
 cliente: Cliente;
 roles: string[];
 
+/**
+ * Registra un cliente a la aplicaicon
+ */
 singUp() {
   this.servicio.login(this.user.cedula, this.user.role);
   this.toastr.success('Se ha creado exitosamente');
