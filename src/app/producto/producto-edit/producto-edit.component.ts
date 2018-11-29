@@ -60,6 +60,7 @@ export class ProductoEditComponent implements OnInit {
     .then(result => {
       this.toastr.success('El producto fue editado', 'Producto edit');
       this.dialogRef.close();
+      this.ngOnInit();
     })
     .catch(err => this.toastr.error(err, 'Error'));
 

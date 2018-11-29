@@ -60,6 +60,7 @@ export class ProductoDetailComponent implements OnInit {
       width: '80%',
       data: {service: this.productoService, product: this.productoDetail}
     });
+    this.ngOnInit();
   }
 
 }

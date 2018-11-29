@@ -65,6 +65,7 @@ export class ProveedorDetailComponent implements OnInit {
 
   asociateProducto(productoId) : void {
     this.proveedorService.asociateProducto(this.proveedor_id, productoId);
+    this.ngOnInit();
   }
 
   showHideAsociate() : void {
@@ -99,6 +100,7 @@ export class ProveedorDetailComponent implements OnInit {
       width: '80%',
       data: this.proveedorDetail
     });
+    this.ngOnInit();
   }
 
 }
