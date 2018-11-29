@@ -63,7 +63,7 @@ export class AuthLoginComponent implements OnInit {
             this.transaccion = transaccione;
             this.transaccionId = transaccione.id;
             
-          this.toastrService.success("Se creó la transaccion correctamente",'transaccion agregada');
+        //  this.toastrService.success("Se creó la transaccion correctamente",'transaccion agregada');
         }, err =>{
             
           this.toastrService.error(err,'Error');
@@ -103,7 +103,7 @@ export class AuthLoginComponent implements OnInit {
             this.transaccion = transaccione;
             this.transaccionId = transaccione.id;
             
-          this.toastrService.success('Se guardaron los cambios de la transaccion');
+       //   this.toastrService.success('Se guardaron los cambios de la transaccion');
         }, error => {
           this.toastrService.error(error, "Error")
         });
