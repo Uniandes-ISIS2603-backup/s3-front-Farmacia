@@ -66,6 +66,10 @@ export class ProveedorDetailComponent implements OnInit {
 
   showHideAsociate() : void {
     this.showAsociate = !this.showAsociate;
+    if(!this.showAsociate)
+    {
+      this.ngOnInit();
+    }
   }
     /**
     * The method which initializes the component.

@@ -22,80 +22,68 @@
                     <th>Nombre</th>
                     <th>Tipo</th>
                 </thead>
-                    <tr *ngFor="let producto of proveedorDetail.productos">
-                        <td>
-                            <dd class="figure-caption" routerLink="/productos/{{producto.id}}">{{producto.nombre}}</dd>
-                        </td>
-                        <td>
-                            <dd class="figure-caption" routerLink="/productos/{{producto.id}}">{{producto.tipoProducto}}</dd>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="5">
-                            <div class="row justify-content-center align-self-center">
-                                <button [ngClass]="{ 'btn-primary': !showAsociate, 'btn-danger': showAsociate }" type="button"
-                                    class="btn" (click) = "showHideAsociate()"  data-toggle="modal" data-target="#myModal">Añadir un producto a los ofrecidos</button>
-                            </div>
-                        </td>
-                    </tr>
+                <tr *ngFor="let producto of proveedorDetail.productos">
+                    <td>
+                        <dd class="figure-caption" routerLink="/productos/{{producto.id}}">{{producto.nombre}}</dd>
+                    </td>
+                    <td>
+                        <dd class="figure-caption" routerLink="/productos/{{producto.id}}">{{producto.tipoProducto}}</dd>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <div class="row justify-content-center align-self-center">
+                            <button [ngClass]="{ 'btn-primary': !showAsociate, 'btn-danger': showAsociate }" type="button"
+                                class="btn" (click)="showHideAsociate()">Añadir
+                                un producto a los ofrecidos</button>
+                        </div>
+                    </td>
+                </tr>
             </table>
         </div>
         <div class="col-md-3">
-                <tr>
-                        <td colspan="5">
-                            <div class="row justify-content-center align-self-center">
-                                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
-                                    class="btn" (click)="showHideCreate() " data-toggle="modal" data-target="#myModal2">Generar nueva orden pedido</button>
-                            </div>
-                        </td>
-                    </tr>
-                
-                    
-            <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor" proveedorId= "{{proveedorDetail.id}}"></app-transaccion-proveedor-list>
-            <div class="col-md-8">
-                    <div *ngIf="showCreate">
-                            <div class="modal" id="myModal2">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                    
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Generar una orden pedido.</h4>
-                                                <button type="button" class="close" data-dismiss="modal" (click)="showHideCreate() ">&times;</button>
-                                            </div>
-                    
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                    <app-transaccion-proveedor-create [proveedor]="proveedorDetail" (cancel)="showHideCreate()"
-                                                    (create)="ngOnInit()"></app-transaccion-proveedor-create>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <tr>
+                <td colspan="5">
+                    <div class="row justify-content-center align-self-center">
+                        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
+                            class="btn" (click)="showHideCreate() " data-toggle="modal" data-target="#myModal2">Generar
+                            nueva orden pedido</button>
                     </div>
-                </div>
-        </div>
-    </div>
+                </td>
+            </tr>
 
-    
 
-    <div *ngIf="showAsociate">
-            <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+            <app-transaccion-proveedor-list [transaccionesProveedor]="proveedorDetail.transaccionesProveedor"
+                proveedorId="{{proveedorDetail.id}}"></app-transaccion-proveedor-list>
+            <div class="col-md-8">
+                <div *ngIf="showCreate">
+                    <div class="modal" id="myModal2">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
 
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Asociar un producto al proveedor</h4>
-                            <button type="button" class="close" data-dismiss="modal" (click)="showHideAsociate() "  aria-label="Close">&times;</button>
-                        </div>
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Generar una orden pedido.</h4>
+                                    <button type="button" class="close" data-dismiss="modal" (click)="showHideCreate() ">&times;</button>
+                                </div>
 
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <app-proveedor-productos [idProveedor]="proveedorDetail.id"></app-proveedor-productos>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <app-transaccion-proveedor-create [proveedor]="proveedorDetail" (cancel)="showHideCreate()"
+                                        (create)="ngOnInit()"></app-transaccion-proveedor-create>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div>
+            <div *ngIf="showAsociate">
+                <app-proveedor-productos [idProveedor]="proveedorDetail.id"></app-proveedor-productos>
+            </div>
+        </div>
+    </div>
 </div>
