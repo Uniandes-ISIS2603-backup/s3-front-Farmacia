@@ -9,8 +9,13 @@ export class Producto {
     videos: [string];
     perecedero: boolean;
     cantidad: number;
+
+    static getTiposProducto(): string[] {
+        return Object.keys(TipoProducto).map(key => TipoProducto[key]);
+    }
 }
 
 export enum TipoProducto {
-    Suministro, Terminado
+    Suministro = 'Suministro', Terminado = 'Terminado'
 }
+
