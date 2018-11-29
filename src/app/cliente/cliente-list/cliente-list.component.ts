@@ -20,6 +20,8 @@ export class ClienteListComponent implements OnInit {
 
   selectedCliente: Cliente;
 
+  habilitarEdit : boolean;
+
   /**
    * Constructor for the clienteList
    * @param clienteService 
@@ -143,7 +145,45 @@ deleteCliente(clienteId): void {
     this.showEdit = false;
     this.selectedCliente = undefined;
     this.cliente_id = undefined;
+    this.habilitarEdit = false;
     this.getClientes();
   }
+
+  saveNombre(event) {
+    this.selectedCliente.nombre = event.target.outerText;
+    this.habilitarEdit = true;
+}
+saveApellido(event) {
+  this.selectedCliente.apellido = event.target.outerText;
+  this.habilitarEdit = true;
+}
+saveCiudad(event){
+  this.selectedCliente.ciudad = event.target.outerText;
+  this.habilitarEdit = true;
+}
+saveDireccion(event){
+  this.selectedCliente.direccionEnvio = event.target.outerText;
+  this.habilitarEdit = true;
+}
+saveCedula(event){
+  this.selectedCliente.cedula = event.target.outerText;
+  this.habilitarEdit = true;
+}
+
+
+edit(clienteId) {
+  if (this.habilitarEdit) {
+      this.selectedCliente.id = clienteId;
+      this.clienteService.updateCliente(this.selectedCliente).subscribe(() => {
+          this.toastrService.success('Se guardaron los cambios del cliente exitosamente.');
+          this.ngOnInit();
+      }, error => {
+          this.toastrService.error(error, "Error, verifique los datos.")
+      });
+  }
+  else {
+      this.toastrService.info("Ups, no hay modificado ningún campo.")
+  }
+}
 
 }

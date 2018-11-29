@@ -26,11 +26,9 @@
                                     <dd class="figure-caption" >{{proveedor.nombre}}</dd>
                                 </td>
                                 <td>
-                                    <button class="btn btn-primary" (click)="edit(proveedor.id)" data-toggle="modal"
-                                        data-target="#myModal" color = "primary"><span class="fa fa-pencil"></span></button>
+                                    <button class="btn btn-primary" (click)="edit(proveedor.id)" color = "primary"><span class="fa fa-pencil"></span></button>
                                     <button type="button" class="btn btn-danger" (click)="deleteProveedor(proveedor.id)"><span
                                             class="fa fa-trash"></span></button>
-
                                 </td>
                             </tr>
                             <tr>
@@ -47,7 +45,7 @@
 
                                 <td>
                                     <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button"
-                                        class="btn" (click)="create()" data-toggle="modal" data-target="#myModal2"><span
+                                        class="btn" (click)="create()"><span
                                             class="fa fa-plus"></span></button>
                                 </td>
                             </tr>
