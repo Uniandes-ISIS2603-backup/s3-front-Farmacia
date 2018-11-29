@@ -57,6 +57,8 @@ export class ProductoRegistroComponent implements OnInit {
    */
   selectedRegistro: Registro;
 
+  habilitarEdit : boolean;
+
   /**
    * Selecciona un registro
    * @param id el id del registro seleccionado
@@ -120,7 +122,33 @@ export class ProductoRegistroComponent implements OnInit {
     this.showEdit = false;
     this.selectedRegistro = undefined;
     this.registro_id = undefined;
+    this.habilitarEdit = false;
     
+  }
+
+  saveCantidad(event){
+    this.selectedRegistro.cantidad = event.target.outerText;
+    this.habilitarEdit = true;
+  }
+  saveTipo(event){
+    this.selectedRegistro.tipoRegistro = event.target.outerText;
+    this.habilitarEdit = true;
+  }
+
+  edit(registroId) {
+    if (this.habilitarEdit) {
+        this.selectedRegistro.id = registroId;
+        console.log(this.selectedRegistro.id);
+        this.productoService.updateRegistro(this.selectedRegistro.producto.id,this.selectedRegistro).subscribe(() => {
+            this.toastrService.success('Se guardaron los cambios del registro exitosamente.');
+            this.ngOnInit();
+        }, error => {
+            this.toastrService.error(error, "Error, verifique los datos.")
+        });
+    }
+    else {
+        this.toastrService.info("Ups, no hay modificado ningún campo.")
+    }
   }
 
 }

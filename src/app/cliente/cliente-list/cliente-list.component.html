@@ -16,11 +16,11 @@
                         <table id="myTable">
                             <tbody>
                                 <th>clienteId</th>
+                                <th>cedula</th>
                                 <th>nombre</th>
                                 <th>apellido</th>
                                 <th>ciudad</th>
                                 <th>direccionEnvio</th>
-                                <th>cedula</th>
                                 <tr *ngFor="let cliente of clientes" class="row100 body">
                                     <td *ngxPermissionsOnly="['ADMIN']" style="cursor: pointer;" (click)="onSelected(cliente.id)"
                                         id="id">

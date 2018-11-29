@@ -11,38 +11,16 @@
                 <dd class="figure-caption">{{r.id}}</dd>
             </td>
             <td style="cursor: pointer;" (click)="onSelected(r.id)" id="cantidad">
-                <dd class="figure-caption">{{r.cantidad}}</dd>
+                <dd class="figure-caption" (input)="saveCantidad($event)" contenteditable='true'>{{r.cantidad}}</dd>
             </td>
             <td style="cursor: pointer;" (click)="onSelected(r.id)" id="tipoRegistro">
-                <dd class="figure-caption">{{r.tipoRegistro}}</dd>
+                <dd class="figure-caption" (input)="saveTipo($event)" contenteditable='true'>{{r.tipoRegistro}}</dd>
             </td>
             <td>
-                <button class="btn btn-primary" (click)="showHideEdit(r.id)" data-toggle="modal" data-target="#myModal"><span
+                <button class="btn btn-primary" (click)="edit(r.id)" data-toggle="modal" data-target="#myModal"><span
                         class="fa fa-pencil"></span></button>
             </td>
         </tr>
         </tbody>
     </table>
-    <div class="col-8">
-        <div *ngIf="showEdit">
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                          
-                        <div class="modal-header">
-                            <h4 class="modal-title">Editar un Registro</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-
-                         
-                        <div class="modal-body">
-                            <app-producto-registro-edit [registro]="selectedRegistro" [idProducto] = productoDetail.id (cancel)="showHideEdit(selectedRegistro.id)"
-                                (update)="updateRegistro()"></app-producto-registro-edit>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

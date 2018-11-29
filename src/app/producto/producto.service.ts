@@ -56,7 +56,8 @@ export class ProductoService {
 
     updateRegistro(productoId, registro): Observable<Registro>
     {
-        return this.http.put<Registro>(API_URL+producto+'/'+productoId+registros+'/'+registro.id,registro)
+        console.log(registro);
+        return this.http.put<Registro>(API_URL+registros+'/'+productoId+'/'+registro.id,registro)
     }
 
     getRegistro(productoId,registroId): Observable<Registro>{
