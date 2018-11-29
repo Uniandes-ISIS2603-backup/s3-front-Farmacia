@@ -40,7 +40,7 @@
         <br>
         <div class="jumbotron umnbotron-fluid">
             <p class="h4 p-3" style=" text-align: center">REGISTROS</p>
-            <app-producto-registro [registros]="productoDetail.registros"></app-producto-registro>
+            <app-producto-registro [registros]="productoDetail.registros" [productoDetail] = "productoDetail"></app-producto-registro>
             <p>
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Crear un registro</button>
