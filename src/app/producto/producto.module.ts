@@ -17,6 +17,7 @@ import { NgbCarouselModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap
 import { MaterialModule } from '../material.module';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ProductoCreateDialogComponent } from './producto-create/producto-create-dialog.component';
+import { ProductoEditComponent } from './producto-edit/producto-edit.component';
 
 
 
@@ -44,7 +45,7 @@ import { ProductoCreateDialogComponent } from './producto-create/producto-create
     //FormsModule
   ],
   declarations: [ProductoListComponent, ProductoDetailComponent, ProductoCreateComponent,
-   ProductoRegistroComponent, ProductoAddRegistroComponent, ProductoRegistroEditComponent, ProductoCreateDialogComponent],
+   ProductoRegistroComponent, ProductoAddRegistroComponent, ProductoRegistroEditComponent, ProductoCreateDialogComponent, ProductoEditComponent],
   providers: [ProductoService, NgbCarouselConfig],
   entryComponents: [ProductoCreateDialogComponent]
 })

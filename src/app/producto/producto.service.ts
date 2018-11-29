@@ -33,8 +33,17 @@ export class ProductoService {
         return this.http.post<Producto>(API_URL + producto + '/registro/' + idRegistro, product).toPromise();
     }
 
-    createRegistro(productoId, registro):Observable<Registro>
-    {
+    async editProducto(product: Producto): Promise<Producto> {
+        const id = product.id;
+        return this.http.put<Producto>(API_URL + producto + '/' + id, product).toPromise();
+    }
+
+    async deleteProducto(product: Producto): Promise<any> {
+        const id = product.id;
+        return this.http.delete(API_URL + producto + '/' + id, null).toPromise();
+    }
+
+    createRegistro(productoId, registro): Observable<Registro> {
 
         return this.http.post<Registro>(API_URL+registros,registro);
     }

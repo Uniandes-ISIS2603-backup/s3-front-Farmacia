@@ -10,6 +10,8 @@ import {MatTableModule} from '@angular/material/table';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import {ClienteService} from '../../cliente/cliente.service';
 import { TransaccionClienteDetail } from '../../cliente/transaccion-Cliete-detail';
+import { ProductoCreateDialogComponent } from '../producto-create/producto-create-dialog.component';
+import { MatDialog } from '@angular/material';
 
 
 
@@ -25,17 +27,18 @@ export class    ProductoListComponent implements OnInit {
 
   productos: Producto[];
   isHidden: boolean;
-  carrito:TransaccionClienteDetail;
-  productosCarrito:Producto[];
-  showCarrito:boolean;
+  carrito: TransaccionClienteDetail;
+  productosCarrito: Producto[];
+  showCarrito: boolean;
 
   idCliente: number;
   idTransacion: number;
-  subtotal:number;
+  subtotal: number;
 
   constructor(private productoService: ProductoService, config: NgbCarouselConfig,
     private agregar: ClienteService,
     private route: ActivatedRoute,
+    public dialog: MatDialog
     ) {
     this.isHidden = true;
     console.log(this.isHidden);
@@ -99,6 +102,13 @@ export class    ProductoListComponent implements OnInit {
     this.getProductos();
     console.log('cargar');
     this.getCarrito();
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ProductoCreateDialogComponent, {
+      width: '80%',
+      data: this.productoService
+    });
   }
 
 }

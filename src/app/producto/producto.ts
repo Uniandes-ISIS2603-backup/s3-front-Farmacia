@@ -5,8 +5,8 @@ export class Producto {
     precio: number;
     tipoProducto: TipoProducto;
     unidadesDisponibles: number;
-    fotos: [string];
-    videos: [string];
+    fotos: [string]|string[];
+    videos: [string]|string[];
     perecedero: boolean;
     cantidad: number;
 
