@@ -47,13 +47,14 @@ export class    ProductoListComponent implements OnInit {
 
    async anadirProducto(idProducto) {
     
-    this.agregar.agregarProducto(this.idCliente, this.idTransacion, idProducto).subscribe();
+    this.agregar.agregarProducto(this.idCliente, this.idTransacion, idProducto).subscribe();    
     
+    await new Promise((resolve)  => setTimeout(resolve,200));
+    this.ngOnInit();
+    this.showCarrito=true;
     await new Promise((resolve)  => setTimeout(resolve,200));
     this.total();
     
-    this.ngOnInit();
-    this.showCarrito=true;
    }
 
   getProductos() {
@@ -63,18 +64,24 @@ export class    ProductoListComponent implements OnInit {
 
   getCarrito()
   {
-    if(this.idTransacion!=0)
+    if(this.idTransacion!==0)
     {
-    this.agregar.getTransaccionCliente(this.idCliente,this.idTransacion)
-    .subscribe(transaccionDetail => {
-      this.carrito = transaccionDetail
-      this.productosCarrito= this.carrito.productos;
-    });
-  }
+      this.agregar.getTransaccionCliente(this.idCliente,this.idTransacion)
+      .subscribe(transaccionDetail => {
+        this.carrito = transaccionDetail
+        this.productosCarrito= this.carrito.productos;
+      });
+    }
+    else{
+      
+    
+  
+    }
     
   }
-  total()
+  async total()
   {
+    
     for (var i = 0; i < this.productosCarrito.length; i++) {
       var num = this.productosCarrito[i];
       this.subtotal= this.subtotal+num.precio;
@@ -87,11 +94,10 @@ export class    ProductoListComponent implements OnInit {
     await new Promise((resolve)  => setTimeout(resolve,200));
 
     this.ngOnInit();
-    
+    this.showCarrito=true;
     await new Promise((resolve)  => setTimeout(resolve,200));
     this.total();
-
-    this.showCarrito=true;
+    
     
   }
   ShowCarrito()

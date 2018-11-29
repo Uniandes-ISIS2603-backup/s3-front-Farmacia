@@ -124,7 +124,7 @@ const routes: Routes = [
     },
     {
         path:'**',
-        redirectTo: 'productos/list',
+        redirectTo: 'productos/list'
     }
 
 ];
