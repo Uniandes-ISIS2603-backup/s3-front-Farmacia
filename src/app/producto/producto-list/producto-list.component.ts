@@ -55,12 +55,12 @@ export class    ProductoListComponent implements OnInit {
     await new Promise((resolve)  => setTimeout(resolve,200));
     
     this.ngOnInit();
-    this.showCarrito = true;
-    this.total();
+
 
     await new Promise((resolve)  => setTimeout(resolve,200));
     
-    
+    this.showCarrito = true;
+    this.total();
 
     
 
@@ -97,6 +97,7 @@ export class    ProductoListComponent implements OnInit {
     
      await new Promise((resolve)  => setTimeout(resolve,200));
      this.ngOnInit();
+     await new Promise((resolve)  => setTimeout(resolve,200));
      this.showCarrito = true;
     this.total();
     
